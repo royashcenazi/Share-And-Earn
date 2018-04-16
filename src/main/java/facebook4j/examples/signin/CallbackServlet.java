@@ -1,7 +1,6 @@
 package facebook4j.examples.signin;
 
-import facebook4j.Facebook;
-import facebook4j.FacebookException;
+import facebook4j.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,11 +15,14 @@ public class CallbackServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
         String oauthCode = request.getParameter("code");
+
+
         try {
             facebook.getOAuthAccessToken(oauthCode);
         } catch (FacebookException e) {
             throw new ServletException(e);
         }
-        response.sendRedirect(request.getContextPath() + "/");
+
+        response.sendRedirect(request.getContextPath() + "/shareOnFB.html");
     }
 }

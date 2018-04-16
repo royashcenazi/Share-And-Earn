@@ -2,6 +2,7 @@ package facebook4j.examples.signin;
 
 import facebook4j.Facebook;
 import facebook4j.FacebookFactory;
+import facebook4j.conf.ConfigurationBuilder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +15,13 @@ public class SignInServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Facebook facebook = new FacebookFactory().getInstance();
+        ConfigurationBuilder cb = new ConfigurationBuilder();
+        cb.setDebugEnabled(true)
+                .setOAuthAppId("223473395065781")
+                .setOAuthAppSecret("639cb3b650b6f5ec7b334b46638b7846")
+                .setOAuthPermissions("email,publish_actions, user_likes, user_posts, user_photos");
+        FacebookFactory ff = new FacebookFactory(cb.build());
+        Facebook facebook = ff.getInstance();
         request.getSession().setAttribute("facebook", facebook);
         StringBuffer callbackURL = request.getRequestURL();
         int index = callbackURL.lastIndexOf("/");
