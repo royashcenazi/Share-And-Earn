@@ -1,10 +1,21 @@
-.DS_Store
+# Eclipse
 .classpath
 .project
 .settings/
-target
+
+# Intellij
 .idea/
 *.iml
-*.ipr
 *.iws
-facebook4j.properties
+.out/
+*.class
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
+
+derby.log
