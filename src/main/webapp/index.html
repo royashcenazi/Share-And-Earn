@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        form {
+            border: 3px solid #f1f1f1;
+        }
+
+        button {
+            background-color: #5b8cff;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 20%;
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+
+        .logincontainer {
+            text-align: center;
+            margin: 20px 0 15px 0;
+        }
+
+        .remcontainer {
+            text-align: center;
+            margin: 20px 0 15px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<img src="imgs/ourLogo.jpg" alt="our logo" width="200" height="200">
+
+<form action="/signin">
+    <div class="imgcontainer">
+        <img src="imgs/login.jpg" alt="Avatar login" width="160" height="200">
+    </div>
+
+    <div class="logincontainer">
+        <button type="submit">Login wtih facebook</button>
+    </div>
+
+    <div class="remcontainer">
+
+        <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+    </div>
+
+</form>
+</body>
+</html>

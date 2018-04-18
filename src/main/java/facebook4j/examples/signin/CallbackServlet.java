@@ -23,6 +23,6 @@ public class CallbackServlet extends HttpServlet {
             throw new ServletException(e);
         }
 
-        response.sendRedirect(request.getContextPath() + "/shareOnFB.html");
+        response.sendRedirect(request.getContextPath() + "/companysPage.html");
     }
 }
