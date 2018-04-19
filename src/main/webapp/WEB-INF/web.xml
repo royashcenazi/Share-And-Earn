@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>signin</servlet-name>
-        <servlet-class>com.servlets.SignInServlet</servlet-class>
+        <servlet-class>facebook4j.examples.signin.SignInServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>signin</servlet-name>
@@ -15,7 +15,7 @@
 
     <servlet>
         <servlet-name>callback</servlet-name>
-        <servlet-class>com.servlets.CallbackServlet</servlet-class>
+        <servlet-class>facebook4j.examples.signin.CallbackServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>callback</servlet-name>
@@ -24,7 +24,7 @@
 
     <servlet>
         <servlet-name>logout</servlet-name>
-        <servlet-class>com.servlets.LogoutServlet</servlet-class>
+        <servlet-class>facebook4j.examples.signin.LogoutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>logout</servlet-name>
@@ -33,7 +33,7 @@
 
     <servlet>
         <servlet-name>post</servlet-name>
-        <servlet-class>com.servlets.PostServlet</servlet-class>
+        <servlet-class>facebook4j.examples.signin.PostServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>post</servlet-name>
@@ -42,16 +42,36 @@
 
     <servlet>
         <servlet-name>tokenInfo</servlet-name>
-        <servlet-class>com.servlets.TokenInfoServlet</servlet-class>
+        <servlet-class>facebook4j.examples.signin.TokenInfoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>tokenInfo</servlet-name>
         <url-pattern>/tokenInfo</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>gencode</servlet-name>
+        <servlet-class>facebook4j.examples.signin.device.GenDeviceCodeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>gencode</servlet-name>
+        <url-pattern>/gencode</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deviceSignin</servlet-name>
+        <servlet-class>facebook4j.examples.signin.device.DeviceSigninServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deviceSignin</servlet-name>
+        <url-pattern>/deviceSignin</url-pattern>
+    </servlet-mapping>
+
+    <!--Elad-->
     <servlet>
         <servlet-name>webhook</servlet-name>
-        <servlet-class>com.servlets.webhook</servlet-class>
+        <servlet-class>facebook4j.examples.signin.webhook</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>webhook</servlet-name>
@@ -60,7 +80,7 @@
 
     <servlet>
         <servlet-name>onSharePostServlet</servlet-name>
-        <servlet-class>com.servlets.OnSharedPostServlet</servlet-class>
+        <servlet-class>com.elad.OnSharedPostServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>onSharePostServlet</servlet-name>
@@ -69,7 +89,7 @@
 
     <servlet>
         <servlet-name>Cert</servlet-name>
-        <servlet-class>com.servlets.Cert</servlet-class>
+        <servlet-class>com.elad.Cert</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Cert</servlet-name>
