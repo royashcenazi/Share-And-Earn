@@ -1,5 +1,6 @@
 package facebook4j.examples.signin;
 
+import DataBase.MongoInteractor;
 import facebook4j.*;
 
 import javax.servlet.ServletException;
@@ -22,7 +23,8 @@ public class CallbackServlet extends HttpServlet {
         } catch (FacebookException e) {
             throw new ServletException(e);
         }
-
+        String userName = MongoInteractor.saveDetailsToDataBase(facebook);
+        response.getWriter().write("hello" + userName);
         response.sendRedirect(request.getContextPath() + "/companysPage.html");
     }
 }
