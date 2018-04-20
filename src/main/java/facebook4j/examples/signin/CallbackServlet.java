@@ -23,8 +23,7 @@ public class CallbackServlet extends HttpServlet {
         } catch (FacebookException e) {
             throw new ServletException(e);
         }
-        String userName = MongoInteractor.saveDetailsToDataBase(facebook);
-        response.getWriter().write("hello" + userName);
+        String userName = MongoInteractor.getInstance().saveDetailsToDataBase(facebook);
         response.sendRedirect(request.getContextPath() + "/companysPage.html");
     }
 }
