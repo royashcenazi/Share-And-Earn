@@ -1,15 +1,22 @@
 package com.elad;
 
+import DataBase.AppUser;
+import DataBase.MongoInteractor;
+import com.mongodb.MongoClient;
+import com.mongodb.MongoClientOptions;
+import com.mongodb.MongoClientURI;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import facebook4j.Facebook;
 import facebook4j.FacebookException;
 import facebook4j.Post;
 import facebook4j.ResponseList;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
 
 
 public class OnSharedPostServlet extends HttpServlet {
@@ -33,6 +40,8 @@ public class OnSharedPostServlet extends HttpServlet {
         }
         resp.getWriter().write("ok");
     }
+
+
 
     private String getFullPostId(HttpServletRequest req, Facebook facebook) {
         String post_id = req.getParameter("post_id");
