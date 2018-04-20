@@ -1,5 +1,6 @@
 package facebook4j.examples.signin;
 
+import DataBase.MongoInteractor;
 import facebook4j.Facebook;
 import facebook4j.FacebookFactory;
 import facebook4j.conf.ConfigurationBuilder;
