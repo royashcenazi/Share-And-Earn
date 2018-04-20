@@ -1,12 +1,5 @@
-package com.elad;
+package com.servlets;
 
-import DataBase.AppUser;
-import DataBase.MongoInteractor;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientOptions;
-import com.mongodb.MongoClientURI;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 import facebook4j.Facebook;
 import facebook4j.FacebookException;
 import facebook4j.Post;

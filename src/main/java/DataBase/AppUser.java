@@ -1,11 +1,12 @@
 package DataBase;
 
 public class AppUser {
+
     private String id;
+
     private String name;
 
-    public AppUser() {
-    }
+    public AppUser() {}
 
     public String getId() {
         return id;

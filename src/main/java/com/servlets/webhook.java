@@ -1,17 +1,15 @@
-package com.elad;
+package com.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
-public class Cert extends HttpServlet {
+public class webhook extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter writer = resp.getWriter();
-        writer.write("xxxxxxxxxxxx-yyyy.zzzzzzzzzzzzzzzzzzz\n");
+        resp.getWriter().write(req.getParameter("hub.challenge"));
     }
 }
