@@ -48,8 +48,8 @@ public class MongoInteractor {
         boolean userExistInDataBase = true;
         String userName = null;
         try {
-            appUser = collection.find(eq("name", "Roy Ashcenazi")).first();
-            if (appUser == null)
+            appUser = collection.find(eq(MongoConstants.AppUserId, facebook.getId())).first();
+            if (appUser.getFaceBookId() == null)
                 userExistInDataBase = false;
             userName = facebook.getName();
         } catch (FacebookException fe) {
@@ -59,7 +59,7 @@ public class MongoInteractor {
         if (userExistInDataBase == false) {
             try {
                 appUser = new AppUser();
-                appUser.setId(facebook.getId());
+                appUser.setFaceBookId(facebook.getId());
                 appUser.setName(facebook.getName());
                 collection.insertOne(appUser);
             } catch (FacebookException fe) {
@@ -74,14 +74,14 @@ public class MongoInteractor {
         MongoCollection<AppUser> collection = database.getCollection("users", AppUser.class);
         AppUser appUser;
         boolean userExistInDataBase = true;
-        appUser = collection.find(eq("name", "Roy Ashcenazi")).first();
+        appUser = collection.find(eq(MongoConstants.AppUserId, id)).first();
 
         if (appUser == null)
             userExistInDataBase = false;
 
         if (userExistInDataBase == false) {
             appUser = new AppUser();
-            appUser.setId(id);
+            appUser.setFaceBookId(id);
             appUser.setName(name);
             collection.insertOne(appUser);
         }

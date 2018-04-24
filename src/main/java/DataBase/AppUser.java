@@ -2,18 +2,18 @@ package DataBase;
 
 public class AppUser {
 
-    private String id;
+    private String faceBookId;
 
     private String name;
 
     public AppUser() {}
 
-    public String getId() {
-        return id;
+    public String getFaceBookId() {
+        return faceBookId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setFaceBookId(String faceBookId) {
+        this.faceBookId = faceBookId;
     }
 
     public String getName() {
