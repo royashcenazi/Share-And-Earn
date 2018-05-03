@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.facebook4j</groupId>
-  <artifactId>sign-in-with-facebook</artifactId>
+  <artifactId>shareAndEarn</artifactId>
   <packaging>war</packaging>
   <version>1.0.0-SNAPSHOT</version>
-  <name>sign-in-with-facebook Maven Webapp</name>
+  <name>Share n Earn</name>
   <url>http://maven.apache.org</url>
 
   <dependencies>
