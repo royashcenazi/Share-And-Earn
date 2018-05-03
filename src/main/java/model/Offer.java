@@ -3,7 +3,7 @@ package model;
 import java.util.Date;
 
 public class Offer {
-    int maxAmount;
+    private int maxAmount;
     private Product product;
     private Date timeToPublish;
     private Date timeToDelete;
