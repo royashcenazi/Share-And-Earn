@@ -1,5 +1,7 @@
 package model;
 
+import DataBase.AppUser;
+
 import java.util.List;
 
 public class Company {
@@ -7,7 +9,7 @@ public class Company {
     private String name;
     private String facebookId;
     private List<Offer> offers;
-    private List<User> Users;
+    private List<AppUser> Users;
     private DetailsWithPassword details;
 
     public Company() {
@@ -45,11 +47,11 @@ public class Company {
         this.offers = offers;
     }
 
-    public List<User> getUsers() {
+    public List<AppUser> getUsers() {
         return Users;
     }
 
-    public void setUsers(List<User> users) {
+    public void setUsers(List<AppUser> users) {
         Users = users;
     }
 
