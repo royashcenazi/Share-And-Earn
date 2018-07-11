@@ -24,8 +24,7 @@ public class SignInServlet extends HttpServlet {
         FacebookFactory ff = new FacebookFactory(cb.build());
         Facebook facebook = ff.getInstance();
         request.getSession().setAttribute("facebook", facebook);
-        //StringBuffer callbackURL = request.getRequestURL();
-        StringBuffer callbackURL = new StringBuffer("https://sharesandearn.cloudflareaccess.com/cdn-cgi/access/");
+        StringBuffer callbackURL = request.getRequestURL();
         int index = callbackURL.lastIndexOf("/");
         callbackURL.replace(index, callbackURL.length(), "").append("/callback");
         response.sendRedirect(facebook.getOAuthAuthorizationURL(callbackURL.toString()));
