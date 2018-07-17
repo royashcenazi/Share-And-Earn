@@ -14,14 +14,20 @@ public class Company {
     private DetailsWithPassword details;
     private String logoUrl;
 
-    public Company(String id, String name, String pass, String logo_url) {
-        super();
-    }
-
     public Company() {
 //        this.setCollectionName(MongoConstants.CompanyCollection);
 //        this.setInheritedClass(this.getClass());
 //        this.setKey(this.getName());
+    }
+
+    public Company(int id, String name, List<Offer> offers, List<AppUser> users,
+                   DetailsWithPassword details, String logoUrl) {
+        this.id = id;
+        this.name = name;
+        this.offers = offers;
+        Users = users;
+        this.details = details;
+        this.logoUrl = logoUrl;
     }
 
     public void setLogoUrl(String logoUrl) {
@@ -48,7 +54,6 @@ public class Company {
         this.name = name;
 //        this.setKey(name);
     }
-
 
     public List<Offer> getOffers() {
         return offers;
