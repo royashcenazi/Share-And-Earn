@@ -14,20 +14,22 @@ public class Company extends MongoElement {
     private DetailsWithPassword details;
     private String logoUrl;
 
-    public void setLogoUrl(String logoUrl) {
-        this.logoUrl = logoUrl;
+    public Company(String id, String name, String pass, String logo_url) {
+        super();
     }
-
-
-    public String getLogoUrl() {
-        return logoUrl;
-    }
-
 
     public Company() {
         this.setCollectionName(MongoConstants.CompanyCollection);
         this.setInheritedClass(this.getClass());
         this.setKey(this.getName());
+    }
+
+    public void setLogoUrl(String logoUrl) {
+        this.logoUrl = logoUrl;
+    }
+
+    public String getLogoUrl() {
+        return logoUrl;
     }
 
     public int getId() {
