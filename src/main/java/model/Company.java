@@ -7,10 +7,20 @@ import java.util.List;
 public class Company {
     private int id;
     private String name;
-    private String facebookId;
     private List<Offer> offers;
     private List<AppUser> Users;
     private DetailsWithPassword details;
+
+    public void setLogoUrl(String logoUrl) {
+        this.logoUrl = logoUrl;
+    }
+
+    private String logoUrl;
+
+    public String getLogoUrl() {
+        return logoUrl;
+    }
+
 
     public Company() {
     }
