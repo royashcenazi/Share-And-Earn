@@ -34,24 +34,31 @@ function getAllPictures() {
         url: picture_url,
         datatype: 'json',
         success: function (data) {
-            var element = $("div.thumbnail")[0];
+            var companiesLogosContainer = $("#companiesLogos");
             if (data) {
                 companisPictures = $.parseJSON(data);
+                var divRow = document.createElement("div");
                 var i = 0;
                 for (var url in companisPictures)
                 {
-                    var divCol = document.createElement("img");
-                    divCol.addClass("col-lg-4 col-sm-6");
-                    divCol.addClass("thumbnail");
+                    //Create img
                     var img = document.createElement("img");
                     img.src = "../" + companisPictures[url]
-                    element.appendChild(img);
+                    //Create Cul
+                    var divCol = document.createElement("div");
+                    divCol.addClass("col-lg-4 col-sm-6");
+                    divCol.addClass("thumbnail");
+                    divCol.appendChild(img);
                     if (i % 4 == 0)
                     {
-                        var divRow = document.createElement("div");
+                        divRow = document.createElement("div");
                         divRow.addClass("row");
                     }
+                    //Append to row
+                    divRow.appendChild(divCol);
 
+                    //Append all element to outer div
+                    companiesLogosContainer.appendChild(divRow);
                     i++;
                 }
 
