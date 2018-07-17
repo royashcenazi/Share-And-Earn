@@ -9,14 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import DataBase.MongoInteractor;
 import com.google.gson.JsonObject;
-import model.Company;
+import DataBase.Company;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 
-@WebServlet("/UploadServlet")
+@WebServlet("/getAllPicturesServlet")
 public class getAllPicturesServlet extends HttpServlet {
 
     @Override

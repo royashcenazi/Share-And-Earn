@@ -1,10 +1,12 @@
-package model;
+package DataBase;
 
 import DataBase.AppUser;
+import model.DetailsWithPassword;
+import model.Offer;
 
 import java.util.List;
 
-public class Company {
+public class Company extends MongoElement {
     private int id;
     private String name;
     private List<Offer> offers;
@@ -23,6 +25,9 @@ public class Company {
 
 
     public Company() {
+        this.setCollectionName(MongoConstants.CompanyCollection);
+        this.setInheritedClass(this.getClass());
+        this.setKey(this.getName());
     }
 
     public int getId() {
@@ -39,8 +44,9 @@ public class Company {
 
     public void setName(String name) {
         this.name = name;
+        this.setKey(name);
     }
-    
+
 
     public List<Offer> getOffers() {
         return offers;
