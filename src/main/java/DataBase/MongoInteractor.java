@@ -45,7 +45,7 @@ public class MongoInteractor {
     }
 
     @Deprecated
-    public String saveDetailsToDataBase(Facebook facebook) {
+    public String saveDetailsToDataBase2(Facebook facebook) {
         MongoDatabase database = mongoClient.getDatabase("test");
         MongoCollection<AppUser> collection = database.getCollection("users", AppUser.class);
         AppUser appUser = null;
@@ -107,6 +107,36 @@ public class MongoInteractor {
             collection.insertOne(appUser);
         }
     }
+
+
+    public void saveCompanyToDataBase(Company company) {
+        MongoDatabase database = mongoClient.getDatabase("test");
+        MongoCollection<Company> collection = database.getCollection("companies", Company.class);
+        Company searchCompany;
+        boolean userExistInDataBase = false;
+        searchCompany = collection.find(eq("name", company.getName())).first();
+
+        if (searchCompany == null)
+            userExistInDataBase = false;
+
+        if (userExistInDataBase == false) {
+            collection.insertOne(company);
+        }
+    }
+
+
+    public boolean isCompanyExistInDataBase(Company company) {
+        MongoDatabase database = mongoClient.getDatabase("test");
+        MongoCollection<Company> collection = database.getCollection("companies", Company.class);
+        Company searchCompany;
+        boolean userExistInDataBase = true;
+        searchCompany = collection.find(eq(MongoConstants.AppUserId, company.getName())).first();
+        if(searchCompany == null)
+            return false;
+        else
+            return true;
+    }
+
 
     public List<Company> getAllCompanies() {
         //this method should return all companies on data base.

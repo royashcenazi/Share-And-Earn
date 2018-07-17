@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.List;
 
 
-@WebServlet("/getAllPicturesServlet")
+@WebServlet("/getAllPictures")
 public class getAllPicturesServlet extends HttpServlet {
 
     @Override
