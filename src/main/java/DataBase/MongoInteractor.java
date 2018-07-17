@@ -7,8 +7,12 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import facebook4j.Facebook;
 import facebook4j.FacebookException;
+import model.Company;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.mongodb.client.model.Filters.*;
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
@@ -87,4 +91,12 @@ public class MongoInteractor {
         }
     }
 
+    public List<Company> getAllCompanies() {
+        //this method should return all companies on data base.
+        List<Company> companies = new ArrayList<Company>();
+        Company company1 = new Company();
+        company1.setLogoUrl("../imgs/Castro.png");
+        companies.add(company1);
+        return companies;
+    }
 }

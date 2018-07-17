@@ -10,12 +10,12 @@ public class Company {
     private List<Offer> offers;
     private List<AppUser> Users;
     private DetailsWithPassword details;
+    private String logoUrl;
 
     public void setLogoUrl(String logoUrl) {
         this.logoUrl = logoUrl;
     }
 
-    private String logoUrl;
 
     public String getLogoUrl() {
         return logoUrl;
@@ -40,14 +40,7 @@ public class Company {
     public void setName(String name) {
         this.name = name;
     }
-
-    public String getFacebookId() {
-        return facebookId;
-    }
-
-    public void setFacebookId(String facebookId) {
-        this.facebookId = facebookId;
-    }
+    
 
     public List<Offer> getOffers() {
         return offers;
