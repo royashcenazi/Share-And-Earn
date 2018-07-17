@@ -1,15 +1,12 @@
 package DataBase;
 
-public class AppUser extends MongoElement {
+public class AppUser  {
 
     private String faceBookId;
 
     private String name;
 
     public AppUser() {
-        this.setCollectionName(MongoConstants.UsersCollection);
-        this.setInheritedClass(this.getClass());
-        this.setKey(this.getFaceBookId());
     }
 
     public String getFaceBookId() {
@@ -18,7 +15,11 @@ public class AppUser extends MongoElement {
 
     public void setFaceBookId(String faceBookId) {
         this.faceBookId = faceBookId;
-        this.setKey(faceBookId);
+//        this.setKey(faceBookId);
+//        this.setCollectionName(MongoConstants.UsersCollection);
+//        this.setInheritedClass(this.getClass());
+//        this.setKey(this.getFaceBookId());
+
     }
 
     public String getName() {

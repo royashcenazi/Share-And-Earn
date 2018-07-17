@@ -6,7 +6,7 @@ import model.Offer;
 
 import java.util.List;
 
-public class Company extends MongoElement {
+public class Company {
     private int id;
     private String name;
     private List<Offer> offers;
@@ -25,9 +25,9 @@ public class Company extends MongoElement {
 
 
     public Company() {
-        this.setCollectionName(MongoConstants.CompanyCollection);
-        this.setInheritedClass(this.getClass());
-        this.setKey(this.getName());
+//        this.setCollectionName(MongoConstants.CompanyCollection);
+//        this.setInheritedClass(this.getClass());
+//        this.setKey(this.getName());
     }
 
     public int getId() {
@@ -44,7 +44,7 @@ public class Company extends MongoElement {
 
     public void setName(String name) {
         this.name = name;
-        this.setKey(name);
+//        this.setKey(name);
     }
 
 

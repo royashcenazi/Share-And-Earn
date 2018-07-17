@@ -1,6 +1,6 @@
 package DataBase;
 
-public abstract class MongoElement {
+public class MongoElement {
     private String key;
     private String collectionName;
     private Class inheritedClass;
