@@ -1,64 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        form {
-            border: 3px solid #f1f1f1;
-        }
-
-        button {
-            background-color: #5b8cff;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 20%;
-        }
-
-        .imgcontainer {
-            text-align: center;
-            margin: 24px 0 12px 0;
-        }
-
-        .logincontainer {
-            text-align: center;
-            margin: 20px 0 15px 0;
-        }
-
-        .remcontainer {
-            text-align: center;
-            margin: 20px 0 15px 0;
-        }
-
-    </style>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="login/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="login/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="login/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="login/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="login/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="login/css/util.css">
+	<link rel="stylesheet" type="text/css" href="login/css/main.css">
+	<script src="login/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="login/vendor/bootstrap/js/popper.js"></script>
+	<script src="login/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="login/vendor/select2/select2.min.js"></script>
+	<script src="login/vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+	<script src="login/js/main.js"></script>
 </head>
 <body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="login/images/logo.jpeg" alt="IMG">
+				</div>
 
-    <img src="imgs/ourLogo.jpg" alt="our logo" width="200" height="200">
+				<form  action="signin" class="login100-form validate-form">
+  					<span class="login100-form-title">
+						Login to site
+					</span>
+					
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Connect with facebook
+						</button>
+					</div>
 
-    <form action="signin">
-        <div class="imgcontainer">
-            <img src="imgs/login.jpg" alt="Avatar login" width="160" height="200">
-        </div>
-
-        <div class="logincontainer">
-            <button type="submit">Login with facebook</button>
-        </div>
-
-        <div class="remcontainer">
-
-            <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
-            </label>
-        </div>
-
-    </form>
-    </body>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

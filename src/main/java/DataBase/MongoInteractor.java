@@ -10,6 +10,9 @@ import facebook4j.FacebookException;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.mongodb.client.model.Filters.*;
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
@@ -41,6 +44,7 @@ public class MongoInteractor {
         return mongoInteractorInstance;
     }
 
+    @Deprecated
     public String saveDetailsToDataBase(Facebook facebook) {
         MongoDatabase database = mongoClient.getDatabase("test");
         MongoCollection<AppUser> collection = database.getCollection("users", AppUser.class);
@@ -69,7 +73,24 @@ public class MongoInteractor {
         return userName;
     }
 
-    public void saveDetailsToDataBase(String name, String id) {
+
+    public void saveDetailsToDataBase(MongoElement mongoElement){
+        MongoElement searchElem;
+        MongoDatabase database = mongoClient.getDatabase("test");
+        MongoCollection<MongoElement> collection = database.getCollection(mongoElement.getCollectionName() ,mongoElement.getInheritedClass());
+        boolean companyExistInDataBase = true;
+        searchElem = collection.find(eq(mongoElement.getCollectionName(), mongoElement.getKey())).first();
+
+        if (searchElem == null)
+            companyExistInDataBase = false;
+
+        if (companyExistInDataBase == false) {
+            collection.insertOne(mongoElement);
+        }
+    }
+
+
+    public void saveAppUserDetailsToDataBase(String name, String id) {
         MongoDatabase database = mongoClient.getDatabase("test");
         MongoCollection<AppUser> collection = database.getCollection("users", AppUser.class);
         AppUser appUser;
@@ -87,4 +108,13 @@ public class MongoInteractor {
         }
     }
 
+    public List<Company> getAllCompanies() {
+        //this method should return all companies on data base.
+        List<Company> companies = new ArrayList<Company>();
+        Company company1 = new Company();
+        company1.setName("castro");
+        company1.setLogoUrl("imgs/Castro.png");
+        companies.add(company1);
+        return companies;
+    }
 }

@@ -76,7 +76,6 @@
         <url-pattern>/.well-known/acme-challenge/xxxxxxxxxxxx-yyyy.zzzzzzzzzzzzzzzzzzz</url-pattern>
     </servlet-mapping>
 
-
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>

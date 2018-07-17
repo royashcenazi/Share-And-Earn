@@ -1,18 +1,33 @@
-package model;
+package DataBase;
 
 import DataBase.AppUser;
+import model.DetailsWithPassword;
+import model.Offer;
 
 import java.util.List;
 
-public class Company {
+public class Company extends MongoElement {
     private int id;
     private String name;
-    private String facebookId;
     private List<Offer> offers;
     private List<AppUser> Users;
     private DetailsWithPassword details;
+    private String logoUrl;
+
+    public void setLogoUrl(String logoUrl) {
+        this.logoUrl = logoUrl;
+    }
+
+
+    public String getLogoUrl() {
+        return logoUrl;
+    }
+
 
     public Company() {
+        this.setCollectionName(MongoConstants.CompanyCollection);
+        this.setInheritedClass(this.getClass());
+        this.setKey(this.getName());
     }
 
     public int getId() {
@@ -29,15 +44,9 @@ public class Company {
 
     public void setName(String name) {
         this.name = name;
+        this.setKey(name);
     }
 
-    public String getFacebookId() {
-        return facebookId;
-    }
-
-    public void setFacebookId(String facebookId) {
-        this.facebookId = facebookId;
-    }
 
     public List<Offer> getOffers() {
         return offers;

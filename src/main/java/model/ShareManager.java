@@ -1,5 +1,7 @@
 package model;
 
+import DataBase.Company;
+
 import java.util.List;
 
 public class ShareManager {
