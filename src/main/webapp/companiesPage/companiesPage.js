@@ -1,7 +1,6 @@
 var refreshRate = 200; //mili seconds
 var USERINFO_URL = buildUrlWithContextPath("userInfo");
-var picture_url = buildUrlWithContextPath("getAllPictures");
-
+var picture_url = "https://localhost:8443/getAllPictures";
 
 //activate the timer calls after the page is loaded
 $(function () {
@@ -10,6 +9,7 @@ $(function () {
     $.ajaxSetup({cache: false});
 
     setUserInfo();
+    getAllPictures();
 
 });
 
@@ -26,25 +26,43 @@ function setUserInfo() {
             }
         }
     });
+}
 
 
+function getAllPictures() {
     $.ajax({
         url: picture_url,
         datatype: 'json',
         success: function (data) {
+            var companiesLogosContainer = $("#companiesLogos");
             if (data) {
-                var imgSrc = $.parseJSON(data);
+                companisPictures = $.parseJSON(data);
+                var divRow = document.createElement("div");
+                var i = 0;
+                for (var url in companisPictures)
+                {
+                    //Create img
+                    var img = document.createElement("img");
+                    img.src = "../" + companisPictures[url]
+                    //Create Cul
+                    var divCol = document.createElement("div");
+                    divCol.addClass("col-lg-4 col-sm-6");
+                    divCol.addClass("thumbnail");
+                    divCol.appendChild(img);
+                    if (i % 4 == 0)
+                    {
+                        divRow = document.createElement("div");
+                        divRow.addClass("row");
+                    }
+                    //Append to row
+                    divRow.appendChild(divCol);
+
+                    //Append all element to outer div
+                    companiesLogosContainer.appendChild(divRow);
+                    i++;
+                }
+
             }
         }
     });
-
-
-var img = document.createElement("img");
-
-img.onclick = function() {
-    window.location.href = '../castroPage/castroPage.html';};
-
-var element = $("div.thumbnail")[0];
-element.appendChild(img);
-
 }
