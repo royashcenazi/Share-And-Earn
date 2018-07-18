@@ -1,31 +1,12 @@
 package DataBase;
 
-public class MongoElement {
-    private String key;
-    private String collectionName;
-    private Class inheritedClass;
+public interface MongoElement {
 
-    public void setCollectionName(String collectionName) {
-        this.collectionName = collectionName;
-    }
+    String getCollectionName();
 
-    public String getCollectionName() {
-        return collectionName;
-    }
+    String getKey();
 
-    public String getKey() {
-        return key;
-    }
+    Class getInClass();
 
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public Class getInheritedClass() {
-        return inheritedClass;
-    }
-
-    public void setInheritedClass(Class inheritedClass) {
-        this.inheritedClass = inheritedClass;
-    }
+    String getFieldName();
 }
