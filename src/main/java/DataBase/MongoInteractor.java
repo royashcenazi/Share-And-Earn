@@ -77,7 +77,7 @@ public class MongoInteractor {
     public void saveDetailsToDataBase(MongoElement mongoElement){
         MongoElement searchElem;
         MongoDatabase database = mongoClient.getDatabase("test");
-        MongoCollection<MongoElement> collection = database.getCollection(mongoElement.getCollectionName() ,mongoElement.getInheritedClass());
+        MongoCollection<MongoElement> collection = database.getCollection(mongoElement.getCollectionName() ,mongoElement.getInClass());
         boolean companyExistInDataBase = true;
         searchElem = collection.find(eq(mongoElement.getCollectionName(), mongoElement.getKey())).first();
 
