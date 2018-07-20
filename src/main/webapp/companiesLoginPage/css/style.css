@@ -125,9 +125,10 @@ p {
   padding-left: 5px;
 }
 
-.sneLogo{
+#allContent img{
 	border-radius: 50%;
 	height: 200px;
 	width: 200px;
 	margin: 20px 40px;
+	display: block;
 }
