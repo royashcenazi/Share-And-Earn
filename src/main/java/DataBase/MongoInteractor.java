@@ -113,13 +113,13 @@ public class MongoInteractor {
         MongoDatabase database = mongoClient.getDatabase("test");
         MongoCollection<Company> collection = database.getCollection("companies", Company.class);
         Company searchCompany;
-        boolean userExistInDataBase = false;
+        boolean companyExistInDataBase = false;
         searchCompany = collection.find(eq("name", company.getName())).first();
 
         if (searchCompany == null)
-            userExistInDataBase = false;
+            companyExistInDataBase = false;
 
-        if (userExistInDataBase == false) {
+        if (companyExistInDataBase == false) {
             collection.insertOne(company);
         }
     }
