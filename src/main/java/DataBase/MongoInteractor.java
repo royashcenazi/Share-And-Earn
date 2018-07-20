@@ -130,7 +130,7 @@ public class MongoInteractor {
         MongoCollection<Company> collection = database.getCollection("companies", Company.class);
         Company searchCompany;
         boolean userExistInDataBase = true;
-        searchCompany = collection.find(eq(MongoConstants.AppUserId, company.getName())).first();
+        searchCompany = collection.find(eq(MongoConstants.CompanyCollection, company.getName())).first();
         if(searchCompany == null)
             return false;
         else
