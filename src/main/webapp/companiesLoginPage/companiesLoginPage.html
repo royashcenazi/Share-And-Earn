@@ -68,10 +68,21 @@
       <input type="email" placeholder="Enter Email" name="email" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" name="password" id="password" required>
 
-      <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      <label for="password-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" oninput="check(this)" required>
+      <script language='javascript' type='text/javascript'>
+          function check(input) {
+              if (input.value != document.getElementById('password').value) {
+                  input.setCustomValidity('Password Must be Matching.');
+              } else {
+                  // input is valid -- reset the error message
+                  input.setCustomValidity('');
+              }
+          }
+      </script>
+      <br /><br />
 
       <label for="cmpny-logo"><b>Company's Logo: </b><br>
         <input type="file" name="pic" id="pic"><br><br>
