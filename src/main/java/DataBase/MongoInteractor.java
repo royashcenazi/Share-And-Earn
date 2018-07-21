@@ -141,10 +141,18 @@ public class MongoInteractor {
     public List<Company> getAllCompanies() {
         //this method should return all companies on data base.
         List<Company> companies = new ArrayList<Company>();
-        Company company1 = new CompanyBuilder().createCompany();
-        company1.setName("castro");
-        company1.setLogoUrl("imgs/Castro.png");
+
+        Company company1 = new CompanyBuilder()
+        .setName("castro")
+        .setLogoUrl("imgs/Castro.png").createCompany();
+
         companies.add(company1);
+
+        Company company2 = new CompanyBuilder()
+        .setName("dominos")
+        .setLogoUrl("imgs/Dominos.png").createCompany();
+        companies.add(company2);
+
         return companies;
     }
 }
