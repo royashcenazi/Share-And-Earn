@@ -43,11 +43,14 @@ function getAllPictures() {
                     //Create img
                     var img = document.createElement("img");
                     img.src = "../" + companisPictures[url]
+                    //Create tumbnail div
+                    var thumbnailDiv = document.createElement("div");
+                    thumbnailDiv.className = "thumbnail";
+                    thumbnailDiv.appendChild(img);
                     //Create Cul
                     var divCol = document.createElement("div");
-                    divCol.className = "col-lg-4 col-sm-6 thumbnail";
-                    // divCol.className = "thumbnail";
-                    divCol.appendChild(img);
+                    divCol.className = "col-lg-4 col-sm-6";
+                    divCol.appendChild(thumbnailDiv);
                     if (i % 4 == 0) {
                         divRow = document.createElement("div");
                         divRow.className = "row";
