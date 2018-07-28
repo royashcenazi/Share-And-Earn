@@ -1,12 +1,11 @@
-package DataBase;
+package model;
 
-public class AppUser  {
+public class User {
 
     private String faceBookId;
-
     private String name;
 
-    public AppUser() {
+    public User() {
     }
 
     public String getFaceBookId() {

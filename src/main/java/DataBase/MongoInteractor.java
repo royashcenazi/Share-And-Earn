@@ -7,6 +7,9 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import facebook4j.Facebook;
 import facebook4j.FacebookException;
+import model.Company;
+import model.CompanyBuilder;
+import model.User;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 
@@ -47,8 +50,8 @@ public class MongoInteractor {
     @Deprecated
     public String saveDetailsToDataBase2(Facebook facebook) {
         MongoDatabase database = mongoClient.getDatabase("test");
-        MongoCollection<AppUser> collection = database.getCollection("users", AppUser.class);
-        AppUser appUser = null;
+        MongoCollection<User> collection = database.getCollection("users", User.class);
+        User appUser = null;
         boolean userExistInDataBase = true;
         String userName = null;
         try {
@@ -62,7 +65,7 @@ public class MongoInteractor {
 
         if (userExistInDataBase == false) {
             try {
-                appUser = new AppUser();
+                appUser = new User();
                 appUser.setFaceBookId(facebook.getId());
                 appUser.setName(facebook.getName());
                 collection.insertOne(appUser);
@@ -92,8 +95,8 @@ public class MongoInteractor {
 
     public void saveAppUserDetailsToDataBase(String name, String id) {
         MongoDatabase database = mongoClient.getDatabase("test");
-        MongoCollection<AppUser> collection = database.getCollection("users", AppUser.class);
-        AppUser appUser;
+        MongoCollection<User> collection = database.getCollection("users", User.class);
+        User appUser;
         boolean userExistInDataBase = true;
         appUser = collection.find(eq(MongoConstants.AppUserId, id)).first();
 
@@ -101,7 +104,7 @@ public class MongoInteractor {
             userExistInDataBase = false;
 
         if (userExistInDataBase == false) {
-            appUser = new AppUser();
+            appUser = new User();
             appUser.setFaceBookId(id);
             appUser.setName(name);
             collection.insertOne(appUser);

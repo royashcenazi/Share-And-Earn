@@ -1,6 +1,6 @@
 package com.servlets;
 
-import DataBase.AppUser;
+import model.User;
 import DataBase.MongoInteractor;
 import Utils.SessionUtils;
 import facebook4j.*;
@@ -28,7 +28,7 @@ public class CallbackServlet extends HttpServlet {
         try {
             String name = facebook.getName();
             String id = facebook.getId();
-            AppUser user = new AppUser();
+            User user = new User();
             user.setFaceBookId(id);
             user.setName(name);
             MongoInteractor.getInstance().saveAppUserDetailsToDataBase(user.getName(), user.getFaceBookId());

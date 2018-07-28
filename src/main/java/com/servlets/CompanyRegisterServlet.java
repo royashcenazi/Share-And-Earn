@@ -1,9 +1,8 @@
 package com.servlets;
 
-import DataBase.Company;
-import DataBase.CompanyBuilder;
+import model.Company;
 import DataBase.MongoInteractor;
-import model.DetailsWithPassword;
+import model.CompanyBuilder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,12 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static DataBase.MongoConstants.*;
-
 @WebServlet("/registerCompany")
 public class CompanyRegisterServlet extends HttpServlet {
 
-    //    private static final String ID = "id";
     private static final String NAME = "companyName";
     private static final String PASS = "psw";
     private static final String LOGO_URL = "logoUrl";
@@ -39,16 +35,13 @@ public class CompanyRegisterServlet extends HttpServlet {
     }
 
     private Company fetchCompanyDetails(HttpServletRequest req) {
-        DetailsWithPassword details = new DetailsWithPassword(
-                req.getParameter(EMAIL),
-                req.getParameter(PHONEADDRESS),
-                req.getParameter(ADDRESS),
-                req.getParameter(PASS));
-
-        CompanyBuilder companyBuilder = new CompanyBuilder().setDetails(details)
-//                .setId(Integer.parseInt(req.getParameter(ID)))
+        CompanyBuilder companyBuilder = new CompanyBuilder()
+                .setAddress(req.getParameter(ADDRESS))
+                .setEmail(req.getParameter(EMAIL))
                 .setLogoUrl(req.getParameter(LOGO_URL))
-                .setName(req.getParameter(NAME));
+                .setName(req.getParameter(NAME))
+                .setPassword(req.getParameter(PASS))
+                .setPhoneNumber(req.getParameter(PHONEADDRESS));
 
         Company company = companyBuilder.createCompany();
 

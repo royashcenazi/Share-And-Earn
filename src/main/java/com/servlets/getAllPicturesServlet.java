@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import DataBase.MongoInteractor;
 import com.google.gson.JsonObject;
-import DataBase.Company;
+import model.Company;
 
 import java.io.IOException;
 import java.util.List;
