@@ -1,5 +1,3 @@
-var logoUrl;
-
 function setFileUploadHandler() {
     var CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/shareandearn/upload'
     var CLOUDINARY_UPLOAD_PRESET = 'odpbbrff';
@@ -21,6 +19,8 @@ function setFileUploadHandler() {
             data: formData
         }).then(function (res) {
             logoUrl = res.data.secureurl;
+            $("#logoUrlInput").val(res.data.secure_url)
+            $("#signUpBtn").prop('disabled', false);
             console.log(res);
         }).catch(function (err) {
             console.log(err);
@@ -29,24 +29,9 @@ function setFileUploadHandler() {
     });
 }
 
-function setFormSubmitHandler() {
-    $("#signUpForm").submit(function (e) {
-        e.preventDefault(); // avoid to execute the actual submit of the form.
-        var form = $(this);
-        var formData = new FormData(form);
-        formData.append('logoUrl', logoUrl);
-
-        var request = new XMLHttpRequest();
-        request.open("POST", "/registerCompany");
-        request.send(formData);
-    });
-}
-
 window.onload = function () {
     setFileUploadHandler();
-    setFormSubmitHandler();
 }
-
 
 function goBack() {
     window.history.back()
