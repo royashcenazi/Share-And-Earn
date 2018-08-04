@@ -22,9 +22,11 @@ public class getAllPicturesServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Company> companyList = MongoInteractor.getInstance().getAllCompanies();
         JsonObject jsonObject = new JsonObject();
+
         for (Company company : companyList) {
             jsonObject.addProperty(company.getName(), company.getLogoUrl());
         }
+
         resp.getOutputStream().print(jsonObject.toString());
     }
 }

@@ -20,7 +20,7 @@ public class SignInServlet extends HttpServlet {
         cb.setDebugEnabled(true)
                 .setOAuthAppId("223473395065781")
                 .setOAuthAppSecret("639cb3b650b6f5ec7b334b46638b7846")
-                .setOAuthPermissions("email,publish_actions, user_likes, user_posts, user_photos");
+                .setOAuthPermissions("email,public_profile");
         FacebookFactory ff = new FacebookFactory(cb.build());
         Facebook facebook = ff.getInstance();
         request.getSession().setAttribute("facebook", facebook);

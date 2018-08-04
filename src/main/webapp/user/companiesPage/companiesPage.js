@@ -36,13 +36,13 @@ function getAllPictures() {
         success: function (data) {
             var companiesLogosContainer = document.getElementById("companiesLogos");
             if (data) {
-                companisPictures = $.parseJSON(data);
+                companiesImgsUrls = $.parseJSON(data);
                 var divRow = document.createElement("div");
                 var i = 0;
-                for (var url in companisPictures) {
+                for (var companyName in companiesImgsUrls) {
                     //Create img
                     var img = document.createElement("img");
-                    img.src = "../" + companisPictures[url]
+                    img.src = companiesImgsUrls[companyName]
                     //Create tumbnail div
                     var thumbnailDiv = document.createElement("div");
                     thumbnailDiv.className = "thumbnail";

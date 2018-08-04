@@ -3,7 +3,9 @@ package DataBase;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientOptions;
 import com.mongodb.MongoClientURI;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import facebook4j.Facebook;
 import facebook4j.FacebookException;
@@ -27,6 +29,7 @@ public class MongoInteractor {
     private MongoClientOptions.Builder mongoOptionBuilder;
     private MongoClientURI mongoClientURI;
     private MongoClient mongoClient;
+    private MongoDatabase db;
 
     private MongoInteractor() {
         this.mongoUrl = MongoConstants.MONGO_URI;
@@ -36,6 +39,7 @@ public class MongoInteractor {
         this.mongoOptionBuilder.codecRegistry(pojoCodecRegistry);
         this.mongoClientURI = new MongoClientURI("mongodb+srv://royashcenazi:mongodb@facebookdatabase-yyc55.mongodb.net/test\n", mongoOptionBuilder);
         this.mongoClient = new MongoClient(mongoClientURI);
+        this.db = mongoClient.getDatabase("test");
     }
 
     public static MongoInteractor getInstance() {
@@ -49,8 +53,7 @@ public class MongoInteractor {
 
     @Deprecated
     public String saveDetailsToDataBase2(Facebook facebook) {
-        MongoDatabase database = mongoClient.getDatabase("test");
-        MongoCollection<User> collection = database.getCollection("users", User.class);
+        MongoCollection<User> collection = db.getCollection("users", User.class);
         User appUser = null;
         boolean userExistInDataBase = true;
         String userName = null;
@@ -76,11 +79,9 @@ public class MongoInteractor {
         return userName;
     }
 
-
     public void saveDetailsToDataBase(MongoElement mongoElement) {
         MongoElement searchElem;
-        MongoDatabase database = mongoClient.getDatabase("test");
-        MongoCollection<MongoElement> collection = database.getCollection(mongoElement.getCollectionName(), mongoElement.getInClass());
+        MongoCollection<MongoElement> collection = db.getCollection(mongoElement.getCollectionName(), mongoElement.getInClass());
         boolean companyExistInDataBase = true;
         searchElem = collection.find(eq(mongoElement.getCollectionName(), mongoElement.getKey())).first();
 
@@ -92,10 +93,8 @@ public class MongoInteractor {
         }
     }
 
-
     public void saveAppUserDetailsToDataBase(String name, String id) {
-        MongoDatabase database = mongoClient.getDatabase("test");
-        MongoCollection<User> collection = database.getCollection("users", User.class);
+        MongoCollection<User> collection = db.getCollection("users", User.class);
         User appUser;
         boolean userExistInDataBase = true;
         appUser = collection.find(eq(MongoConstants.AppUserId, id)).first();
@@ -111,10 +110,8 @@ public class MongoInteractor {
         }
     }
 
-
     public void saveCompanyToDataBase(Company company) {
-        MongoDatabase database = mongoClient.getDatabase("test");
-        MongoCollection<Company> collection = database.getCollection("companies", Company.class);
+        MongoCollection<Company> collection = db.getCollection("companies", Company.class);
         Company searchCompany;
         searchCompany = collection.find(eq("name", company.getName())).first();
 
@@ -123,11 +120,9 @@ public class MongoInteractor {
         }
     }
 
-
     public boolean isCompanyExistInDataBase(Company company) {
         boolean companyExistInDB;
-        MongoDatabase database = mongoClient.getDatabase("test");
-        MongoCollection<Company> collection = database.getCollection("companies", Company.class);
+        MongoCollection<Company> collection = db.getCollection("companies", Company.class);
         Company searchCompany;
 
         searchCompany = collection.find(eq(MongoConstants.CompanyCollection, company.getName())).first();
@@ -137,19 +132,13 @@ public class MongoInteractor {
     }
 
     public List<Company> getAllCompanies() {
-        //this method should return all companies on data base.
         List<Company> companies = new ArrayList<Company>();
+        MongoCollection<Company> collection = db.getCollection("companies", Company.class);
+        MongoCursor<Company> cur = collection.find().iterator();
 
-        Company company1 = new CompanyBuilder()
-                .setName("castro")
-                .setLogoUrl("imgs/Castro.png").createCompany();
-
-        companies.add(company1);
-
-        Company company2 = new CompanyBuilder()
-                .setName("dominos")
-                .setLogoUrl("imgs/Dominos.png").createCompany();
-        companies.add(company2);
+        while (cur.hasNext()) {
+            companies.add(cur.next());
+        }
 
         return companies;
     }
