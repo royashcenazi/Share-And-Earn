@@ -4,6 +4,7 @@ import model.Company;
 import dataBase.MongoInteractor;
 import model.CompanyBuilder;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,6 +33,10 @@ public class CompanyRegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Company company = fetchCompanyDetails(req);
         db.saveCompanyToDataBase(company);
+
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/company/loby/companyLobyPage.html");
+        requestDispatcher.forward(req, resp);
+
     }
 
     private Company fetchCompanyDetails(HttpServletRequest req) {
