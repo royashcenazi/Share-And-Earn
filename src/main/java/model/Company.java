@@ -4,7 +4,6 @@ import java.util.List;
 
 public class Company {
 
-    private int id;
     private String name;
     private List<Offer> offers;
     private List<User> Users;
@@ -36,14 +35,6 @@ public class Company {
 
     public String getLogoUrl() {
         return logoUrl;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
