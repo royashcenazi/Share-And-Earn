@@ -1,8 +1,8 @@
-package com.servlets;
+package com.servlets.facebookApiIntergration;
 
 import model.User;
-import DataBase.MongoInteractor;
-import Utils.SessionUtils;
+import dataBase.MongoInteractor;
+import utils.SessionUtils;
 import facebook4j.*;
 
 import javax.servlet.ServletException;

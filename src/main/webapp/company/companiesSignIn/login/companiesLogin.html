@@ -38,16 +38,16 @@
 <div class="container">
     <div id="login">
 
-        <form action="javascript:void(0);" method="get">
+        <form action="/loginCompany" method="post" id="loginForm">
             <fieldset class="clearfix">
                 <div id="allContent">
                     <img src="/imgs/logo.jpeg" alt="Avatar">
-                    <p><span class="fas fa-user"></span><input type="text" value="Username"
+                    <p><span class="fas fa-user"></span><input type="text" value="Username" name="COMPANYNAME"
                                                                onBlur="if(this.value == '') this.value = 'Username'"
                                                                onFocus="if(this.value == 'Username') this.value = ''"
                                                                required></p>
                     <!-- JS because of IE support; better: placeholder="Username" -->
-                    <p><span class="fas fa-lock"></span><input type="password" value="Password"
+                    <p><span class="fas fa-lock"></span><input type="password" value="Password" name="PASSWORD"
                                                                onBlur="if(this.value == '') this.value = 'Password'"
                                                                onFocus="if(this.value == 'Password') this.value = ''"
                                                                required></p>

@@ -1,4 +1,4 @@
-package com.servlets;
+package com.servlets.user;
 
 
 import javax.servlet.ServletException;
@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DataBase.MongoInteractor;
+import dataBase.MongoInteractor;
 import com.google.gson.JsonObject;
 import model.Company;
 
@@ -16,7 +16,7 @@ import java.util.List;
 
 
 @WebServlet("/getAllPictures")
-public class getAllPicturesServlet extends HttpServlet {
+public class GetAllPicturesServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

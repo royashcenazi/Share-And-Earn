@@ -1,9 +1,9 @@
-package Utils;
+package utils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import static Utils.Constants.*;
+import static utils.Constants.*;
 
 public class SessionUtils {
 

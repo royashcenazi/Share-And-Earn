@@ -1,4 +1,4 @@
-package com.servlets;
+package com.servlets.user;
 
 import facebook4j.Facebook;
 

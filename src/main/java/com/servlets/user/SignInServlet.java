@@ -1,6 +1,5 @@
-package com.servlets;
+package com.servlets.user;
 
-import DataBase.MongoInteractor;
 import facebook4j.Facebook;
 import facebook4j.FacebookFactory;
 import facebook4j.conf.ConfigurationBuilder;

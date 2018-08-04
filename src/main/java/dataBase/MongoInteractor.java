@@ -1,16 +1,14 @@
-package DataBase;
+package dataBase;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientOptions;
 import com.mongodb.MongoClientURI;
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import facebook4j.Facebook;
 import facebook4j.FacebookException;
 import model.Company;
-import model.CompanyBuilder;
 import model.User;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
@@ -141,5 +139,13 @@ public class MongoInteractor {
         }
 
         return companies;
+    }
+
+    public MongoDatabase getDb() {
+        return db;
+    }
+
+    public void setDb(MongoDatabase db) {
+        this.db = db;
     }
 }

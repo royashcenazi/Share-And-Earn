@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>signin</servlet-name>
-        <servlet-class>com.servlets.SignInServlet</servlet-class>
+        <servlet-class>com.servlets.user.SignInServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>signin</servlet-name>
@@ -15,7 +15,7 @@
 
     <servlet>
         <servlet-name>callback</servlet-name>
-        <servlet-class>com.servlets.CallbackServlet</servlet-class>
+        <servlet-class>com.servlets.facebookApiIntergration.CallbackServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>callback</servlet-name>
@@ -24,7 +24,7 @@
 
     <servlet>
         <servlet-name>logout</servlet-name>
-        <servlet-class>com.servlets.LogoutServlet</servlet-class>
+        <servlet-class>com.servlets.user.LogoutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>logout</servlet-name>
@@ -32,17 +32,8 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>post</servlet-name>
-        <servlet-class>com.servlets.PostServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>post</servlet-name>
-        <url-pattern>/post</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>tokenInfo</servlet-name>
-        <servlet-class>com.servlets.TokenInfoServlet</servlet-class>
+        <servlet-class>com.servlets.facebookApiIntergration.TokenInfoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>tokenInfo</servlet-name>
@@ -50,17 +41,8 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>webhook</servlet-name>
-        <servlet-class>com.servlets.webhook</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>webhook</servlet-name>
-        <url-pattern>/webhook</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>onSharePostServlet</servlet-name>
-        <servlet-class>com.servlets.OnSharedPostServlet</servlet-class>
+        <servlet-class>com.servlets.user.OnSharedPostServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>onSharePostServlet</servlet-name>
@@ -69,7 +51,7 @@
 
     <servlet>
         <servlet-name>Cert</servlet-name>
-        <servlet-class>com.servlets.Cert</servlet-class>
+        <servlet-class>com.servlets.facebookApiIntergration.Cert</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Cert</servlet-name>
