@@ -77,10 +77,10 @@ public class MongoInteractor {
     }
 
 
-    public void saveDetailsToDataBase(MongoElement mongoElement){
+    public void saveDetailsToDataBase(MongoElement mongoElement) {
         MongoElement searchElem;
         MongoDatabase database = mongoClient.getDatabase("test");
-        MongoCollection<MongoElement> collection = database.getCollection(mongoElement.getCollectionName() ,mongoElement.getInClass());
+        MongoCollection<MongoElement> collection = database.getCollection(mongoElement.getCollectionName(), mongoElement.getInClass());
         boolean companyExistInDataBase = true;
         searchElem = collection.find(eq(mongoElement.getCollectionName(), mongoElement.getKey())).first();
 
@@ -116,44 +116,39 @@ public class MongoInteractor {
         MongoDatabase database = mongoClient.getDatabase("test");
         MongoCollection<Company> collection = database.getCollection("companies", Company.class);
         Company searchCompany;
-        boolean companyExistInDataBase = false;
         searchCompany = collection.find(eq("name", company.getName())).first();
 
-        if (searchCompany == null)
-            companyExistInDataBase = false;
-
-        if (companyExistInDataBase == false) {
+        if (searchCompany == null) {
             collection.insertOne(company);
         }
     }
 
 
     public boolean isCompanyExistInDataBase(Company company) {
+        boolean companyExistInDB;
         MongoDatabase database = mongoClient.getDatabase("test");
         MongoCollection<Company> collection = database.getCollection("companies", Company.class);
         Company searchCompany;
-        boolean userExistInDataBase = true;
-        searchCompany = collection.find(eq(MongoConstants.CompanyCollection, company.getName())).first();
-        if(searchCompany == null)
-            return false;
-        else
-            return true;
-    }
 
+        searchCompany = collection.find(eq(MongoConstants.CompanyCollection, company.getName())).first();
+        companyExistInDB = (searchCompany != null);
+
+        return companyExistInDB;
+    }
 
     public List<Company> getAllCompanies() {
         //this method should return all companies on data base.
         List<Company> companies = new ArrayList<Company>();
 
         Company company1 = new CompanyBuilder()
-        .setName("castro")
-        .setLogoUrl("imgs/Castro.png").createCompany();
+                .setName("castro")
+                .setLogoUrl("imgs/Castro.png").createCompany();
 
         companies.add(company1);
 
         Company company2 = new CompanyBuilder()
-        .setName("dominos")
-        .setLogoUrl("imgs/Dominos.png").createCompany();
+                .setName("dominos")
+                .setLogoUrl("imgs/Dominos.png").createCompany();
         companies.add(company2);
 
         return companies;
