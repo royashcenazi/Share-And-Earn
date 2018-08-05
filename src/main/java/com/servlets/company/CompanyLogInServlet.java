@@ -26,9 +26,7 @@ public class CompanyLogInServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String companyName = req.getParameter(Constants.COMPANYNAME);
         String password = req.getParameter(Constants.PASSWORD);
-        MongoDatabase db = MongoInteractor.getInstance().getDb();
-        MongoCollection<Company> companiesCollection = db.getCollection("companies", Company.class);
-        Company company = companiesCollection.find(eq("name", companyName)).first();
+        Company company = MongoInteractor.getInstance().getCompanyByName(companyName);
         boolean companyExist = (company != null);
         boolean correctPassword = false;
         boolean loginSuccess = false;

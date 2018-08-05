@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.mongodb.client.model.Filters.*;
+import static dataBase.MongoConstants.*;
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
@@ -51,12 +52,12 @@ public class MongoInteractor {
 
     @Deprecated
     public String saveDetailsToDataBase2(Facebook facebook) {
-        MongoCollection<User> collection = db.getCollection("users", User.class);
+        MongoCollection<User> collection = db.getCollection(UsersCollection, User.class);
         User appUser = null;
         boolean userExistInDataBase = true;
         String userName = null;
         try {
-            appUser = collection.find(eq(MongoConstants.AppUserId, facebook.getId())).first();
+            appUser = collection.find(eq(AppUserKey, facebook.getId())).first();
             if (appUser.getFaceBookId() == null)
                 userExistInDataBase = false;
             userName = facebook.getName();
@@ -92,10 +93,10 @@ public class MongoInteractor {
     }
 
     public void saveAppUserDetailsToDataBase(String name, String id) {
-        MongoCollection<User> collection = db.getCollection("users", User.class);
+        MongoCollection<User> collection = db.getCollection(UsersCollection, User.class);
         User appUser;
         boolean userExistInDataBase = true;
-        appUser = collection.find(eq(MongoConstants.AppUserId, id)).first();
+        appUser = collection.find(eq(AppUserKey, id)).first();
 
         if (appUser == null)
             userExistInDataBase = false;
@@ -109,9 +110,9 @@ public class MongoInteractor {
     }
 
     public void saveCompanyToDataBase(Company company) {
-        MongoCollection<Company> collection = db.getCollection("companies", Company.class);
+        MongoCollection<Company> collection = db.getCollection(CompanyCollection, Company.class);
         Company searchCompany;
-        searchCompany = collection.find(eq("name", company.getName())).first();
+        searchCompany = collection.find(eq(CompanyKey, company.getName())).first();
 
         if (searchCompany == null) {
             collection.insertOne(company);
@@ -120,10 +121,10 @@ public class MongoInteractor {
 
     public boolean isCompanyExistInDataBase(Company company) {
         boolean companyExistInDB;
-        MongoCollection<Company> collection = db.getCollection("companies", Company.class);
+        MongoCollection<Company> collection = db.getCollection(CompanyCollection, Company.class);
         Company searchCompany;
 
-        searchCompany = collection.find(eq(MongoConstants.CompanyCollection, company.getName())).first();
+        searchCompany = collection.find(eq(CompanyCollection, company.getName())).first();
         companyExistInDB = (searchCompany != null);
 
         return companyExistInDB;
@@ -131,7 +132,7 @@ public class MongoInteractor {
 
     public List<Company> getAllCompanies() {
         List<Company> companies = new ArrayList<Company>();
-        MongoCollection<Company> collection = db.getCollection("companies", Company.class);
+        MongoCollection<Company> collection = db.getCollection(CompanyCollection, Company.class);
         MongoCursor<Company> cur = collection.find().iterator();
 
         while (cur.hasNext()) {
@@ -147,5 +148,11 @@ public class MongoInteractor {
 
     public void setDb(MongoDatabase db) {
         this.db = db;
+    }
+
+    public Company getCompanyByName(String companyName) {
+        MongoCollection<Company> companiesCollection = db.getCollection(CompanyCollection, Company.class);
+        Company company = companiesCollection.find(eq(CompanyKey, companyName)).first();
+        return company;
     }
 }
