@@ -11,7 +11,7 @@ $(function () {
             datatype: 'json',
             success: function (data) {
                 if (data.loginSuccess) {
-                    window.location.replace(data.url)
+                    window.location.assign(data.url)
                 }
                 else if (!data.companyExist) {
                     alert("Company do not exist, please signup or type an existing company name");

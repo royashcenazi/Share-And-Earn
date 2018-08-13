@@ -42,6 +42,16 @@ public class SessionUtils {
         if(session.getAttribute(COMPANYNAME) == null){
             session.setAttribute(COMPANYNAME, company);
         }
+    }
 
+    public static Company getCompanyFromSession(HttpServletRequest request) throws Exception {
+        HttpSession session = request.getSession();
+
+        Company company = (Company) session.getAttribute(COMPANYNAME);
+        if(company == null){
+            throw new Exception(String.format("Company: %s dosn't exist in session"));
+        }
+
+        return company;
     }
 }

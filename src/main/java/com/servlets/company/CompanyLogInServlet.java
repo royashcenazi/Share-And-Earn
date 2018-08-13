@@ -44,11 +44,11 @@ public class CompanyLogInServlet extends HttpServlet {
         json.addProperty("correctPassword", correctPassword);
         json.addProperty("loginSuccess", loginSuccess);
         if (loginSuccess) {
-            SessionUtils.saveCompanyToSession(req,company);
-            getServletContext().getRequestDispatcher(Constants.COMPANY_LANDINGPAGE_JSP_PATH).forward(req, resp);
+            SessionUtils.saveCompanyToSession(req, company);
+            json.addProperty("url", Constants.COMPANY_LANDINGPAGE_JSP_PATH);
         }
 
         /* Return to javascript a boolean if Login success or not and finally output the json string*/
-        resp.getWriter().print(json.toString());
+        resp.getWriter().write(json.toString());
     }
 }

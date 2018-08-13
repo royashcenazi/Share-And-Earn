@@ -9,8 +9,7 @@ public class Offer {
     private Date timeToPublish;
     private Date timeToDelete;
 
-    public Offer() {
-    }
+    public Offer() {}
 
     public int getMaxAmount() {
         return maxAmount;
