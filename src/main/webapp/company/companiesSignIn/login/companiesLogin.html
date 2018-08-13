@@ -43,16 +43,8 @@
             <fieldset class="clearfix">
                 <div id="allContent">
                     <img src="/imgs/logo.jpeg" alt="Avatar">
-                    <p><span class="fas fa-user"></span><input type="text" placeholder="Company Name" name="COMPANYNAME"
-                                                               onBlur="if(this.value == '') this.value = 'Username'"
-                                                               onFocus="if(this.value == 'Username') this.value = ''"
-                                                               required></p>
-                    <!-- JS because of IE support; better: placeholder="Username" -->
-                    <p><span class="fas fa-lock"></span><input type="password" value="Password" name="PASSWORD"
-                                                               onBlur="if(this.value == '') this.value = 'Password'"
-                                                               onFocus="if(this.value == 'Password') this.value = ''"
-                                                               required></p>
-                    <!-- JS because of IE support; better: placeholder="Password" -->
+                    <p><span class="fas fa-user"></span><input type="text" placeholder="Company Name" name="COMPANYNAME" required></p>
+                    <p><span class="fas fa-lock"></span><input type="password" placeholder="Password" name="PASSWORD" required></p>
                     <form><p><input type="submit" value="Sign In"></p></form>
                 </div>
             </fieldset>

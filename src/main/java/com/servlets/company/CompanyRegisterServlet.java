@@ -34,7 +34,7 @@ public class CompanyRegisterServlet extends HttpServlet {
         Company company = fetchCompanyDetails(req);
         db.saveCompanyToDataBase(company);
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/company/loby/companyLobyPage.html");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/company/loby/companyLandingPage.html");
         requestDispatcher.forward(req, resp);
 
     }

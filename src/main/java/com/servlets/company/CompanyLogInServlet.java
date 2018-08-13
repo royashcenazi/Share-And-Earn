@@ -1,21 +1,17 @@
 package com.servlets.company;
 
 import com.google.gson.JsonObject;
-import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 import dataBase.MongoInteractor;
 import model.Company;
 import utils.Constants;
+import utils.SessionUtils;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import static com.mongodb.client.model.Filters.eq;
 
@@ -48,11 +44,11 @@ public class CompanyLogInServlet extends HttpServlet {
         json.addProperty("correctPassword", correctPassword);
         json.addProperty("loginSuccess", loginSuccess);
         if (loginSuccess) {
-            json.addProperty("url", Constants.COMPANY_LOBY_URL);
+            SessionUtils.saveCompanyToSession(req,company);
+            getServletContext().getRequestDispatcher(Constants.COMPANY_LANDINGPAGE_JSP_PATH).forward(req, resp);
         }
 
         /* Return to javascript a boolean if Login success or not and finally output the json string*/
         resp.getWriter().print(json.toString());
-
     }
 }
