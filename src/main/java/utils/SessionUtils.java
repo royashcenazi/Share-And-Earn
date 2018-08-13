@@ -1,5 +1,9 @@
 package utils;
 
+import dataBase.MongoConstants;
+import model.Company;
+import model.User;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -9,7 +13,7 @@ public class SessionUtils {
 
     public static String getUsername(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
-        Object sessionAttribute = session != null ? session.getAttribute(USERNAME) : null;
+        Object sessionAttribute = session != null ? session.getAttribute(USERID) : null;
         return sessionAttribute != null ? sessionAttribute.toString() : null;
     }
 
@@ -24,12 +28,19 @@ public class SessionUtils {
         return isConnected;
     }
 
-    public static void saveUserToSession(HttpServletRequest request, String name, String id) {
+    public static void saveUserToSession(HttpServletRequest request, User user) {
         HttpSession session = request.getSession(true); // true for creating the session if not exist
 
         if (session.getAttribute(USERID) == null) {
-            session.setAttribute(USERID, id);
-            session.setAttribute(USERNAME, name);
+            session.setAttribute(USERID, user);
+        }
+
+    }
+
+    public static void saveCompanyToSession(HttpServletRequest request, Company company){
+        HttpSession session = request.getSession(true);
+        if(session.getAttribute(COMPANYNAME) == null){
+            session.setAttribute(COMPANYNAME, company);
         }
 
     }

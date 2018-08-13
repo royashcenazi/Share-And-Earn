@@ -6,16 +6,12 @@ import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
-import facebook4j.Facebook;
-import facebook4j.FacebookException;
 import model.Company;
 import model.User;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static com.mongodb.client.model.Filters.*;
 import static dataBase.MongoConstants.*;
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
@@ -50,47 +46,6 @@ public class MongoInteractor {
         return mongoInteractorInstance;
     }
 
-    @Deprecated
-    public String saveDetailsToDataBase2(Facebook facebook) {
-        MongoCollection<User> collection = db.getCollection(UsersCollection, User.class);
-        User appUser = null;
-        boolean userExistInDataBase = true;
-        String userName = null;
-        try {
-            appUser = collection.find(eq(AppUserKey, facebook.getId())).first();
-            if (appUser.getFaceBookId() == null)
-                userExistInDataBase = false;
-            userName = facebook.getName();
-        } catch (FacebookException fe) {
-            fe.printStackTrace();
-        }
-
-        if (userExistInDataBase == false) {
-            try {
-                appUser = new User();
-                appUser.setFaceBookId(facebook.getId());
-                appUser.setName(facebook.getName());
-                collection.insertOne(appUser);
-            } catch (FacebookException fe) {
-                fe.printStackTrace();
-            }
-        }
-        return userName;
-    }
-
-    public void saveDetailsToDataBase(MongoElement mongoElement) {
-        MongoElement searchElem;
-        MongoCollection<MongoElement> collection = db.getCollection(mongoElement.getCollectionName(), mongoElement.getInClass());
-        boolean companyExistInDataBase = true;
-        searchElem = collection.find(eq(mongoElement.getCollectionName(), mongoElement.getKey())).first();
-
-        if (searchElem == null)
-            companyExistInDataBase = false;
-
-        if (companyExistInDataBase == false) {
-            collection.insertOne(mongoElement);
-        }
-    }
 
     public void saveAppUserDetailsToDataBase(String name, String id) {
         MongoCollection<User> collection = db.getCollection(UsersCollection, User.class);

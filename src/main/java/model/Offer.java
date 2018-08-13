@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Offer {
     private int maxAmount;
+    private String productUrl;
     private Product product;
     private Date timeToPublish;
     private Date timeToDelete;
@@ -43,4 +44,11 @@ public class Offer {
         this.timeToDelete = timeToDelete;
     }
 
+    public String getProductUrl() {
+        return productUrl;
+    }
+
+    public void setProductUrl(String productUrl) {
+        this.productUrl = productUrl;
+    }
 }

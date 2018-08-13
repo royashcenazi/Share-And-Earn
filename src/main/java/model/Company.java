@@ -1,5 +1,6 @@
 package model;
 
+import javax.swing.text.html.HTML;
 import java.util.List;
 
 public class Company {
