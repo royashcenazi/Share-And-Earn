@@ -47,6 +47,13 @@ public class MongoInteractor {
     }
 
 
+    public Company getCompanyByName(String companyName) {
+        MongoCollection<Company> companiesCollection = db.getCollection(CompanyCollection, Company.class);
+        Company company = companiesCollection.find(eq(CompanyKey, companyName)).first();
+        return company;
+    }
+
+
     public void saveAppUserDetailsToDataBase(String name, String id) {
         MongoCollection<User> collection = db.getCollection(UsersCollection, User.class);
         User appUser;
@@ -74,6 +81,35 @@ public class MongoInteractor {
         }
     }
 
+    public boolean updateCompanyInDataBase(Company company) {
+        MongoCollection<Company> collection = db.getCollection(CompanyCollection, Company.class);
+        Company searchCompany;
+        searchCompany = collection.find(eq(CompanyKey, company.getName())).first();
+
+        if (searchCompany != null) {
+            collection.replaceOne(eq(CompanyKey, company.getName()), company);
+        }
+        else {
+            return false;
+        }
+        return true;
+    }
+
+
+    public boolean updateUserInDataBase(User user) {
+        MongoCollection<User> collection = db.getCollection(UsersCollection, User.class);
+        User searchUser;
+        searchUser = collection.find(eq(AppUserKey, user.getFaceBookId())).first();
+
+        if (searchUser != null) {
+            collection.replaceOne(eq(AppUserKey, user.getFaceBookId()), user);
+        }
+        else {
+            return false;
+        }
+        return true;
+    }
+
     public boolean isCompanyExistInDataBase(Company company) {
         boolean companyExistInDB;
         MongoCollection<Company> collection = db.getCollection(CompanyCollection, Company.class);
@@ -97,17 +133,4 @@ public class MongoInteractor {
         return companies;
     }
 
-    public MongoDatabase getDb() {
-        return db;
-    }
-
-    public void setDb(MongoDatabase db) {
-        this.db = db;
-    }
-
-    public Company getCompanyByName(String companyName) {
-        MongoCollection<Company> companiesCollection = db.getCollection(CompanyCollection, Company.class);
-        Company company = companiesCollection.find(eq(CompanyKey, companyName)).first();
-        return company;
-    }
 }

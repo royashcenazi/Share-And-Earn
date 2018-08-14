@@ -1,6 +1,7 @@
 package model;
 
 import javax.swing.text.html.HTML;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Company {
@@ -14,10 +15,7 @@ public class Company {
     private String address;
     private String password;
 
-    public Company() {
-//        this.setCollectionName(MongoConstants.CompanyCollection);
-//        this.setInheritedClass(this.getClass());
-//        this.setKey(this.getName());
+    public Company()  {
     }
 
     public Company(String name, String logoUrl,
@@ -44,7 +42,6 @@ public class Company {
 
     public void setName(String name) {
         this.name = name;
-//        this.setKey(name);
     }
 
     public List<Offer> getOffers() {
@@ -95,4 +92,10 @@ public class Company {
         this.password = password;
     }
 
+    public void addOffer(Offer offer) {
+        if(this.offers == null){
+            offers = new ArrayList<Offer>();
+        }
+        offers.add(offer);
+    }
 }
