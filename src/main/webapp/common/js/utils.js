@@ -1,8 +1,3 @@
-var CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/shareandearn/upload'
-var CLOUDINARY_UPLOAD_PRESET = 'odpbbrff';
-
-
-
 function sendJsonSoServer(json, url, callbackFunction) {
     $.ajax({
         type: "POST",
@@ -19,7 +14,10 @@ function sendJsonSoServer(json, url, callbackFunction) {
 }
 
 function uploadImgAndSendUrlToServer(file, url) {
+    const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/shareandearn/upload'
+    const CLOUDINARY_UPLOAD_PRESET = 'odpbbrff';
     var formData = new FormData();
+
     formData.append('file', file);
     formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
 
@@ -31,7 +29,8 @@ function uploadImgAndSendUrlToServer(file, url) {
         },
         data: formData
     }).then(function (res) {
-        sendJsonSoServer(JSON.parse(res.data.secure_url), url);
+        var json = {'secureUrl :': res.data.secure_url}
+        sendJsonSoServer(json, url);
     }).catch(function (err) {
         console.log(err);
     });
