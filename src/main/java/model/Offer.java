@@ -11,6 +11,14 @@ public class Offer {
 
     public Offer() {}
 
+    public Offer(int maxAmount, String productUrl, Product product, Date timeToPublish, Date timeToDelete) {
+        this.maxAmount = maxAmount;
+        this.productUrl = productUrl;
+        this.product = product;
+        this.timeToPublish = timeToPublish;
+        this.timeToDelete = timeToDelete;
+    }
+
     public int getMaxAmount() {
         return maxAmount;
     }
