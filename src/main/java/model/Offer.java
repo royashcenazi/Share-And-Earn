@@ -5,16 +5,14 @@ import java.util.Date;
 public class Offer {
     private int maxAmount;
     private String productUrl;
-    private Product product;
     private Date timeToPublish;
     private Date timeToDelete;
 
     public Offer() {}
 
-    public Offer(int maxAmount, String productUrl, Product product, Date timeToPublish, Date timeToDelete) {
+    public Offer(int maxAmount, String productUrl, Date timeToPublish, Date timeToDelete) {
         this.maxAmount = maxAmount;
         this.productUrl = productUrl;
-        this.product = product;
         this.timeToPublish = timeToPublish;
         this.timeToDelete = timeToDelete;
     }
@@ -25,14 +23,6 @@ public class Offer {
 
     public void setMaxAmount(int maxAmount) {
         this.maxAmount = maxAmount;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
     }
 
     public Date getTimeToPublish() {
