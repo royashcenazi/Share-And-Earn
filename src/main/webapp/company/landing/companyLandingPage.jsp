@@ -34,9 +34,10 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-nav-demo">
             <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
+                <li><a href="./companySettingsPage.jsp">Settings</a></li>
             </ul>
         </div>
     </div>
@@ -46,14 +47,14 @@
 
     <div class="jumbotron">
         <h1><i class="fas fa-gift"></i></span> Your offers</h1>
-        <p>watch and manage what you offer to you costumers</p>
+        <p>click on a picture to see more details</p>
     </div>
 
     <%--Need to test this--%>
         <% for (Offer offer : company.getOffers()) { %>
     <div class="col-lg-4 col-sm-6">
         <div class="thumbnail">
-            <img src=<%=offer.getProductUrl()%>>
+            <img src=<%=offer.getPictureURL()%>>
         </div>
     </div>
         <% } %>
@@ -105,7 +106,6 @@
             </div>
         </div>
     </div>
-
 
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

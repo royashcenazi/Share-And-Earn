@@ -17,8 +17,8 @@ public class UploadOfferServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Offer offer = new Offer();
-        offer.setProductUrl(req.getParameter("productUrl"));
-        offer.setMaxAmount(Integer.parseInt(req.getParameter("maxAmount")));
+        offer.setPictureURL(req.getParameter("productUrl"));
+        offer.setAmount(Integer.parseInt(req.getParameter("maxAmount")));
         //add setters for product
         //produce offer builder
         Company company = null;

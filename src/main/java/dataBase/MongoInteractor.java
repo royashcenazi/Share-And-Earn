@@ -46,13 +46,11 @@ public class MongoInteractor {
         return mongoInteractorInstance;
     }
 
-
     public Company getCompanyByName(String companyName) {
         MongoCollection<Company> companiesCollection = db.getCollection(CompanyCollection, Company.class);
         Company company = companiesCollection.find(eq(CompanyKey, companyName)).first();
         return company;
     }
-
 
     public void saveAppUserDetailsToDataBase(String name, String id) {
         MongoCollection<User> collection = db.getCollection(UsersCollection, User.class);
@@ -95,7 +93,6 @@ public class MongoInteractor {
         return true;
     }
 
-
     public boolean updateUserInDataBase(User user) {
         MongoCollection<User> collection = db.getCollection(UsersCollection, User.class);
         User searchUser;
@@ -132,5 +129,4 @@ public class MongoInteractor {
 
         return companies;
     }
-
 }
