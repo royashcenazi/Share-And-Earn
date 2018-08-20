@@ -5,25 +5,26 @@ import java.util.Date;
 public class Offer {
     private String productName;
     private String pictureURL;
-    private int amount;
+    private int points;
     private Date timeToPublish;
     private Date timeToDelete;
+    private int maxPublishers;
 
     public Offer() {}
 
-    public Offer(int amount, String pictureURL, Date timeToPublish, Date timeToDelete) {
-        this.amount = amount;
+    public Offer(int points, String pictureURL, Date timeToPublish, Date timeToDelete) {
+        this.points = points;
         this.pictureURL = pictureURL;
         this.timeToPublish = timeToPublish;
         this.timeToDelete = timeToDelete;
     }
 
-    public int getAmount() {
-        return amount;
+    public int getPoints() {
+        return points;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setPoints(int points) {
+        this.points = points;
     }
 
     public Date getTimeToPublish() {
@@ -56,5 +57,13 @@ public class Offer {
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public int getMaxPublishers() {
+        return maxPublishers;
+    }
+
+    public void setMaxPublishers(int maxPublishers) {
+        this.maxPublishers = maxPublishers;
     }
 }

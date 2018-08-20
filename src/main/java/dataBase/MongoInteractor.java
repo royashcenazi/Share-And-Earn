@@ -79,7 +79,7 @@ public class MongoInteractor {
         }
     }
 
-    public boolean updateCompanyInDataBase(Company company) {
+    public synchronized boolean updateCompanyInDataBase(Company company) {
         MongoCollection<Company> collection = db.getCollection(CompanyCollection, Company.class);
         Company searchCompany;
         searchCompany = collection.find(eq(CompanyKey, company.getName())).first();
