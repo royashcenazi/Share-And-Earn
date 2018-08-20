@@ -14,11 +14,6 @@ public class User {
 
     public void setFaceBookId(String faceBookId) {
         this.faceBookId = faceBookId;
-//        this.setKey(faceBookId);
-//        this.setCollectionName(MongoConstants.UsersCollection);
-//        this.setInheritedClass(this.getClass());
-//        this.setKey(this.getFaceBookId());
-
     }
 
     public String getName() {

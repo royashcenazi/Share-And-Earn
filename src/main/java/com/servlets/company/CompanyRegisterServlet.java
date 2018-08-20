@@ -2,7 +2,7 @@ package com.servlets.company;
 
 import model.Company;
 import dataBase.MongoInteractor;
-import model.CompanyBuilder;
+import model.builders.CompanyBuilder;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

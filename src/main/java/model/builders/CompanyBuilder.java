@@ -1,4 +1,6 @@
-package model;
+package model.builders;
+
+import model.Company;
 
 public class CompanyBuilder {
     private String name;

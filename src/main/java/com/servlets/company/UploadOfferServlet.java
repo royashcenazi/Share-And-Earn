@@ -1,9 +1,9 @@
 package com.servlets.company;
 
 import dataBase.MongoInteractor;
-import javafx.util.converter.DateStringConverter;
 import model.Company;
 import model.Offer;
+import model.builders.OfferBuilder;
 import utils.SessionUtils;
 
 import javax.servlet.ServletException;
@@ -35,18 +35,17 @@ public class UploadOfferServlet extends HttpServlet {
 
     private Offer getOfferFromRequest(HttpServletRequest req) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Offer offer = new Offer();
-        offer.setProductName(req.getParameter("productName"));
-        offer.setPictureURL(req.getParameter("pictureUrl"));
-        offer.setPoints(Integer.parseInt(req.getParameter("points")));
+        OfferBuilder offerBuilder = new OfferBuilder();
+        offerBuilder.setProductName(req.getParameter("productName"))
+                .setPoints(Integer.parseInt(req.getParameter("points")));
         try {
-            offer.setTimeToPublish(dateFormat.parse(req.getParameter("timeToPublish")));
-            offer.setTimeToDelete(dateFormat.parse(req.getParameter("timeToDelete")));
+            offerBuilder.setTimeToPublish(dateFormat.parse(req.getParameter("timeToPublish")))
+             .setTimeToDelete(dateFormat.parse(req.getParameter("timeToDelete")));
         }catch (Exception e){
             e.printStackTrace();
         }
-        offer.setProductName(req.getParameter("productName"));
-        offer.setMaxPublishers(Integer.parseInt(req.getParameter("maxPublishers")));
-        return offer;
+        offerBuilder.setProductName(req.getParameter("productName"))
+            .setMaxPublishers(Integer.parseInt(req.getParameter("maxPublishers")));
+        return offerBuilder.createOffer();
     }
 }

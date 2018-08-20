@@ -12,11 +12,13 @@ public class Offer {
 
     public Offer() {}
 
-    public Offer(int points, String pictureURL, Date timeToPublish, Date timeToDelete) {
+    public Offer(int points, String pictureURL, Date timeToPublish, Date timeToDelete, String productName, int maxPublishers) {
         this.points = points;
         this.pictureURL = pictureURL;
         this.timeToPublish = timeToPublish;
         this.timeToDelete = timeToDelete;
+        this.productName = productName;
+        this.maxPublishers = maxPublishers;
     }
 
     public int getPoints() {
