@@ -9,8 +9,7 @@ public class User {
     private String name;
     private List<Earn> earnList;
 
-    public User() {
-    }
+    public User() {}
 
     public String getFaceBookId() {
         return faceBookId;
