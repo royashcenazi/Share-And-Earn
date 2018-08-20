@@ -14,6 +14,7 @@ public class Company {
     private String phoneNumber;
     private String address;
     private String password;
+    private List<Share> shares;
 
     public Company()  {
     }
@@ -97,5 +98,19 @@ public class Company {
             offers = new ArrayList<Offer>();
         }
         offers.add(offer);
+    }
+
+    public void addShare(Share share){
+        if(this.shares == null)
+            this.shares = new ArrayList<Share>();
+        this.shares.add(share);
+    }
+
+    public List<Share> getShares() {
+        return shares;
+    }
+
+    public void setShares(List<Share> shares) {
+        this.shares = shares;
     }
 }

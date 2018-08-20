@@ -1,9 +1,13 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
 
     private String faceBookId;
     private String name;
+    private List<Earn> earnList;
 
     public User() {
     }
@@ -30,4 +34,17 @@ public class User {
     }
 
 
+    public List<Earn> getEarnList() {
+        return earnList;
+    }
+
+    public void setEarnList(List<Earn> earnList) {
+        this.earnList = earnList;
+    }
+
+    public void addEarn(Earn earn){
+        if(this.earnList == null)
+            this.earnList = new ArrayList<Earn>();
+        this.earnList.add(earn);
+    }
 }
