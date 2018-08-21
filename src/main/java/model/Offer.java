@@ -16,6 +16,16 @@ public class Offer {
 
     public Offer() {}
 
+    @Override
+    public boolean equals(Object obj) {
+        try {
+            Offer offer = (Offer) obj;
+            return this.getOfferId() == offer.getOfferId();
+        }catch (Exception e){
+            return false;
+        }
+    }
+
     public Offer(int points, String pictureURL, Date timeToPublish, Date timeToDelete, String productName, int maxPublishers, int id) {
         this.points = points;
         this.pictureURL = pictureURL;

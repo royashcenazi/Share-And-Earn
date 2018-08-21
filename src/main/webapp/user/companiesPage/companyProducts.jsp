@@ -45,9 +45,9 @@
     </div>
 </nav>
 
-<%--<%Company company = MongoInteractor.getInstance().getCompanyByName(request.getParameter("compnayName"));%>--%>
+<%Company company = MongoInteractor.getInstance().getCompanyByName(request.getParameter("companyName"));%>
 <%--for debug only!--%>
-<%Company company = MongoInteractor.getInstance().getCompanyByName("Test Company");%>
+<%--<%Company company = MongoInteractor.getInstance().getCompanyByName("Test Company");%>--%>
 
 <p id="companyName" hidden><%=company.getName()%></p>
 

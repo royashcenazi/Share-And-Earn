@@ -29,6 +29,9 @@ public class UploadOfferServlet extends HttpServlet {
             //change
             resp.sendRedirect("Please Allow Cookies");
         }
+        if(company.getOfferById(offer.getOfferId()) != null) {
+            company.getOffers().remove(offer);
+        }
         company.addOffer(offer);
         MongoInteractor.getInstance().updateCompanyInDataBase(company);
     }
