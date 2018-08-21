@@ -10,6 +10,7 @@ public class Offer {
     private Date timeToDelete;
     private int maxPublishers;
     private int offerId;
+    private int currentPublisherNumber;
 
     public Offer() {}
 
@@ -21,6 +22,7 @@ public class Offer {
         this.productName = productName;
         this.maxPublishers = maxPublishers;
         this.offerId = id;
+        this.currentPublisherNumber = 0;
     }
 
     public int getPoints() {
@@ -77,5 +79,13 @@ public class Offer {
 
     public void setOfferId(int offerId) {
         this.offerId = offerId;
+    }
+
+    public int getCurrentPublisherNumber() {
+        return currentPublisherNumber;
+    }
+
+    public void setCurrentPublisherNumber(int currentPublisherNumber) {
+        this.currentPublisherNumber = currentPublisherNumber;
     }
 }

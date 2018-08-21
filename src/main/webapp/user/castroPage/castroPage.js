@@ -17,9 +17,9 @@ window.onload = function () {
                 href: this.src
             }, function (response) {
                 $.ajax({
-                    url: "/onSharePost",
+                    url: "/OnSharedPost",
                     type: 'POST',
-                    data: {"post_id": response.post_id},
+                    data: {"postId": response.post_id, "companyName": "Test Company", "offerId": "1"},
                     dataType: "text",
                     success: function (data) {
                         alert(data + "\n");
