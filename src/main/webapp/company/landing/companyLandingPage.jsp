@@ -18,6 +18,7 @@
           integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="./companyLandingPage.css">
 </head>
+
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -51,66 +52,61 @@
     </div>
 
     <%--Need to test this--%>
-        <% for (Offer offer : company.getOffers()) { %>
+    <% for (Offer offer : company.getOffers()) { %>
     <div class="col-lg-4 col-sm-6">
         <label>Name:</label> <%=offer.getProductName()%> <br>
-        <label>Start Date:</label> <%=offer.getTimeToPublish()%> <br>
-        <label>Publishers: </label> <%=offer.getMaxAmount() - offer.getAmount()%> <br>
         <div class="thumbnail">
-            <img src=<%=offer.getPictureURL()%>>
-        </div>
-    </div>
-        <% } %>
-    <%--Stam template pictures--%>
-    <div class="row">
-        <div class="col-lg-4 col-sm-6">
-            <div class="thumbnail">
-                <img src="http://i.imgur.com/qK42fUu.jpg">
-            </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-            <div class="thumbnail">
-                <img src="https://images.unsplash.com/photo-1435771112039-1e5b2bcad966?dpr=2&fit=crop&fm=jpg&h=825&q=50&w=1450">
-            </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-            <div class="thumbnail">
-                <img src="https://images.unsplash.com/photo-1442406964439-e46ab8eff7c4?dpr=2&fit=crop&fm=jpg&h=825&q=50&w=1450">
-            </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-            <div class="thumbnail">
-                <img src="https://images.unsplash.com/photo-1439524970634-649c37a69e5c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1450&h=825&fit=crop&s=bfda9916c885869b43b70738693428d9">
-            </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-            <div class="thumbnail">
-                <img src="https://images.unsplash.com/photo-1444090542259-0af8fa96557e?dpr=2&fit=crop&fm=jpg&h=825&q=50&w=1450">
-            </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-            <div class="thumbnail">
-                <img src="https://images.unsplash.com/photo-1434543177303-ef2cc7707e0d?dpr=2&fit=crop&fm=jpg&h=825&q=50&w=1450">
-            </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-            <div class="thumbnail">
-                <img src="https://images.unsplash.com/photo-1436262513933-a0b06755c784?dpr=2&fit=crop&fm=jpg&h=825&q=50&w=1450">
-            </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-            <div class="thumbnail">
-                <img src="https://images.unsplash.com/photo-1439396087961-98bc12c21176?dpr=2&fit=crop&fm=jpg&h=825&q=50&w=1450">
-            </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-            <div class="thumbnail">
-                <img src="https://images.unsplash.com/photo-1439694458393-78ecf14da7f9?dpr=2&fit=crop&fm=jpg&h=825&q=50&w=1450">
-            </div>
+            <img src=<%=offer.getPictureURL()%> data-toggle="modal" data-target="#myModal">
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <%--<button type="button" class="close" data-dismiss="modal">&times;</button>--%>
+                    <h4 class="modal-title" style="text-align: center"><%=offer.getProductName()%></h4>
+                </div>
+                <div class="modal-body">
+                    <div style="display: flex" class="flex-container">
+                        <div>
+                            <img width="150px" height="150px" src=<%=offer.getPictureURL()%>>
+                        </div>
+                        <div>
+                            <form class="offerForm" action="/updateOffer">
+                                <label for="pointsInputText"> Points:</label>
+                                <input type="text" id="pointsInputText" value="<%=offer.getPoints()%>" disabled>  <br>
+                                <label for="timeToPublishInputText"> Time To publish: </label>
+                                <input type="text" id="timeToPublishInputText" value="<%=offer.getPoints()%>" disabled> <br>
+                                <label for="timeToDeleteInputText"> Time To delete: </label>
+                                <input type="text" id="timeToDeleteInputText" value="<%=offer.getTimeToDelete()%>" disabled> <br>
+                                <label for="maxNumOfPublishersInputText"> Max num of publishers: </label>
+                                <input type="text" id="maxNumOfPublishersInputText" value="<%=offer.getMaxPublishers()%>" disabled> <br>
+                                <label for="numOfPublishersInputText"> Max num of publishers: </label>
+                                <input type="text" id="numOfPublishersInputText" value="<%=offer.getCurrentPublisherNumber()%>" disabled>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success pull-left" onclick="OfferEditButtonClickedEventHandler()">Edit</button>
+                    <button type="button" class="btn btn-info" onclick="offerSaveButtonClickedEventHandler(this)">Save</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <% } %>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="./companyLandingPage.js"></script>
+
 </body>
 </html>
