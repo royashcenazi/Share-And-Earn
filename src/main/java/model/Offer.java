@@ -12,6 +12,8 @@ public class Offer {
     private int offerId;
     private int currentPublisherNumber;
 
+
+
     public Offer() {}
 
     public Offer(int points, String pictureURL, Date timeToPublish, Date timeToDelete, String productName, int maxPublishers, int id) {
@@ -87,5 +89,15 @@ public class Offer {
 
     public void setCurrentPublisherNumber(int currentPublisherNumber) {
         this.currentPublisherNumber = currentPublisherNumber;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("points: ")
+                .append(points + " ")
+                .append("productName: ")
+                .append(productName + " ");
+        return sb.toString();
     }
 }

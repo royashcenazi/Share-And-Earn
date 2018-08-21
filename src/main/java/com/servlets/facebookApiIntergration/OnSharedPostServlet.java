@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import com.google.gson.JsonObject;
 import dataBase.MongoInteractor;
 import facebook4j.Facebook;
 import model.*;
@@ -17,11 +18,12 @@ import utils.SessionUtils;
 @WebServlet("/OnSharedPost")
 public class OnSharedPostServlet extends HttpServlet {
 
+    private boolean succeededToPost;
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Facebook facebook = (Facebook) req.getSession().getAttribute("facebook");
         //TODO:: get user_posts approvals
-
         //String postId = req.getParameter("postId");
         String companyName = req.getParameter("companyName");
         int offerId = Integer.parseInt(req.getParameter("offerId"));
@@ -37,7 +39,11 @@ public class OnSharedPostServlet extends HttpServlet {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+                succeededToPost = false;
             }
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty("isPosted",succeededToPost);
+            resp.getOutputStream().print(jsonObject.toString());
         }
     }
 
@@ -48,8 +54,10 @@ public class OnSharedPostServlet extends HttpServlet {
             user.addEarn(earn);
             company.addShare(share);
             saveDetailsToDb(user, company);
+            succeededToPost = true;
         } else {
             //TODO::notify user that offer is irelevent
+            succeededToPost = false;
         }
     }
 
