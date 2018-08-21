@@ -45,11 +45,11 @@
     </div>
 </nav>
 
-<%Company company = MongoInteractor.getInstance().getCompanyByName(request.getParameter("companyName"));%>
+<%--<%Company company = MongoInteractor.getInstance().getCompanyByName(request.getParameter("companyName"));%>--%>
 <%--for debug only!--%>
-<%--<%Company company = MongoInteractor.getInstance().getCompanyByName("Test Company");%>--%>
+<%Company company = MongoInteractor.getInstance().getCompanyByName("Test Company");%>
 
-<p id="companyName" hidden><%=company.getName()%></p>
+<%--<p id="companyName" hidden><%=company.getName()%></p>--%>
 
 <ul class="photo-items photo-container">
     <!-- COMPANY'S LOGO GOES HERE -->
@@ -75,9 +75,11 @@
 </ul> <!-- photo-items -->
 
 
+<%for (Offer offer : company.getOffers()) {%>
+
+
 <div class="photo-quick-view">
 
-    <%for (Offer offer : company.getOffers()) {%>
 
     <div class="photo-slider-wrapper">
         <ul class="photo-slider">
@@ -97,8 +99,9 @@
         </ul> <!-- photo-item-action -->
     </div> <!-- photo-item-info -->
     <a href="#0" class="photo-close">Close</a>
-    <%}%>
 </div> <!-- photo-quick-view -->
+
+<%}%>
 
 
 <script src="../../company/js/jquery-2.1.1.js"></script>

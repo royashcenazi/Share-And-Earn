@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @WebServlet("/uploadOffer")
 public class UploadOfferServlet extends HttpServlet {
@@ -29,7 +30,7 @@ public class UploadOfferServlet extends HttpServlet {
             //change
             resp.sendRedirect("Please Allow Cookies");
         }
-        if(company.getOfferById(offer.getOfferId()) != null) {
+        if (company.getOfferById(offer.getOfferId()) != null) {
             company.getOffers().remove(offer);
         }
         company.addOffer(offer);
@@ -39,17 +40,18 @@ public class UploadOfferServlet extends HttpServlet {
     private Offer getOfferFromRequest(HttpServletRequest req) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         OfferBuilder offerBuilder = new OfferBuilder();
-        offerBuilder.setOfferId(Integer.parseInt(req.getParameter("offerId")))
-                .setProductName(req.getParameter("productName"))
-                .setPoints(Integer.parseInt(req.getParameter("points")));
         try {
-            offerBuilder.setTimeToPublish(dateFormat.parse(req.getParameter("timeToPublish")))
-             .setTimeToDelete(dateFormat.parse(req.getParameter("timeToDelete")));
-        }catch (Exception e){
+            offerBuilder.setOfferId(Integer.parseInt(req.getParameter("offerId")))
+                    .setProductName(req.getParameter("productName"))
+                    .setPoints(Integer.parseInt(req.getParameter("points")));
+            // offerBuilder.setTimeToPublish(dateFormat.parse(req.getParameter("timeToPublish")))
+            //  .setTimeToDelete(dateFormat.parse(req.getParameter("timeToDelete")));
+            offerBuilder.setTimeToPublish(new Date());
+        } catch (Exception e) {
             e.printStackTrace();
         }
         offerBuilder.setProductName(req.getParameter("productName"))
-            .setMaxPublishers(Integer.parseInt(req.getParameter("maxPublishers")));
+                .setMaxPublishers(Integer.parseInt(req.getParameter("maxPublishers")));
         return offerBuilder.createOffer();
     }
 }
