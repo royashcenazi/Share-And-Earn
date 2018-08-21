@@ -43,6 +43,12 @@ function getAllPictures() {
                     //Create img
                     var img = document.createElement("img");
                     img.src = companiesImgsUrls[companyName]
+                    img.onclick = function () {
+                        location.href = "companyProducts.jsp?companyName=" + companyName;
+                    }
+                    img.onmousemove = function () {
+                        $(this).css('cursor','pointer');
+                    }
                     //Create tumbnail div
                     var thumbnailDiv = document.createElement("div");
                     thumbnailDiv.className = "thumbnail";
