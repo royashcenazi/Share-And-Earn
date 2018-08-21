@@ -113,4 +113,14 @@ public class Company {
     public void setShares(List<Share> shares) {
         this.shares = shares;
     }
+
+    public Offer getOfferById(int offerId) {
+        Offer res = null;
+
+        for (Offer offer : offers) {
+            if(offer.getOfferId() == offerId)
+                res = offer;
+        }
+        return res;
+    }
 }

@@ -9,16 +9,18 @@ public class Offer {
     private Date timeToPublish;
     private Date timeToDelete;
     private int maxPublishers;
+    private int offerId;
 
     public Offer() {}
 
-    public Offer(int points, String pictureURL, Date timeToPublish, Date timeToDelete, String productName, int maxPublishers) {
+    public Offer(int points, String pictureURL, Date timeToPublish, Date timeToDelete, String productName, int maxPublishers, int id) {
         this.points = points;
         this.pictureURL = pictureURL;
         this.timeToPublish = timeToPublish;
         this.timeToDelete = timeToDelete;
         this.productName = productName;
         this.maxPublishers = maxPublishers;
+        this.offerId = id;
     }
 
     public int getPoints() {
@@ -67,5 +69,13 @@ public class Offer {
 
     public void setMaxPublishers(int maxPublishers) {
         this.maxPublishers = maxPublishers;
+    }
+
+    public int getOfferId() {
+        return offerId;
+    }
+
+    public void setOfferId(int offerId) {
+        this.offerId = offerId;
     }
 }

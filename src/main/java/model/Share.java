@@ -11,6 +11,7 @@ public class Share {
     private Date readyToUseDate;
     private User publisher;
     private Offer offer;
+    private String postId;
 
     public Share() {}
 
@@ -60,5 +61,13 @@ public class Share {
 
     public void setOffer(Offer offer) {
         this.offer = offer;
+    }
+
+    public String getPostId() {
+        return postId;
+    }
+
+    public void setPostId(String postId) {
+        this.postId = postId;
     }
 }

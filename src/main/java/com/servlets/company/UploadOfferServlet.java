@@ -36,7 +36,8 @@ public class UploadOfferServlet extends HttpServlet {
     private Offer getOfferFromRequest(HttpServletRequest req) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         OfferBuilder offerBuilder = new OfferBuilder();
-        offerBuilder.setProductName(req.getParameter("productName"))
+        offerBuilder.setOfferId(Integer.parseInt(req.getParameter("offerId")))
+                .setProductName(req.getParameter("productName"))
                 .setPoints(Integer.parseInt(req.getParameter("points")));
         try {
             offerBuilder.setTimeToPublish(dateFormat.parse(req.getParameter("timeToPublish")))

@@ -37,6 +37,12 @@ public class SessionUtils {
 
     }
 
+    public static User getUserFromSession(HttpServletRequest request){
+        HttpSession session = request.getSession(true);
+        User user = (User)session.getAttribute(USERID);
+        return user;
+    }
+
     public static void saveCompanyToSession(HttpServletRequest request, Company company){
         HttpSession session = request.getSession(true);
         if(session.getAttribute(COMPANYNAME) == null){

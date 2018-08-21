@@ -11,6 +11,7 @@ public class OfferBuilder {
     private Date timeToDelete;
     private String productName;
     private int maxPublishers;
+    private int offerId;
 
     public OfferBuilder setPoints(int points) {
         this.points = points;
@@ -43,7 +44,7 @@ public class OfferBuilder {
     }
 
     public Offer createOffer() {
-        return new Offer(points, pictureURL, timeToPublish, timeToDelete, productName, maxPublishers);
+        return new Offer(points, pictureURL, timeToPublish, timeToDelete, productName, maxPublishers, offerId);
     }
 
     public OfferBuilder setProductName(String productName) {
@@ -53,6 +54,11 @@ public class OfferBuilder {
 
     public OfferBuilder setMaxPublishers(int maxPublishers) {
         this.maxPublishers = maxPublishers;
+        return this;
+    }
+
+    public OfferBuilder setOfferId(int id) {
+        this.offerId = id;
         return this;
     }
 }
