@@ -53,6 +53,9 @@
     <%--Need to test this--%>
         <% for (Offer offer : company.getOffers()) { %>
     <div class="col-lg-4 col-sm-6">
+        <label>Name:</label> <%=offer.getProductName()%> <br>
+        <label>Start Date:</label> <%=offer.getTimeToPublish()%> <br>
+        <label>Publishers: </label> <%=offer.getMaxAmount() - offer.getAmount()%> <br>
         <div class="thumbnail">
             <img src=<%=offer.getPictureURL()%>>
         </div>
