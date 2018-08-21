@@ -87,6 +87,7 @@
                                 <input type="text" id="maxNumOfPublishersInputText" value="<%=offer.getMaxPublishers()%>" disabled> <br>
                                 <label for="numOfPublishersInputText"> Max num of publishers: </label>
                                 <input type="text" id="numOfPublishersInputText" value="<%=offer.getCurrentPublisherNumber()%>" disabled>
+                                <input type="hidden" name="offerId" value="<%=offer.getOfferId()%>">
                             </form>
                         </div>
                     </div>
