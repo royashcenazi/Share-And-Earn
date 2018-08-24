@@ -12,8 +12,6 @@ public class Offer {
     private int offerId;
     private int currentPublisherNumber;
 
-
-
     public Offer() {}
 
     @Override
@@ -49,12 +47,32 @@ public class Offer {
         return timeToPublish;
     }
 
+    public String getTimeToPublishAsString() {
+        String res = "";
+
+        if (timeToPublish != null) {
+            res = timeToPublish.toString();
+        }
+
+        return res;
+    }
+
     public void setTimeToPublish(Date timeToPublish) {
         this.timeToPublish = timeToPublish;
     }
 
     public Date getTimeToDelete() {
         return timeToDelete;
+    }
+
+    public String getTimeToDeleteAsString() {
+        String res = "";
+
+            if (timeToDelete != null) {
+            res = timeToDelete.toString();
+        }
+
+        return res;
     }
 
     public void setTimeToDelete(Date timeToDelete) {

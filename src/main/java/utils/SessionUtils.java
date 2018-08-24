@@ -37,24 +37,24 @@ public class SessionUtils {
 
     }
 
-    public static User getUserFromSession(HttpServletRequest request){
+    public static User getUserFromSession(HttpServletRequest request) {
         HttpSession session = request.getSession(true);
-        User user = (User)session.getAttribute(USERID);
+        User user = (User) session.getAttribute(USERID);
         return user;
     }
 
-    public static void saveCompanyToSession(HttpServletRequest request, Company company){
+    public static void saveCompanyToSession(HttpServletRequest request, Company company) {
         HttpSession session = request.getSession(true);
-        if(session.getAttribute(COMPANYNAME) == null){
-            session.setAttribute(COMPANYNAME, company);
-        }
+//        if(session.getAttribute(COMPANYNAME) == null){
+        session.setAttribute(COMPANYNAME, company);
+//        }
     }
 
     public static Company getCompanyFromSession(HttpServletRequest request) throws Exception {
         HttpSession session = request.getSession();
 
         Company company = (Company) session.getAttribute(COMPANYNAME);
-        if(company == null){
+        if (company == null) {
             throw new Exception(String.format("Company: %s dosn't exist in session"));
         }
 

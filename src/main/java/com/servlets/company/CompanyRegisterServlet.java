@@ -3,6 +3,8 @@ package com.servlets.company;
 import model.Company;
 import dataBase.MongoInteractor;
 import model.builders.CompanyBuilder;
+import utils.Constants;
+import utils.SessionUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,6 +23,7 @@ public class CompanyRegisterServlet extends HttpServlet {
     private static final String EMAIL = "email";
     private static final String PHONEADDRESS = "phone";
     private static final String ADDRESS = "address";
+    private static final String ABOUT = "about";
 
     private MongoInteractor db = MongoInteractor.getInstance();
 
@@ -33,10 +36,9 @@ public class CompanyRegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Company company = fetchCompanyDetails(req);
         db.saveCompanyToDataBase(company);
-
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/company/loby/companyLandingPage.html");
+        SessionUtils.saveCompanyToSession(req, company);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher(Constants.COMPANY_LANDINGPAGE_JSP_PATH);
         requestDispatcher.forward(req, resp);
-
     }
 
     private Company fetchCompanyDetails(HttpServletRequest req) {
@@ -46,7 +48,8 @@ public class CompanyRegisterServlet extends HttpServlet {
                 .setLogoUrl(req.getParameter(LOGO_URL))
                 .setName(req.getParameter(NAME))
                 .setPassword(req.getParameter(PASS))
-                .setPhoneNumber(req.getParameter(PHONEADDRESS));
+                .setPhoneNumber(req.getParameter(PHONEADDRESS))
+                .setAbout(req.getParameter(ABOUT));
 
         Company company = companyBuilder.createCompany();
 

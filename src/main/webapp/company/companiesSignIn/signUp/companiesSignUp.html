@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="companiesSignUp.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
           integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
@@ -43,6 +44,10 @@
             <input type="file" name="file-upload" id="file-upload" required>
         </label>
 
+        <div class="form-group">
+            <label for="about"><b>About:</b></label><br>
+            <textarea class="form-control" id="about" name="about" cols="40" rows="5" required></textarea>
+        </div>
         <input type="hidden" name="logoUrl" id="logoUrlInput">
 
         <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
@@ -55,5 +60,7 @@
     </div>
 </form>
 
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 </html>

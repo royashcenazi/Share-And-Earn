@@ -16,7 +16,6 @@ $(function () {
         });
         $(".offerForm > input[type='text']").prop('disabled', true);
     });
-
 })
 
 function OfferEditButtonClickedEventHandler() {

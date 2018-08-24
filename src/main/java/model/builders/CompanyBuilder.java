@@ -9,6 +9,7 @@ public class CompanyBuilder {
     private String phoneNumber;
     private String address;
     private String password;
+    private String about;
 
     public CompanyBuilder setName(String name) {
         this.name = name;
@@ -41,6 +42,11 @@ public class CompanyBuilder {
     }
 
     public Company createCompany() {
-        return new Company(name, logoUrl, email, phoneNumber, address, password);
+        return new Company(name, logoUrl, email, phoneNumber, address, password, about);
+    }
+
+    public CompanyBuilder setAbout(String about) {
+        this.about = about;
+        return this;
     }
 }

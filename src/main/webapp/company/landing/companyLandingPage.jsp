@@ -20,29 +20,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo"
-                    aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="#" class="navbar-brand"><span class="glyphicon glyphicon-picture"></span> <%= company.getName() %>
-            </a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-nav-demo">
-            <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="./companySettingsPage.jsp">Settings</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<%@ include file="navbar.jsp" %>
 
 <div class="container">
 
@@ -51,7 +29,7 @@
         <p>click on a picture to see more details</p>
     </div>
 
-    <%--Need to test this--%>
+    <% if (company.getOffers() != null) { %>
     <% for (Offer offer : company.getOffers()) { %>
     <div class="col-lg-4 col-sm-6">
         <label>Name:</label> <%=offer.getProductName()%> <br>
@@ -68,7 +46,8 @@
 
                 <div class="modal-header">
                     <%--<button type="button" class="close" data-dismiss="modal">&times;</button>--%>
-                    <h4 class="modal-title" style="text-align: center"><%=offer.getProductName()%></h4>
+                    <h4 class="modal-title" style="text-align: center"><%=offer.getProductName()%>
+                    </h4>
                 </div>
                 <div class="modal-body">
                     <div style="display: flex" class="flex-container">
@@ -76,32 +55,40 @@
                             <img width="150px" height="150px" src=<%=offer.getPictureURL()%>>
                         </div>
                         <div>
-                            <form class="offerForm" action="/updateOffer">
+                            <form class="offerForm" action="/uploadOffer">
+                                <label> Time To publish: </label> <%=offer.getTimeToPublishAsString()%><br>
+                                <label> Time To delete: </label> <%=offer.getTimeToDeleteAsString()%><br>
                                 <label for="pointsInputText"> Points:</label>
-                                <input type="text" id="pointsInputText" value="<%=offer.getPoints()%>" disabled>  <br>
-                                <label for="timeToPublishInputText"> Time To publish: </label>
-                                <input type="text" id="timeToPublishInputText" value="<%=offer.getPoints()%>" disabled> <br>
-                                <label for="timeToDeleteInputText"> Time To delete: </label>
-                                <input type="text" id="timeToDeleteInputText" value="<%=offer.getTimeToDelete()%>" disabled> <br>
+                                <input class="form-control" name="points" type="text" id="pointsInputText"
+                                       value="<%=offer.getPoints()%>" disabled> <br>
                                 <label for="maxNumOfPublishersInputText"> Max num of publishers: </label>
-                                <input type="text" id="maxNumOfPublishersInputText" value="<%=offer.getMaxPublishers()%>" disabled> <br>
+                                <input class="form-control" name="maxPublishers" type="text"
+                                       id="maxNumOfPublishersInputText" value="<%=offer.getMaxPublishers()%>" disabled>
+                                <br>
                                 <label for="numOfPublishersInputText"> Max num of publishers: </label>
-                                <input type="text" id="numOfPublishersInputText" value="<%=offer.getCurrentPublisherNumber()%>" disabled>
-                                <input type="hidden" name="offerId" value="<%=offer.getOfferId()%>">
+                                <input class="form-control" type="text" id="numOfPublishersInputText"
+                                       value="<%=offer.getCurrentPublisherNumber()%>" disabled>
+                                <input class="form-control" type="hidden" name="offerId"
+                                       value="<%=offer.getOfferId()%>">
+                                <input class="form-control" type="hidden" name="productName"
+                                       value="<%=offer.getProductName()%>">
                             </form>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success pull-left" onclick="OfferEditButtonClickedEventHandler()">Edit</button>
-                    <button type="button" class="btn btn-info" onclick="offerSaveButtonClickedEventHandler(this)">Save</button>
+                    <button type="button" class="btn btn-success pull-left"
+                            onclick="OfferEditButtonClickedEventHandler()">Edit
+                    </button>
+                    <button type="button" class="btn btn-info" onclick="offerSaveButtonClickedEventHandler(this)">Save
+                    </button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </div>
 
         </div>
     </div>
-    <% } %>
+    <% } } %>
 
 </div>
 

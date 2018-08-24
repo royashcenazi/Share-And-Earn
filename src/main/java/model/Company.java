@@ -15,18 +15,20 @@ public class Company {
     private String address;
     private String password;
     private List<Share> shares;
+    private String about;
 
-    public Company()  {
+    public Company() {
     }
 
-    public Company(String name, String logoUrl,
-                   String email, String phoneNumber, String address, String password) {
+    public Company(String name, String logoUrl, String email, String phoneNumber,
+                   String address, String password, String about) {
         this.name = name;
         this.logoUrl = logoUrl;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.password = password;
+        this.about = about;
     }
 
     public void setLogoUrl(String logoUrl) {
@@ -94,14 +96,14 @@ public class Company {
     }
 
     public void addOffer(Offer offer) {
-        if(this.offers == null){
+        if (this.offers == null) {
             offers = new ArrayList<Offer>();
         }
         offers.add(offer);
     }
 
-    public void addShare(Share share){
-        if(this.shares == null)
+    public void addShare(Share share) {
+        if (this.shares == null)
             this.shares = new ArrayList<Share>();
         this.shares.add(share);
     }
@@ -118,9 +120,17 @@ public class Company {
         Offer res = null;
 
         for (Offer offer : offers) {
-            if(offer.getOfferId() == offerId)
+            if (offer.getOfferId() == offerId)
                 res = offer;
         }
         return res;
+    }
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
     }
 }
