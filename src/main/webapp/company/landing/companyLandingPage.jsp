@@ -60,18 +60,20 @@
                                 <label> Time To delete: </label> <%=offer.getTimeToDeleteAsString()%><br>
                                 <label for="pointsInputText"> Points:</label>
                                 <input class="form-control" name="points" type="text" id="pointsInputText"
-                                       value="<%=offer.getPoints()%>" disabled> <br>
+                                       value="<%=offer.getPoints()%>"> <br>
                                 <label for="maxNumOfPublishersInputText"> Max num of publishers: </label>
                                 <input class="form-control" name="maxPublishers" type="text"
-                                       id="maxNumOfPublishersInputText" value="<%=offer.getMaxPublishers()%>" disabled>
+                                       id="maxNumOfPublishersInputText" value="<%=offer.getMaxPublishers()%>">
                                 <br>
                                 <label for="numOfPublishersInputText"> Max num of publishers: </label>
                                 <input class="form-control" type="text" id="numOfPublishersInputText"
-                                       value="<%=offer.getCurrentPublisherNumber()%>" disabled>
+                                       value="<%=offer.getCurrentPublisherNumber()%>">
                                 <input class="form-control" type="hidden" name="offerId"
                                        value="<%=offer.getOfferId()%>">
                                 <input class="form-control" type="hidden" name="productName"
                                        value="<%=offer.getProductName()%>">
+                                <input name="timeToPublish" type="hidden" value="<%=offer.getTimeToPublishAsString()%>"> <br>
+                                <input name="timeToDelete"  type="hidden" value="<%=offer.getTimeToDeleteAsString()%>"> <br>
                             </form>
                         </div>
                     </div>
@@ -88,7 +90,8 @@
 
         </div>
     </div>
-    <% } } %>
+    <% }
+    } %>
 
 </div>
 

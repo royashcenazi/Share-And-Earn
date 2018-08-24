@@ -1,5 +1,6 @@
 package model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Offer {
@@ -11,6 +12,7 @@ public class Offer {
     private int maxPublishers;
     private int offerId;
     private int currentPublisherNumber;
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     public Offer() {}
 
@@ -50,8 +52,8 @@ public class Offer {
     public String getTimeToPublishAsString() {
         String res = "";
 
-        if (timeToPublish != null) {
-            res = timeToPublish.toString();
+        if (timeToDelete != null) {
+            res = dateFormat.format(timeToPublish);
         }
 
         return res;
@@ -69,7 +71,7 @@ public class Offer {
         String res = "";
 
             if (timeToDelete != null) {
-            res = timeToDelete.toString();
+                res = dateFormat.format(timeToDelete);
         }
 
         return res;
