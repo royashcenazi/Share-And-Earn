@@ -27,11 +27,12 @@
     <div class="jumbotron">
         <h1><i class="fas fa-gift"></i></span> Your offers</h1>
         <p>click on a picture to see more details</p>
+        <jsp:forward page="newOffer.jsp">
+        <a href="./newOffer.jsp" class="btn btn-success pull-right">New Offer</a>
     </div>
-
     <% if (company.getOffers() != null) { %>
     <% for (Offer offer : company.getOffers()) { %>
-    <div class="col-lg-4 col-sm-6">
+    <div class="col-sm-4">
         <label>Name:</label> <%=offer.getProductName()%> <br>
         <div class="thumbnail">
             <img src=<%=offer.getPictureURL()%> data-toggle="modal" data-target="#myModal">
@@ -58,32 +59,15 @@
                             <form class="offerForm" action="/uploadOffer">
                                 <label> Time To publish: </label> <%=offer.getTimeToPublishAsString()%><br>
                                 <label> Time To delete: </label> <%=offer.getTimeToDeleteAsString()%><br>
-                                <label for="pointsInputText"> Points:</label>
-                                <input class="form-control" name="points" type="text" id="pointsInputText"
-                                       value="<%=offer.getPoints()%>"> <br>
-                                <label for="maxNumOfPublishersInputText"> Max num of publishers: </label>
-                                <input class="form-control" name="maxPublishers" type="text"
-                                       id="maxNumOfPublishersInputText" value="<%=offer.getMaxPublishers()%>">
+                                <label> Points:</label> <%=offer.getPoints()%><br>
+                                <label> Max num of publishers: </label> <%=offer.getMaxPublishers()%><br>
+                                <label> Current num of publishers: </label> <%=offer.getCurrentPublisherNumber()%>
                                 <br>
-                                <label for="numOfPublishersInputText"> Max num of publishers: </label>
-                                <input class="form-control" type="text" id="numOfPublishersInputText"
-                                       value="<%=offer.getCurrentPublisherNumber()%>">
-                                <input class="form-control" type="hidden" name="offerId"
-                                       value="<%=offer.getOfferId()%>">
-                                <input class="form-control" type="hidden" name="productName"
-                                       value="<%=offer.getProductName()%>">
-                                <input name="timeToPublish" type="hidden" value="<%=offer.getTimeToPublishAsString()%>"> <br>
-                                <input name="timeToDelete"  type="hidden" value="<%=offer.getTimeToDeleteAsString()%>"> <br>
                             </form>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success pull-left"
-                            onclick="OfferEditButtonClickedEventHandler()">Edit
-                    </button>
-                    <button type="button" class="btn btn-info" onclick="offerSaveButtonClickedEventHandler(this)">Save
-                    </button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </div>
