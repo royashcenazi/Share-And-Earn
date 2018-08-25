@@ -38,7 +38,6 @@ function setFileUploadHandler() {
             spinner.removeClass("btn-warning")
             spinner.addClass("btn-success")
             console.log(res);
-
         }).catch(function (err) {
             console.log(err);
         });
@@ -52,15 +51,6 @@ window.onload = function () {
 
 function goBack() {
     window.history.back()
-}
-
-function validateRepeatPassword(input) {
-    if (input.value != document.getElementById('psw').value) {
-        input.setCustomValidity('Password Must be Matching.');
-    } else {
-        // input is valid -- reset the error message
-        input.setCustomValidity('');
-    }
 }
 
 //jQuery time

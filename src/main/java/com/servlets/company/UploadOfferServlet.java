@@ -33,7 +33,7 @@ public class UploadOfferServlet extends HttpServlet {
     }
 
     private Offer getOfferFromRequest(HttpServletRequest req) throws Exception {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
         OfferBuilder offerBuilder = new OfferBuilder();
 
         try {
@@ -41,9 +41,9 @@ public class UploadOfferServlet extends HttpServlet {
                     .setProductName(req.getParameter("productName"))
                     .setPoints(Integer.parseInt(req.getParameter("points")))
                     .setMaxPublishers(Integer.parseInt(req.getParameter("maxPublishers")))
-                    .setTimeToPublish(dateFormat.parse(req.getParameter("timeToPublish")))
                     .setTimeToDelete(dateFormat.parse(req.getParameter("timeToDelete")))
-                    .setTimeToPublish(new Date());
+                    .setTimeToPublish(new Date())
+                    .setPictureURL(req.getParameter("picUrl"));
         } catch (Exception e) {
             throw new Exception("Can't update offer", e);
         }

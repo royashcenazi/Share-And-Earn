@@ -61,7 +61,6 @@ public class MongoInteractor {
         return true;
     }
 
-
     public void saveAppUserDetailsToDataBase(String name, String id) {
         MongoCollection<User> collection = db.getCollection(UsersCollection, User.class);
         User appUser;
@@ -78,7 +77,6 @@ public class MongoInteractor {
             collection.insertOne(appUser);
         }
     }
-
 
     public boolean isCompanyExistInDataBase(Company company) {
         boolean companyExistInDB;
@@ -119,7 +117,6 @@ public class MongoInteractor {
         }
         return true;
     }
-
 
     public List<Company> getAllCompanies() {
         List<Company> companies = new ArrayList<Company>();

@@ -59,5 +59,6 @@
 <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="./companiesSignUp.js"></script>
+<script src="/common/js/utils.js"></script>
 </body>
 </html>
