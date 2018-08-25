@@ -6,7 +6,7 @@
     <title>Add new offer</title>
 </head>
 <body>
-<%@ include file="navbar.jsp" %>
+<%--<%@ include file="navbar.jsp" %>--%>
 
 <div class="container">
     <div id="addNewOfferDiv" class="form-group">

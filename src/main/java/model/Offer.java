@@ -12,7 +12,7 @@ public class Offer {
     private int maxPublishers;
     private int offerId;
     private int currentPublisherNumber;
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
     public Offer() {}
 

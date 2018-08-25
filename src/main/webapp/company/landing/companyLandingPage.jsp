@@ -27,7 +27,7 @@
     <div class="jumbotron">
         <h1><i class="fas fa-gift"></i></span> Your offers</h1>
         <p>click on a picture to see more details</p>
-        <jsp:forward page="newOffer.jsp">
+        <%--<jsp:forward page="newOffer.jsp">--%>
         <a href="./newOffer.jsp" class="btn btn-success pull-right">New Offer</a>
     </div>
     <% if (company.getOffers() != null) { %>
