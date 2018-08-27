@@ -1,0 +1,57 @@
+
+body{
+	margin: 20px auto;
+	max-width: 700px;
+	width: 80%;
+	height: 100%;
+	padding: 20px;
+	font-family: 'Ubuntu Condensed', sans-serif;
+	background: #bdc3c7;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+html{
+	height: 100%;
+}
+
+hr{
+	border: 0;
+	height: 1px;
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+h1{
+	letter-spacing: 3px;
+	margin: 20px auto;
+	text-align: center;
+}
+
+label {
+	display: inline-block;
+	width: 140px;
+	text-align: left;
+}​
+
+ .customer-details{
+	 /*border: 1px solid black;*/
+	 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	 text-align: left;
+	 padding: 10px 5px;
+ }
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 45%;
+}
+
+.company-logo{
+	border-radius: 50%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	max-width: 200px;
+	max-height: 200px;
+}
