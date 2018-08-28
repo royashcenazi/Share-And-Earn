@@ -5,8 +5,8 @@
 <% if (company.getOffers() != null) { %>
 <% for (Offer offer : company.getOffers()) { %>
 <div class="col-sm-4">
-    <label>Name:</label> <%=offer.getProductName()%> <br>
     <div class="thumbnail">
+        <label>Name:</label> <%=offer.getProductName()%> <br>
         <img src=<%=offer.getPictureURL()%> data-toggle="modal" data-target="#myModal">
     </div>
 </div>
@@ -40,7 +40,9 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" onclick="postShare('<%=offer.getPictureURL()%>', <%=offer.getOfferId()%>)">Post</button>
+                <button type="button" class="btn btn-success"
+                        onclick="postShare('<%=offer.getPictureURL()%>', <%=offer.getOfferId()%>)">Post
+                </button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
         </div>
