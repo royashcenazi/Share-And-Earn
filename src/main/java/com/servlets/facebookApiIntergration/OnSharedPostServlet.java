@@ -26,7 +26,7 @@ public class OnSharedPostServlet extends HttpServlet {
         Facebook facebook = (Facebook) req.getSession().getAttribute("facebook");
         //TODO:: get user_posts approvals
         //String postId = req.getParameter("postId");
-        String companyName = req.getParameter("companyName");
+            String companyName = req.getParameter("companyName");
         int offerId = Integer.parseInt(req.getParameter("offerId"));
 
         if (isPostStillPosted(facebook, "stam") == true) {
