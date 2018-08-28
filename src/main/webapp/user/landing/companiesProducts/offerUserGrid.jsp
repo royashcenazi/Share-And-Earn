@@ -1,4 +1,7 @@
 <%@ page import="model.Offer" %>
+
+<script src="./companiesProducts.js"></script>
+
 <% if (company.getOffers() != null) { %>
 <% for (Offer offer : company.getOffers()) { %>
 <div class="col-sm-4">
