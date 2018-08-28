@@ -49,59 +49,23 @@
 <%--for debug only!--%>
 <%Company company = MongoInteractor.getInstance().getCompanyByName("Test Company");%>
 
-<%--<p id="companyName" hidden><%=company.getName()%></p>--%>
+<%@ page import="model.Offer" %><%--
+  Created by IntelliJ IDEA.
+  User: eladg
+  Date: 28/08/18
+  Time: 12:05
+  To change this template use File | Settings | File Templates.
+--%>
 
-<ul class="photo-items photo-container">
-    <!-- COMPANY'S LOGO GOES HERE -->
-    <div><img src="<%=company.getLogoUrl()%>" class="company-logo"></div>
-    <br>
-    <div>
-        <h3>About us:</h3>
-        <div id="about-company">Our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-            ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </div>
-    </div>
-    <br>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
-    <%for (Offer offer : company.getOffers()) {%>
-
-    <li class="photo-item">
-        <img src="<%=offer.getPictureURL()%>" alt="Item-Preview">
-        <a href="#0" class="photo-trigger">View product</a>
-    </li> <!-- photo-item -->
-    <%}%>
-
-</ul> <!-- photo-items -->
+<%@include file="offerUserGris.jsp"%>
 
 
-<%for (Offer offer : company.getOffers()) {%>
-
-
-<div class="photo-quick-view">
-
-
-    <div class="photo-slider-wrapper">
-        <ul class="photo-slider">
-            <li class="selected"><img src="<%=offer.getPictureURL()%>" alt="Product 1"></li>
-        </ul> <!-- photo-slider -->
-
-    </div> <!-- photo-slider-wrapper -->
-
-    <div class="photo-item-info">
-        <h2>Product Title</h2>
-        <p><%=offer.toString()%>
-        </p>
-        <ul class="photo-item-action">
-            <li>
-                <button class="post" onclick="postShare('<%=offer.getPictureURL()%>', <%=offer.getOfferId()%>)">Post</button>
-            </li>
-        </ul> <!-- photo-item-action -->
-    </div> <!-- photo-item-info -->
-    <a href="#0" class="photo-close">Close</a>
-</div> <!-- photo-quick-view -->
-
-<%}%>
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
 <script src="../../company/js/jquery-2.1.1.js"></script>

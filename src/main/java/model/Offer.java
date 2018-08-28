@@ -124,10 +124,18 @@ public class Offer {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("points: ")
-                .append(points + " ")
-                .append("productName: ")
-                .append(productName + " ");
+        sb.append("product name: ")
+                .append(productName + " \n")
+                .append("points: ")
+                .append(points + " \n")
+                .append("max publishers: ")
+                .append(maxPublishers + " \n")
+                .append("current publishers: ")
+                .append(currentPublisherNumber + " \n")
+                .append("max publishers: ")
+                .append(maxPublishers + " \n")
+                .append("max publishers: ")
+                .append(maxPublishers + " \n");
         return sb.toString();
     }
 }

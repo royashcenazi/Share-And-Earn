@@ -29,6 +29,7 @@
 				<label>Customer ID: </label>
 				<input type="text" name="customer-id" id="customer-id">	
 			</div>
+
 			
 			<div class="block">
 				<label>Points to utilize: </label>
