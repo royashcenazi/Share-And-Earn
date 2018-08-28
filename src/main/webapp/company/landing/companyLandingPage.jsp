@@ -29,52 +29,8 @@
         <p>click on a picture to see more details</p>
         <a href="./newOffer.jsp" class="btn btn-success pull-right">New Offer</a>
     </div>
-    <% if (company.getOffers() != null) { %>
-    <% for (Offer offer : company.getOffers()) { %>
-    <div class="col-sm-4">
-        <label>Name:</label> <%=offer.getProductName()%> <br>
-        <div class="thumbnail">
-            <img src=<%=offer.getPictureURL()%> data-toggle="modal" data-target="#myModal">
-        </div>
-    </div>
 
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <%--<button type="button" class="close" data-dismiss="modal">&times;</button>--%>
-                    <h4 class="modal-title" style="text-align: center"><%=offer.getProductName()%>
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <div style="display: flex" class="flex-container">
-                        <div>
-                            <img width="150px" height="150px" src=<%=offer.getPictureURL()%>>
-                        </div>
-                        <div>
-                            <form class="offerForm" action="/uploadOffer">
-                                <label> Time To publish: </label> <%=offer.getTimeToPublishAsString()%><br>
-                                <label> Time To delete: </label> <%=offer.getTimeToDeleteAsString()%><br>
-                                <label> Points:</label> <%=offer.getPoints()%><br>
-                                <label> Max num of publishers: </label> <%=offer.getMaxPublishers()%><br>
-                                <label> Current num of publishers: </label> <%=offer.getCurrentPublisherNumber()%>
-                                <br>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <% }
-    } %>
+    <%@ include file="/common/jsp/offersGrid.jsp" %>
 
 </div>
 
