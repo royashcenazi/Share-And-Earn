@@ -11,15 +11,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="companyLandingPage.jsp" class="navbar-brand"><span class="glyphicon glyphicon-picture"></span> <%= companyFromSession.getName() %>
+            <a href="userLandingPage.jsp.jsp" class="navbar-brand"><span class="glyphicon glyphicon-picture"></span> <%= user.getName() %>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-nav-demo">
             <ul class="nav navbar-nav">
-                <li><a href="../companiesPage.jsp">Home</a></li>
-                <li><a href="../earnsPage.jsp">Earns</a></li>
-                <li><a href="./companySettingsPage.jsp">Settings</a></li>
-                <li><a href="companySettingsPage.jsp">Help</a></li>
+                <li><a href="/user/landing/userLandingPage.jsp">Home</a></li>
+                <li><a href="/user/earns/earnsPage.jsp">Earns</a></li>
+                <li><a href="/user/settings/settings.jsp">Settings</a></li>
+                <li><a href="/user/help/helpPage.jsp">Help</a></li>
             </ul>
         </div>
     </div>

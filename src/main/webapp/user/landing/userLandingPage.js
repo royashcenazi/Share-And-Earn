@@ -44,7 +44,7 @@ function getAllPictures() {
                     var img = document.createElement("img");
                     img.src = companiesImgsUrls[companyName]
                     img.onclick = function () {
-                        location.href = "companyProducts.jsp?companyName=" + companyName;
+                        location.href = "companiesProducts/companyProducts.jsp?companyName=" + companyName;
                     }
                     img.onmousemove = function () {
                         $(this).css('cursor','pointer');

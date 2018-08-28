@@ -37,6 +37,6 @@ public class CallbackServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        response.sendRedirect(request.getContextPath() + "user/companiesPage/companiesPage.html");
+        response.sendRedirect(request.getContextPath() + "user/landing/userLandingPage.jsp");
     }
 }

@@ -15,7 +15,7 @@
 <div class="col-sm-4">
     <label>Name:</label> <%=offer.getProductName()%> <br>
     <div class="thumbnail">
-        <img src=<%=offer.getPictureURL()%> data-toggle="modal" data-target="#myModal">
+        <img src=<%=offer.getPictureURL()%> data-toggle="modal" data-target="#myModal" style="cursor: pointer">
     </div>
 </div>
 

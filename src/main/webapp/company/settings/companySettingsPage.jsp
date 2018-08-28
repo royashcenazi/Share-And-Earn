@@ -12,14 +12,14 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
           integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    <link rel="stylesheet" href="../companyLandingPage.css">
+    <link rel="stylesheet" href="../landing/companyLandingPage.css">
     <link rel="stylesheet" href="companySettingsPage.css">
 
     <% Company company = SessionUtils.getCompanyFromSession(request); %>
     <title>Settings</title>
 </head>
 <body>
-<%@ include file="../../common/navbar.jsp" %>
+<%@ include file="/company/common/navbar.jsp" %>
 
 <div class="container">
 
