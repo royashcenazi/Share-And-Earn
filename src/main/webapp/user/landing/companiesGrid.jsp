@@ -8,10 +8,10 @@
     String companyName = company.getName();%>
 
 <div class="col-sm-4">
-    <label>Company name:</label> <%= companyName %> <br>
     <div class="thumbnail">
+        <label>Company name:</label> <%= companyName %> <br>
         <a href="<%="./companiesProducts/companyProducts.jsp?companyName=" + companyName%>">
-            <img src=<%= company.getLogoUrl()%> data-toggle="modal"
+            <img src=<%= company.getLogoUrl()%> data-toggle="modal"/>
         </a>
     </div>
 </div>
