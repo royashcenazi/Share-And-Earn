@@ -8,6 +8,9 @@ public class Earn {
     private Date dueDate;
     private Date readyToUseDate;
     private int code;
+    private String pictureUrl;
+
+    private String productName;
 
     public int getAmount() {
         return amount;
@@ -66,4 +69,21 @@ public class Earn {
     public int hashCode() {
         return code;
     }
+
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
+    }
+
+    public String getPictureUrl() {
+        return pictureUrl;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
 }

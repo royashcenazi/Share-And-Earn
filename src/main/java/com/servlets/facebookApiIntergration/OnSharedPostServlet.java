@@ -89,6 +89,8 @@ public class OnSharedPostServlet extends HttpServlet {
         earn.setDueDate(offer.getTimeToDelete());
         ICodeGenerator codeGenerator = utils.ICodeGeneratorImpl.getInstance();
         earn.setCode(codeGenerator.generateCode());
+        earn.setPictureUrl(offer.getPictureURL());
+        earn.setProductName(offer.getProductName());
         //earn.setReadyToUseDate(offer.getTimeToPublish());
         return earn;
     }
