@@ -24,7 +24,7 @@ public class OnSharedPostServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Facebook facebook = (Facebook) req.getSession().getAttribute("facebook");
-        //TODO:: get user_posts approvals
+        //TODO: get user_posts approvals
         //String postId = req.getParameter("postId");
             String companyName = req.getParameter("companyName");
         int offerId = Integer.parseInt(req.getParameter("offerId"));

@@ -7,7 +7,6 @@
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-
 function postShare(pictureUrl, offerId) {
     FB.ui({
         method: 'share',

@@ -1,8 +1,7 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.*" %>
-<%@ page import="com.google.gson.Gson"%>
-<%@ page import="com.google.gson.JsonObject"%>
+<%@ page import="com.google.gson.Gson" %>
+<%@ page import="com.google.gson.JsonObject" %>
 <%@ page import="dataBase.MongoInteractor" %>
 <%@ page import="model.Company" %>
 <%@ page import="model.Offer" %>
@@ -10,7 +9,7 @@
 <%
     Gson gsonObj = new Gson();
     Company company = MongoInteractor.getInstance().getCompanyByName("Test Company");
-    List<Map<Object,Object>> list = new ArrayList<Map<Object,Object>>();
+    List<Map<Object, Object>> list = new ArrayList<Map<Object, Object>>();
     for (Offer offer : company.getOffers()) {
         Map<Object, Object> map = new HashMap<Object, Object>();
         map.put("label", offer.getProductName());
@@ -26,7 +25,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script type="text/javascript">
-        window.onload = function() {
+        window.onload = function () {
 
             var chart = new CanvasJS.Chart("chartContainer", {
                 animationEnabled: true,
@@ -47,7 +46,7 @@
                 data: [{
                     type: "column",
                     indexLabel: "{y}",
-                    dataPoints: <%out.print(dataPoints);%>
+                    dataPoints: <%=dataPoints%>
                 }]
             });
             chart.render();
@@ -56,6 +55,7 @@
     </script>
 </head>
 <body>
+<%@ include file="/company/common/navbar.jsp" %>
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
@@ -65,7 +65,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script type="text/javascript">
-        window.onload = function() {
+        window.onload = function () {
 
             var chart = new CanvasJS.Chart("chartContainer", {
                 animationEnabled: true,
@@ -78,7 +78,7 @@
 //                    indexLabel: "{y}", //Shows y value on all Data Points
                     indexLabelFontColor: "#5A5757",
                     indexLabelPlacement: "outside",
-                    dataPoints: <%out.print(dataPoints);%>
+                    dataPoints: <%=dataPoints%>
                 }]
             });
             chart.render();

@@ -11,7 +11,7 @@
     <div class="thumbnail">
         <label>Company name:</label> <%= companyName %> <br>
         <a href="<%="./companiesProducts/companyProducts.jsp?companyName=" + companyName%>">
-            <img src=<%= company.getLogoUrl()%> data-toggle="modal"/>
+            <img src=<%= company.getLogoUrl()%> data-toggle="modal" style="cursor: pointer" />
         </a>
     </div>
 </div>

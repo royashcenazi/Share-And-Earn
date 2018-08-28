@@ -1,4 +1,5 @@
-<%--
+<%@ page import="model.Earn" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: eladg
   Date: 28/08/18
@@ -9,23 +10,53 @@
 <html>
 <head>
     <title>Earns</title>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css"
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <script src="earnsPage.js"></script>
 </head>
 <body>
-<%@ include file="../common/navbar.jsp" %>
+<%@ include file="/user/common/navbar.jsp" %>
 <div class="container">
     <div class="jumbotron">
         <h1><i class="fas fa-award"></i></span> Earns</h1>
         <p>See what you have earned with us</p>
     </div>
-<%--TODO: implement--%>
-    <p>Need to implement</p>
+    <% List<Earn> earnList = user.getEarnList();
+        if (earnList != null) {
+            for (Earn earn : user.getEarnList()) { %>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title"><%=earn.getProductName()%>
+            </h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+
+    <div id="earnModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title" style="text-align: center">Earn Details</h4>
+                </div>
+                <div class="modal-body">
+                    <button type="button" class="btn btn-success" data-dismiss="modal" onclick=" showEarnCode(<%=earn.getCode()%>)">Get Code</button>
+                    <label id="earnCodeLabel" for="earnCode" hidden>Code:</label>
+                    <p id="earnCode"></p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% }
+    } else { %>
+        <h2 style="text-align: center">No earns exist </h2>
+    <% } %>
+
 </div>
 </body>
 </html>
