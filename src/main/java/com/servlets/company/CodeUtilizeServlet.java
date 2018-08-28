@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/UtilizePoints")
+@WebServlet("/utilizePoints")
 public class CodeUtilizeServlet extends HttpServlet {
     private MongoInteractor db = MongoInteractor.getInstance();
     private boolean transactionSuccess = true;
