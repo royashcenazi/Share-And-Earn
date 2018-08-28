@@ -3,14 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="./newOffer.css">
+    <link rel="stylesheet" type="text/css" href="newOffer.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./companyLandingPage.css">
-    <link rel="stylesheet" href="./newOffer.css">
+    <link rel="stylesheet" href="../companyLandingPage.css">
+    <link rel="stylesheet" href="newOffer.css">
     <title>Add new offer</title>
 </head>
 <body>
-<%@ include file="navbar.jsp" %>
+<%@ include file="../../common/navbar.jsp" %>
 
 <div class="container">
     <div id="addNewOfferDiv" class="form-group">
@@ -60,7 +60,7 @@
 <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="./newOffer.js"></script>
+<script src="newOffer.js"></script>
 <%--for file upload--%>
 </body>
 </html>
