@@ -12,6 +12,7 @@ public class Share {
     private User publisher;
     private Offer offer;
     private String postId;
+    private int code;
 
     public Share() {}
 
@@ -69,5 +70,28 @@ public class Share {
 
     public void setPostId(String postId) {
         this.postId = postId;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Share share = (Share) o;
+
+        return code == share.code;
+    }
+
+    @Override
+    public int hashCode() {
+        return code;
     }
 }

@@ -1,13 +1,13 @@
 package model;
 
 import java.util.Date;
-import java.util.UUID;
 
 public class Earn {
     private int amount;
     private String companyId;
     private Date dueDate;
     private Date readyToUseDate;
+    private int code;
 
     public int getAmount() {
         return amount;
@@ -42,5 +42,28 @@ public class Earn {
 
     public void setReadyToUseDate(Date readyToUseDate) {
         this.readyToUseDate = readyToUseDate;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Earn earn = (Earn) o;
+
+        return code == earn.code;
+    }
+
+    @Override
+    public int hashCode() {
+        return code;
     }
 }

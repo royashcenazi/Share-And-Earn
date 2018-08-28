@@ -11,6 +11,7 @@ import com.google.gson.JsonObject;
 import dataBase.MongoInteractor;
 import facebook4j.Facebook;
 import model.*;
+import utils.ICodeGenerator;
 import utils.SessionUtils;
 
 //TODO:: add time logic to start and due date! think of a better way to create shares and earns
@@ -50,7 +51,7 @@ public class OnSharedPostServlet extends HttpServlet {
     private void createShareAndEarn(Company company, User user, Offer offer, int offerId) {
         if (offer.getCurrentPublisherNumber() < offer.getMaxPublishers()) {
             Earn earn = buildEarn(company, offer, offerId);
-            Share share = buildShare(company, offer, user, offerId, "stam");
+            Share share = buildShare(company, offer, user, offerId, "stam", earn.getCode());
             user.addEarn(earn);
             company.addShare(share);
             saveDetailsToDb(user, company);
@@ -68,7 +69,7 @@ public class OnSharedPostServlet extends HttpServlet {
     }
 
     //reaady to use date doesnt have any importance since there is currently no post_id
-    private Share buildShare(Company company, Offer offer, User user, int offerId, String postId) {
+    private Share buildShare(Company company, Offer offer, User user, int offerId, String postId, int code) {
         Share share = new Share();
         share.setAmount(offer.getPoints());
         share.setCompanyId(company.getName());
@@ -76,6 +77,7 @@ public class OnSharedPostServlet extends HttpServlet {
         share.setOffer(offer);
         share.setPublisher(user);
         share.setPostId(postId);
+        share.setCode(code);
         //share.setReadyToUseDate(Date.now);
         return share;
     }
@@ -85,6 +87,8 @@ public class OnSharedPostServlet extends HttpServlet {
         earn.setAmount(offer.getPoints());
         earn.setCompanyId(company.getName());
         earn.setDueDate(offer.getTimeToDelete());
+        ICodeGenerator codeGenerator = utils.ICodeGeneratorImpl.getInstance();
+        earn.setCode(codeGenerator.generateCode());
         //earn.setReadyToUseDate(offer.getTimeToPublish());
         return earn;
     }
