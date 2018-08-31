@@ -16,5 +16,6 @@
 
     <%@include file="offerUserGrid.jsp" %>
 </div>
+<div hidden id="companyName"><%=company.getName()%></div>
 </body>
 </html>
