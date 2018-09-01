@@ -18,8 +18,8 @@
 
     <div class="customer-details center">
         <div class="block">
-            <label>Customer ID: </label>
-            <input type="text" name="customer-id" id="customer-id">
+            <label>Share Code: </label>
+            <input type="text" name="share-code" id="share-code">
         </div>
 
 
@@ -33,7 +33,7 @@
     </div>
 </div>
 
-<script type="text/javascript" src="companyUtilizingPoints.js"></script>
+<script type="text/javascript" src="utilizePoints.js"></script>
 
 </body>
 </html>

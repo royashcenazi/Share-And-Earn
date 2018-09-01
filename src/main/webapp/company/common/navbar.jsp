@@ -29,6 +29,7 @@
                 <li><a href="/index.html">Home</a></li>
                 <li><a href="/company/landing/companyLandingPage.jsp">Offers</a></li>
                 <li><a href="/company/analytics/productsAndPublishers.jsp">Analytics</a></li>
+                <li><a href="/company/companyUtilizingPoints/utilizePoints.jsp">Utilize Points</a></li>
                 <li><a href="/company/settings/companySettingsPage.jsp">Settings</a></li>
                 <li><a href="/company/help/help.jsp">Help</a></li>
             </ul>
