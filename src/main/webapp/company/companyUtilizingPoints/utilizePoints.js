@@ -18,6 +18,4 @@ submitButton.addEventListener("click", function () {
             }
         });
     }
-
-
 });

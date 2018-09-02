@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="./utilizePoints.css">
     <title>Utilizing Points</title>
 </head>
 
