@@ -30,6 +30,7 @@ public class UploadOfferServlet extends HttpServlet {
             e.printStackTrace();
             resp.getWriter().write(e.getMessage());// TODO: implement in client side
         }
+        resp.sendRedirect("/company/landing/companyLandingPage.jsp");
     }
 
     private Offer getOfferFromRequest(HttpServletRequest req) throws Exception {

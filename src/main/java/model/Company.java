@@ -119,9 +119,11 @@ public class Company {
     public Offer getOfferById(int offerId) {
         Offer res = null;
 
-        for (Offer offer : offers) {
-            if (offer.getOfferId() == offerId)
-                res = offer;
+        if(offers != null) {
+            for (Offer offer : offers) {
+                if (offer.getOfferId() == offerId)
+                    res = offer;
+            }
         }
         return res;
     }
