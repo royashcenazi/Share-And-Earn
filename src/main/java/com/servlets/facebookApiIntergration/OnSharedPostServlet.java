@@ -48,12 +48,13 @@ public class OnSharedPostServlet extends HttpServlet {
         }
     }
 
-    private void createShareAndEarn(Company company, User user, Offer offer, int offerId) {
+    private void createShareAndEarn(Company company, User user, Offer offer, int offerId) throws Exception {
         if (offer.getCurrentPublisherNumber() < offer.getMaxPublishers()) {
             Earn earn = buildEarn(company, offer, offerId);
             Share share = buildShare(company, offer, user, offerId, "stam", earn.getCode());
             user.addEarn(earn);
             company.addShare(share);
+            offer.decreaseNumPublishers(1);
             saveDetailsToDb(user, company);
             succeededToPost = true;
         } else {

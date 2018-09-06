@@ -138,4 +138,13 @@ public class Offer {
                 .append(maxPublishers + " \n");
         return sb.toString();
     }
+
+    public void decreaseNumPublishers(int publishers) throws Exception {
+        if (maxPublishers - currentPublisherNumber - publishers >= 0){
+            currentPublisherNumber += publishers;
+        }
+        else{
+            throw new Exception("cant exceed max num of publishers for this offer, current num is: " + currentPublisherNumber + "max number is: " + maxPublishers);
+        }
+    }
 }
