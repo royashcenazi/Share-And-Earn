@@ -21,6 +21,7 @@
         $("#maxPublishers").val(<%=offer.getMaxPublishers()%>);
         $("#points").val(<%=offer.getPoints()%>);
         $("#timeToDelete").prop('disabled', true);
+        $("#uploadOfferForm").prop('action', "/updateOffer");
     }
 
     populateFields();
