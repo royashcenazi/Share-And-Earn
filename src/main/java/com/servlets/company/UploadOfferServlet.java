@@ -1,13 +1,11 @@
 package com.servlets.company;
 
-import dataBase.MongoInteractor;
 import model.Company;
 import model.Offer;
 import model.builders.OfferBuilder;
 import utils.SessionUtils;
-import utils.servletUtils;
+import utils.ServletUtils;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +24,7 @@ public class UploadOfferServlet extends HttpServlet {
             Offer offer = getOfferFromRequest(req);
             Company company = SessionUtils.getCompanyFromSession(req);
             updateOffer(offer, company);
-            MongoInteractor.getInstance().updateCompanyInDataBase(company);
+            ServletUtils.updateCompanyToDbAndSession(req, company);
         } catch (Exception e) {
             e.printStackTrace();
             resp.getWriter().write(e.getMessage());// TODO: implement in client side
@@ -45,7 +43,7 @@ public class UploadOfferServlet extends HttpServlet {
                     .setMaxPublishers(Integer.parseInt(req.getParameter("maxPublishers")))
                     .setTimeToDelete(dateFormat.parse(req.getParameter("timeToDelete")))
                     .setTimeToPublish(new Date())
-                    .setPictureURL(servletUtils.buildImgTransformationUrl(req.getParameter("picUrl")));
+                    .setPictureURL(ServletUtils.buildImgTransformationUrl(req.getParameter("picUrl")));
         } catch (Exception e) {
             e.printStackTrace();
         }

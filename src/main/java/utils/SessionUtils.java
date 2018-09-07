@@ -45,9 +45,7 @@ public class SessionUtils {
 
     public static void saveCompanyToSession(HttpServletRequest request, Company company) {
         HttpSession session = request.getSession(true);
-//        if(session.getAttribute(COMPANYNAME) == null){
         session.setAttribute(COMPANYNAME, company);
-//        }
     }
 
     public static Company getCompanyFromSession(HttpServletRequest request) throws Exception {

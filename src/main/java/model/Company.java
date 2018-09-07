@@ -1,5 +1,7 @@
 package model;
 
+import dataBase.MongoElement;
+
 import javax.swing.text.html.HTML;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +19,7 @@ public class Company {
     private List<Share> shares;
     private String about;
 
-    public Company() {
+    public Company()  {
     }
 
     public Company(String name, String logoUrl, String email, String phoneNumber,
@@ -135,4 +137,5 @@ public class Company {
     public void setAbout(String about) {
         this.about = about;
     }
+
 }

@@ -3,6 +3,8 @@ package com.servlets.company;
 import dataBase.MongoInteractor;
 import model.Company;
 import model.Offer;
+import utils.ServletUtils;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +20,7 @@ public class DeleteOfferServlet  extends HttpServlet {
             Company company = MongoInteractor.getInstance().getCompanyByName(req.getParameter("companyName"));
             Offer offer  = company.getOfferById(Integer.parseInt(req.getParameter("offerId")));
             company.getOffers().remove(offer);
-            MongoInteractor.getInstance().updateCompanyInDataBase(company);
+            ServletUtils.updateCompanyToDbAndSession(req, company);
         } catch (Exception e) {
             e.printStackTrace();
             resp.getWriter().write(e.getMessage());// TODO: implement in client side
