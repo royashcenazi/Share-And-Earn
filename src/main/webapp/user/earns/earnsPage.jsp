@@ -16,21 +16,32 @@
 <%@ include file="/user/common/navbar.jsp" %>
 <% User user = SessionUtils.getUserFromSession(request); %>
 <div class="container">
+
     <div class="jumbotron">
         <h1><i class="fas fa-award"></i></span> Earns</h1>
         <p>See what you have earned with us</p>
     </div>
+
     <% List<Earn> earnList = user.getEarnList();
         if (earnList != null) {
             for (Earn earn : user.getEarnList()) { %>
-    <div class="card" style="width: 25%;text-align:  center;">
-        <img class="card-img-top" src="<%=earn.getPictureUrl()%>" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title bold"><%=earn.getProductName()%></h5>
-            <h6 class="card-subtitle mb-2 text-muted">Points:<%=earn.getAmount()%></h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <button class="btn btn-primary" data-toggle="modal" data-target="<%="#earnmodal" + earn.getCode()%>" style="background-color: #7633e2;">use</button>
+    <div class="col-sm-4">
+
+        <div class="card" style="text-align:  center;">
+            <img class="card-img-top" src="<%=earn.getPictureUrl()%>" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title bold"><%=earn.getProductName()%>
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted">Points:<%=earn.getAmount()%>
+                </h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <button class="btn btn-primary" data-toggle="modal" data-target="<%="#earnmodal" + earn.getCode()%>"
+                        style="background-color: #7633e2;">use
+                </button>
+            </div>
         </div>
+
     </div>
 
     <!-- Modal -->
@@ -44,8 +55,10 @@
                     <h4 class="modal-title text-center">Earn Code</h4>
                 </div>
                 <div class="modal-body">
-                    <strong><p class="font-weight-bold text-center">code: <%=earn.getCode()%></p></strong>
-                    <p class="font-weight-bold text-center">*please show this code when you would like to use this earn</p>
+                    <strong><p class="font-weight-bold text-center">code: <%=earn.getCode()%>
+                    </p></strong>
+                    <p class="font-weight-bold text-center">*please show this code when you would like to use this
+                        earn</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -55,11 +68,12 @@
         </div>
     </div>
 
+    <% }
+    } else { %>
+    <h2 style="text-align: center">No earns exist </h2>
+    <% } %>
+
 </div>
-<% }
-} else { %>
-<h2 style="text-align: center">No earns exist </h2>
-<% } %>
 
 </body>
 </html>
