@@ -47,7 +47,7 @@ public class UploadOfferServlet extends HttpServlet {
                     .setTimeToPublish(new Date())
                     .setPictureURL(servletUtils.buildImgTransformationUrl(req.getParameter("picUrl")));
         } catch (Exception e) {
-            throw new Exception("Can't update offer", e);
+            e.printStackTrace();
         }
 
         return offerBuilder.createOffer();

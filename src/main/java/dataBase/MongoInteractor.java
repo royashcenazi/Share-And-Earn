@@ -61,21 +61,18 @@ public class MongoInteractor {
         return true;
     }
 
-    public void saveAppUserDetailsToDataBase(String name, String id) {
+    public User getUserByIdOrCreateNewOne(String name, String id) {
         MongoCollection<User> collection = db.getCollection(UsersCollection, User.class);
         User appUser;
-        boolean userExistInDataBase = true;
         appUser = collection.find(eq(AppUserKey, id)).first();
-
-        if (appUser == null)
-            userExistInDataBase = false;
-
-        if (userExistInDataBase == false) {
+        //user doesnt exist in db
+        if (appUser == null) {
             appUser = new User();
             appUser.setFaceBookId(id);
             appUser.setName(name);
             collection.insertOne(appUser);
         }
+        return appUser;
     }
 
     public boolean isCompanyExistInDataBase(Company company) {

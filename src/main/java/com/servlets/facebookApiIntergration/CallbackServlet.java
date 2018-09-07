@@ -28,10 +28,7 @@ public class CallbackServlet extends HttpServlet {
         try {
             String name = facebook.getName();
             String id = facebook.getId();
-            User user = new User();
-            user.setFaceBookId(id);
-            user.setName(name);
-            MongoInteractor.getInstance().saveAppUserDetailsToDataBase(user.getName(), user.getFaceBookId());
+            User user = MongoInteractor.getInstance().getUserByIdOrCreateNewOne(name, id);
             SessionUtils.saveUserToSession(request, user);
         } catch (FacebookException e) {
             e.printStackTrace();
