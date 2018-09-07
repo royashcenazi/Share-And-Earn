@@ -9,6 +9,7 @@
 </head>
 <body style="padding-top: 65px; ">
 <%@ include file="../../common/navbar.jsp" %>
+
 <div class="container">
     <%--<%Company company = MongoInteractor.getInstance().getCompanyByName(request.getParameter("companyName"));%>--%>
     <%--for debug only!--%>
@@ -16,6 +17,10 @@
 
     <%@include file="offerUserGrid.jsp" %>
 </div>
-<div hidden id="companyName"><%=company.getName()%></div>
+
+<div hidden id="companyName">
+    <%=company.getName()%>
+</div>
+
 </body>
 </html>

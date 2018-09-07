@@ -49,6 +49,7 @@
             <fieldset>
                 <input type="submit" name="submit" class="submit action-button" value="Submit"/>
             </fieldset>
+            <input id="logoUrlInput" type="hidden" name="logoUrl">
         </form>
     </div>
 </div>

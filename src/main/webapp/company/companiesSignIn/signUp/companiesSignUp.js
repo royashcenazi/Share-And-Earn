@@ -13,11 +13,6 @@ function setFileUploadHandler() {
         spinner.addClass("btn-warning")
         spinner.show();
 
-        //Debugging Only
-        /* $("#logoUrlInput").val("https://res.cloudinary.com/shareandearn/image/upload/v1532805917/wavhyxknhvesvrpixmfq.jpg")
-                finishUploadImg = true;*/
-
-        //UnComment Next Block for Real Use
         var file = event.target.files[0];
         var formData = new FormData();
 
