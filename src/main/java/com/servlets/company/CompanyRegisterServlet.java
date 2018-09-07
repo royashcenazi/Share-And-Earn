@@ -36,10 +36,17 @@ public class CompanyRegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Company company = fetchCompanyDetails(req);
-        db.saveCompanyToDataBase(company);
-        SessionUtils.saveCompanyToSession(req, company);
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher(Constants.COMPANY_LANDINGPAGE_JSP_PATH);
-        requestDispatcher.forward(req, resp);
+        if (db.isCompanyExistInDataBase(company) == false) {
+            db.saveCompanyToDataBase(company);
+            SessionUtils.saveCompanyToSession(req, company);
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher(Constants.COMPANY_LANDINGPAGE_JSP_PATH);
+            requestDispatcher.forward(req, resp);
+        }
+        else
+        {
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/company/nameExistInDataBase.jsp");
+            requestDispatcher.forward(req, resp );
+        }
     }
 
     private Company fetchCompanyDetails(HttpServletRequest req) {
