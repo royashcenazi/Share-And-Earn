@@ -8,9 +8,9 @@
 
 <% if (company.getOffers() != null) { %>
 <% for (Offer offer : company.getOffers()) { %>
-<div class="col-sm-4">
+<div class="col-sm-4" style="text-align: center">
     <label>Name:</label> <%=offer.getProductName()%> <br>
-    <div class="thumbnail">
+    <div class="thumbnail" style="border: none;">
         <img src=<%=offer.getPictureURL()%> data-toggle="modal" data-target="#myModal" style="cursor: pointer">
     </div>
 </div>
@@ -31,7 +31,7 @@
                     <div>
                         <img width="150px" height="150px" src=<%=offer.getPictureURL()%>>
                     </div>
-                    <div>
+                    <div style="margin-left: 20px">
                         <form class="offerForm" action="/uploadOffer">
                             <label> Time To publish: </label> <%=offer.getTimeToPublishAsString()%><br>
                             <label> Time To delete: </label> <%=offer.getTimeToDeleteAsString()%><br>
@@ -44,6 +44,7 @@
                 </div>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal" onclick="deleteOffer(<%=offer.getOfferId()%>,'<%=company.getName()%>')">Delete</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
         </div>

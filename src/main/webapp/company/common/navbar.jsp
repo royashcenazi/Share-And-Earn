@@ -26,8 +26,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-nav-demo">
             <ul class="nav navbar-nav">
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/company/landing/companyLandingPage.jsp">Offers</a></li>
+                <li><a href="/company/landing/companyLandingPage.jsp">Home</a></li>
                 <li><a href="/company/analytics/productsAndPublishers.jsp">Analytics</a></li>
                 <li><a href="/company/companyUtilizingPoints/utilizePoints.jsp">Utilize Points</a></li>
                 <li><a href="/company/settings/companySettingsPage.jsp">Settings</a></li>
