@@ -13,6 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./companyLandingPage.css">
+    <script src="/common/js/utils.js"></script>
     <script src="./companyLandingPage.js"></script>
 </head>
 
