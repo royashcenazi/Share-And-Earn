@@ -9,8 +9,6 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
       integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
-<% User user = SessionUtils.getUserFromSession(request); %>
-
 <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo"aria-expanded="false">
@@ -19,8 +17,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/user/landing/userLandingPage.jsp" class="navbar-brand"><span class="glyphicon glyphicon-picture"></span> <%= user.getName() %>
-            </a>
+            <a href="/user/landing/userLandingPage.jsp" class="navbar-brand"><span class="glyphicon glyphicon-picture"></span> <%=SessionUtils.getUserFromSession(request).getName()%></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-nav-demo">
             <ul class="nav navbar-nav">
