@@ -22,14 +22,13 @@
     <% List<Earn> earnList = user.getEarnList();
         if (earnList != null) {
             for (Earn earn : user.getEarnList()) { %>
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card" style="width: 25%;text-align:  center;">
+        <img class="card-img-top" src="<%=earn.getPictureUrl()%>" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title"><%=earn.getProductName()%>
-            </h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h5 class="card-title "><%=earn.getProductName()%></h5>
+            <h6 class="card-subtitle mb-2 text-muted">Points:<%=earn.getAmount()%></h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary" style="background-color: #7633e2">use</a>
         </div>
     </div>
 
