@@ -19,7 +19,7 @@ public class ServletUtils {
 
         return res;
     }
-    public static void updateCompanyToDbAndSession(HttpServletRequest req, Company company){
+    public static void updateCompanyInDbAndSession(HttpServletRequest req, Company company){
         try{
             MongoInteractor.getInstance().updateCompanyInDataBase(company);
             SessionUtils.saveCompanyToSession(req, company);

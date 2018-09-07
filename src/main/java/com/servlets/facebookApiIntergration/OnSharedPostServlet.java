@@ -66,7 +66,7 @@ public class OnSharedPostServlet extends HttpServlet {
 
 
     private void saveDetailsToDb(User user, Company company, HttpServletRequest req) {
-        ServletUtils.updateCompanyToDbAndSession(req, company);
+        ServletUtils.updateCompanyInDbAndSession(req, company);
         ServletUtils.updateUserToDbAndSession(req, user);
     }
 

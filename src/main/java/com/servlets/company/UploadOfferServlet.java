@@ -24,7 +24,7 @@ public class UploadOfferServlet extends HttpServlet {
             Offer offer = getOfferFromRequest(req);
             Company company = SessionUtils.getCompanyFromSession(req);
             updateOffer(offer, company);
-            ServletUtils.updateCompanyToDbAndSession(req, company);
+            ServletUtils.updateCompanyInDbAndSession(req, company);
         } catch (Exception e) {
             e.printStackTrace();
             resp.getWriter().write(e.getMessage());// TODO: implement in client side
