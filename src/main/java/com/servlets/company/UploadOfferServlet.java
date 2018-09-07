@@ -35,7 +35,7 @@ public class UploadOfferServlet extends HttpServlet {
     }
 
     private Offer getOfferFromRequest(HttpServletRequest req) throws Exception {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         OfferBuilder offerBuilder = new OfferBuilder();
 
         try {
