@@ -23,8 +23,7 @@
 
             <div class="modal-header">
                 <%--<button type="button" class="close" data-dismiss="modal">&times;</button>--%>
-                <h4 class="modal-title" style="text-align: center"><%=offer.getProductName()%>
-                </h4>
+                <h4 class="modal-title" style="text-align: center"><%=offer.getProductName()%></h4>
             </div>
             <div class="modal-body">
                 <div style="display: flex" class="flex-container">
@@ -35,17 +34,17 @@
                         <form class="offerForm" action="/uploadOffer">
                             <label> Time To publish: </label> <%=offer.getTimeToPublishAsString()%><br>
                             <label> Time To delete: </label> <%=offer.getTimeToDeleteAsString()%><br>
-                            <label> Points:</label> <%=offer.getPoints()%><br>
-                            <label> Max num of publishers: </label> <%=offer.getMaxPublishers()%><br>
-                            <label> Current num of publishers: </label> <%=offer.getCurrentPublisherNumber()%>
-                            <br>
+                            <label> Points:</label><p class="editable<%=offer.getOfferId()%>" style="display: inline" contenteditable="true"><%=offer.getPoints()%></p><br>
+                            <label> Max num of publishers: </label> <p class="editable<%=offer.getOfferId()%>" style="display: inline" contenteditable="true"><%=offer.getMaxPublishers()%></p><br>
+                            <label> Current num of publishers: </label> <p class="editable<%=offer.getOfferId()%>" style="display: inline" contenteditable="true"><%=offer.getCurrentPublisherNumber()%></p><br>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-info" data-dismiss="modal" onclick="deleteOffer(<%=offer.getOfferId()%>,'<%=company.getName()%>')">Delete</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-info pull-left" data-dismiss="modal" onclick="deleteOffer(<%=offer.getOfferId()%>,'<%=company.getName()%>')">Delete</button>
+                <a href="/company/landing/updateOffer.jsp?offerId=<%=offer.getOfferId()%>" class="btn btn-warning pull-left">Update</a>
             </div>
         </div>
 

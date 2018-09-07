@@ -3,10 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="newOffer.css">
+    <link rel="stylesheet" type="text/css" href="/company/landing/newOffer/newOffer.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../companyLandingPage.css">
-    <link rel="stylesheet" href="newOffer.css">
+    <link rel="stylesheet" href="/company/landing/companyLandingPage.css">
     <title>Add new offer</title>
 </head>
 <body>
@@ -60,7 +59,7 @@
 <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="newOffer.js"></script>
+<script src="/company/landing/newOffer/newOffer.js"></script>
 <%--for file upload--%>
 </body>
 </html>
