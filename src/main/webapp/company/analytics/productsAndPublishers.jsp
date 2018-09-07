@@ -8,7 +8,7 @@
 
 <%
     Gson gsonObj = new Gson();
-    Company company = MongoInteractor.getInstance().getCompanyByName("Test Company");
+    Company company = SessionUtils.getCompanyFromSession(request);
     List<Map<Object, Object>> list = new ArrayList<Map<Object, Object>>();
     for (Offer offer : company.getOffers()) {
         Map<Object, Object> map = new HashMap<Object, Object>();
