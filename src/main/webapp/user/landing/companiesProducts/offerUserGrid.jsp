@@ -7,11 +7,11 @@
 <div class="col-sm-4">
     <div class="thumbnail">
         <label>Name:</label> <%=offer.getProductName()%> <br>
-        <img src=<%=offer.getPictureURL()%> data-toggle="modal" data-target="#myModal" style="cursor: pointer" >
+        <img src=<%=offer.getPictureURL()%> data-toggle="modal" data-target="<%="#Modal" + offer.getOfferId()%>" style="cursor: pointer" >
     </div>
 </div>
 
-<div id="myModal" class="modal fade" role="dialog">
+<div id="<%="Modal" + offer.getOfferId()%>" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
