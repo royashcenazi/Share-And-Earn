@@ -5,6 +5,7 @@ import model.Company;
 import model.Offer;
 import model.builders.OfferBuilder;
 import utils.SessionUtils;
+import utils.servletUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -44,7 +45,7 @@ public class UploadOfferServlet extends HttpServlet {
                     .setMaxPublishers(Integer.parseInt(req.getParameter("maxPublishers")))
                     .setTimeToDelete(dateFormat.parse(req.getParameter("timeToDelete")))
                     .setTimeToPublish(new Date())
-                    .setPictureURL(req.getParameter("picUrl"));
+                    .setPictureURL(servletUtils.buildImgTransformationUrl(req.getParameter("picUrl")));
         } catch (Exception e) {
             throw new Exception("Can't update offer", e);
         }

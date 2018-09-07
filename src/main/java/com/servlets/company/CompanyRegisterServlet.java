@@ -5,6 +5,7 @@ import dataBase.MongoInteractor;
 import model.builders.CompanyBuilder;
 import utils.Constants;
 import utils.SessionUtils;
+import utils.servletUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -45,7 +46,7 @@ public class CompanyRegisterServlet extends HttpServlet {
         CompanyBuilder companyBuilder = new CompanyBuilder()
                 .setAddress(req.getParameter(ADDRESS))
                 .setEmail(req.getParameter(EMAIL))
-                .setLogoUrl(req.getParameter(LOGO_URL))
+                .setLogoUrl(servletUtils.buildImgTransformationUrl(req.getParameter(LOGO_URL)))
                 .setName(req.getParameter(NAME))
                 .setPassword(req.getParameter(PASS))
                 .setPhoneNumber(req.getParameter(PHONEADDRESS))
@@ -55,4 +56,5 @@ public class CompanyRegisterServlet extends HttpServlet {
 
         return company;
     }
+
 }
