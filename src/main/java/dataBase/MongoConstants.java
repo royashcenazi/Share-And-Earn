@@ -6,4 +6,6 @@ public interface MongoConstants {
      String CompanyKey = "name";
      String CompanyCollection = "companies";
      String UsersCollection = "users";
+     String UniqueCollectionKey = "1";
+
 }

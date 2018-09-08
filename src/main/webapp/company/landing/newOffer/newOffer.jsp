@@ -15,10 +15,6 @@
     <div id="addNewOfferDiv" class="form-group">
         <form id="uploadOfferForm" action="/uploadOffer" onsubmit="return validateFileUploaded();">
 
-            <label for="offerId">Product id:</label>
-            <input id="offerId" class="form-control" name="offerId" type="number"
-                   placeholder="Enter product id here" required>
-
             <label for="productName">Product Name:</label>
             <input id="productName" class="form-control" name="productName" type="text" required
                    placeholder="Enter product name here, Maximum 15 charcters" maxlength="15">

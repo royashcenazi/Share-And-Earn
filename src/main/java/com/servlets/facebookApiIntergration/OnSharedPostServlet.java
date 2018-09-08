@@ -11,7 +11,8 @@ import com.google.gson.JsonObject;
 import dataBase.MongoInteractor;
 import facebook4j.Facebook;
 import model.*;
-import utils.ICodeGenerator;
+import utils.numberGenerators.IRobustNumberGenerator;
+import utils.numberGenerators.CodeGeneratorImplRobust;
 import utils.ServletUtils;
 import utils.SessionUtils;
 
@@ -27,7 +28,7 @@ public class OnSharedPostServlet extends HttpServlet {
         Facebook facebook = (Facebook) req.getSession().getAttribute("facebook");
         //TODO: get user_posts approvals
         //String postId = req.getParameter("postId");
-            String companyName = req.getParameter("companyName");
+        String companyName = req.getParameter("companyName");
         int offerId = Integer.parseInt(req.getParameter("offerId"));
 
         if (isPostStillPosted(facebook, "stam") == true) {
@@ -64,12 +65,6 @@ public class OnSharedPostServlet extends HttpServlet {
         }
     }
 
-
-    private void saveDetailsToDb(User user, Company company, HttpServletRequest req) {
-        ServletUtils.updateCompanyInDbAndSession(req, company);
-        ServletUtils.updateUserToDbAndSession(req, user);
-    }
-
     //ready to use date doesnt have any importance since there is currently no post_id
     private Share buildShare(Company company, Offer offer, User user, int offerId, String postId, int code) {
         Share share = new Share();
@@ -89,8 +84,8 @@ public class OnSharedPostServlet extends HttpServlet {
         earn.setAmount(offer.getPoints());
         earn.setCompanyId(company.getName());
         earn.setDueDate(offer.getTimeToDelete());
-        ICodeGenerator codeGenerator = utils.ICodeGeneratorImpl.getInstance();
-        earn.setCode(codeGenerator.generateCode());
+        IRobustNumberGenerator codeGenerator = CodeGeneratorImplRobust.getInstance();
+        earn.setCode(codeGenerator.generateNumber());
         earn.setPictureUrl(offer.getPictureURL());
         earn.setProductName(offer.getProductName());
         //earn.setReadyToUseDate(offer.getTimeToPublish());
@@ -112,4 +107,11 @@ public class OnSharedPostServlet extends HttpServlet {
         //return isExist;
         return true;
     }
+
+
+    private void saveDetailsToDb(User user, Company company, HttpServletRequest req) {
+        ServletUtils.updateCompanyInDbAndSession(req, company);
+        ServletUtils.updateUserToDbAndSession(req, user);
+    }
+
 }

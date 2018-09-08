@@ -10,7 +10,9 @@ import model.Company;
 import model.User;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
-import utils.SessionUtils;
+import utils.numberGenerators.IRobustNumberGenerator;
+import utils.numberGenerators.CodeGeneratorImplRobust;
+import utils.numberGenerators.IdGeneratorImplRobust;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -126,5 +128,35 @@ public class MongoInteractor {
         }
 
         return companies;
+    }
+
+    public IRobustNumberGenerator getCodeGenerator() {
+        MongoCollection<CodeGeneratorImplRobust> collection = db.getCollection("codeGenerator", CodeGeneratorImplRobust.class);
+        IRobustNumberGenerator codeGenerator = collection.find().first();
+        return codeGenerator;
+    }
+
+    public synchronized void saveCodeGeneratorToDb(CodeGeneratorImplRobust generatorToSave) {
+        MongoCollection<CodeGeneratorImplRobust> collection = db.getCollection("codeGenerator", CodeGeneratorImplRobust.class);
+        CodeGeneratorImplRobust codeGenerator = collection.find().first();
+        if(codeGenerator != null)
+            collection.replaceOne(eq("uniqueKey", UniqueCollectionKey), generatorToSave);
+        else
+            collection.insertOne(generatorToSave);
+    }
+
+    public IRobustNumberGenerator getIdGenerator() {
+        MongoCollection<IdGeneratorImplRobust> collection = db.getCollection("IdGenerator", IdGeneratorImplRobust.class);
+        IRobustNumberGenerator idGenerator = collection.find().first();
+        return idGenerator;
+    }
+
+    public synchronized void saveIdGeneratorToDb(IdGeneratorImplRobust generatorToSave) {
+        MongoCollection<IdGeneratorImplRobust> collection = db.getCollection("IdGenerator", IdGeneratorImplRobust.class);
+        IdGeneratorImplRobust idGenerator = collection.find().first();
+        if(idGenerator != null)
+            collection.replaceOne(eq("uniqueKey", UniqueCollectionKey), generatorToSave);
+        else
+            collection.insertOne(generatorToSave);
     }
 }

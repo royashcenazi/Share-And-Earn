@@ -3,6 +3,8 @@ package com.servlets.company;
 import model.Company;
 import model.Offer;
 import model.builders.OfferBuilder;
+import utils.numberGenerators.IRobustNumberGenerator;
+import utils.numberGenerators.IdGeneratorImplRobust;
 import utils.SessionUtils;
 import utils.ServletUtils;
 
@@ -21,9 +23,9 @@ public class UploadOfferServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         try {
-            Offer offer = getOfferFromRequest(req);
+            Offer offer = buildOffer(req);
             Company company = SessionUtils.getCompanyFromSession(req);
-            updateOffer(offer, company);
+            insertOffer(offer, company);
             ServletUtils.updateCompanyInDbAndSession(req, company);
         } catch (Exception e) {
             e.printStackTrace();
@@ -32,12 +34,12 @@ public class UploadOfferServlet extends HttpServlet {
         resp.sendRedirect("/company/landing/companyLandingPage.jsp");
     }
 
-    private Offer getOfferFromRequest(HttpServletRequest req) throws Exception {
+    private Offer buildOffer(HttpServletRequest req) throws Exception {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         OfferBuilder offerBuilder = new OfferBuilder();
-
+        IRobustNumberGenerator idGenerator = IdGeneratorImplRobust.getInstance();
         try {
-            offerBuilder.setOfferId(Integer.parseInt(req.getParameter("offerId")))
+            offerBuilder.setOfferId(idGenerator.generateNumber())
                     .setProductName(req.getParameter("productName"))
                     .setPoints(Integer.parseInt(req.getParameter("points")))
                     .setMaxPublishers(Integer.parseInt(req.getParameter("maxPublishers")))
@@ -51,7 +53,7 @@ public class UploadOfferServlet extends HttpServlet {
         return offerBuilder.createOffer();
     }
 
-    private void updateOffer(Offer offer, Company company) {
+    private void insertOffer(Offer offer, Company company) {
         if (company.getOfferById(offer.getOfferId()) != null) {
             company.getOffers().remove(offer);
         }
