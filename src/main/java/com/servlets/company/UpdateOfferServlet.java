@@ -35,8 +35,6 @@ public class UpdateOfferServlet extends HttpServlet {
     private void updateOfferFromRequest(HttpServletRequest req,Offer offer) throws Exception {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
-            if(req.getParameter("offerId") != null)
-                offer.setOfferId(Integer.parseInt(req.getParameter("offerId")));
             if(req.getParameter("productName") != null)
                 offer.setProductName(req.getParameter("productName"));
             if(req.getParameter("points") != null)
