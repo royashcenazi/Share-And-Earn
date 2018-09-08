@@ -4,12 +4,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="./utilizePoints.css">
     <title>Utilizing Points</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.js"
+            integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
+            crossorigin="anonymous"></script>
 </head>
 
 <body>
 <%@ include file="/company/common/navbar.jsp" %>
+<link rel="stylesheet" type="text/css" href="utilizePoints.css">
+
 <%Company company = SessionUtils.getCompanyFromSession(request);%>
 
 <div>
