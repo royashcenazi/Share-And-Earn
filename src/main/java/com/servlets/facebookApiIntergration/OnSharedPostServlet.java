@@ -20,7 +20,6 @@ import utils.SessionUtils;
 
 @WebServlet("/OnSharedPost")
 public class OnSharedPostServlet extends HttpServlet {
-
     private boolean succeededToPost;
 
     @Override
@@ -53,7 +52,7 @@ public class OnSharedPostServlet extends HttpServlet {
     private void createShareAndEarn(Company company, User user, Offer offer, int offerId, HttpServletRequest req) throws Exception {
         if (offer.getCurrentPublisherNumber() < offer.getMaxPublishers()) {
             Earn earn = buildEarn(company, offer, offerId);
-            Share share = buildShare(company, offer, user, offerId, "stam", earn.getCode());
+            Share share = buildShare(company, offer, user, "stam", earn.getCode());
             user.addEarn(earn);
             company.addShare(share);
             offer.decreaseNumPublishers(1);
@@ -66,7 +65,7 @@ public class OnSharedPostServlet extends HttpServlet {
     }
 
     //ready to use date doesnt have any importance since there is currently no post_id
-    private Share buildShare(Company company, Offer offer, User user, int offerId, String postId, int code) {
+    private Share buildShare(Company company, Offer offer, User user, String postId, int code) {
         Share share = new Share();
         share.setAmount(offer.getPoints());
         share.setCompanyId(company.getName());
@@ -95,14 +94,14 @@ public class OnSharedPostServlet extends HttpServlet {
 
     public boolean isPostStillPosted(Facebook fb, String post_id) {
         boolean isExist = false;
-
-        try {
-            fb.getPost(post_id);
-            isExist = true;
-        } catch (Exception e) {
-            isExist = false;
-            e.printStackTrace();
-        }
+    //not relevant as long as we dont have user_post approval
+//        try {
+//            fb.getPost(post_id);
+//            isExist = true;
+//        } catch (Exception e) {
+//            isExist = false;
+//            e.printStackTrace();
+//        }
 
         //return isExist;
         return true;
