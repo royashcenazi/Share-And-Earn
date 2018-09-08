@@ -10,7 +10,7 @@
 
 <body>
 <%@ include file="/company/common/navbar.jsp" %>
-<%Company company = MongoInteractor.getInstance().getCompanyByName("Test Company");%>
+<%Company company = SessionUtils.getCompanyFromSession(request);%>
 
 <div>
     <img src="<%=company.getLogoUrl()%>" alt="Company Logo" class="company-logo center">

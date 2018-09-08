@@ -11,7 +11,11 @@
 <%@ include file="../../common/navbar.jsp" %>
 
 <div class="container">
-    <%Company company = MongoInteractor.getInstance().getCompanyByName(request.getParameter("companyName"));%>
+    <%Company company = MongoInteractor.getInstance().getCompanyByName(request.getParameter("companyName"));
+    if(company == null){
+        response.sendRedirect("/index.html");
+    }
+    %>
 
     <%@include file="offerUserGrid.jsp" %>
 </div>

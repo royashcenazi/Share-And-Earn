@@ -90,8 +90,11 @@ public class MongoInteractor {
     }
 
     public Company getCompanyByName(String companyName) {
-        MongoCollection<Company> companiesCollection = db.getCollection(CompanyCollection, Company.class);
-        Company company = companiesCollection.find(eq(CompanyKey, companyName)).first();
+        Company company = null;
+        if(companyName != null) {
+            MongoCollection<Company> companiesCollection = db.getCollection(CompanyCollection, Company.class);
+            company = companiesCollection.find(eq(CompanyKey, companyName)).first();
+        }
         return company;
     }
 
