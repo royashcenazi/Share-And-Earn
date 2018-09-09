@@ -1,4 +1,4 @@
-package com.servlets.company;
+package com.servlets.company.offers;
 
 import dataBase.MongoInteractor;
 import model.Company;
