@@ -4,8 +4,8 @@
 
 <% if (company.getOffers() != null) { %>
 <% for (Offer offer : company.getOffers()) { %>
-<div class="col-sm-4">
-    <div class="thumbnail">
+<div class="col-sm-4" style="text-align: center">
+    <div class="thumbnail" style="border: none;">
         <label>Name:</label> <%=offer.getProductName()%> <br>
         <img src=<%=offer.getPictureURL()%> data-toggle="modal" data-target="<%="#Modal" + offer.getOfferId()%>" style="cursor: pointer" >
     </div>
