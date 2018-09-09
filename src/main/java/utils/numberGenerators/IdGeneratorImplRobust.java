@@ -38,10 +38,15 @@ public class IdGeneratorImplRobust implements IRobustNumberGenerator {
 
     public int generateNumber() {
         nextId++;
-        Thread thread = new Thread(()->MongoInteractor.getInstance().saveIdGeneratorToDb(this));
-        thread.start();
+        saveMyselfToDb();
         return nextId;
     }
+
+    private void saveMyselfToDb() {
+        Thread thread = new Thread(()->MongoInteractor.getInstance().saveIdGeneratorToDb(this));
+        thread.start();
+    }
+
 
     public int getNextId() {
         return nextId;
@@ -49,6 +54,11 @@ public class IdGeneratorImplRobust implements IRobustNumberGenerator {
 
     public void setNextId(int nextId) {
         this.nextId = nextId;
+    }
+
+    @Override
+    public void removeNumber(int code) {
+        System.out.println("im running on ids, no option to remove them");
     }
 
 }

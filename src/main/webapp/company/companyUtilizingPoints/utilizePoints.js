@@ -11,7 +11,7 @@ submitButton.addEventListener("click", function () {
             data: {"code": code.value, "inputPoints": inputPoints.value},
             success: function (response) {
                 var json = JSON.parse(response)
-                if (response.success === true)
+                if (json.success === true)
                     alert("points utilized!");
                 else
                     alert("an error occcured, points were not utilized.");

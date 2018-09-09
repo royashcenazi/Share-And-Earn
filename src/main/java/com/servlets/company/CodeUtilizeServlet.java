@@ -6,7 +6,9 @@ import model.Company;
 import model.Earn;
 import model.Share;
 import model.User;
+import utils.ServletUtils;
 import utils.SessionUtils;
+import utils.numberGenerators.IRobustNumberGenerator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,9 +31,11 @@ public class CodeUtilizeServlet extends HttpServlet {
             Share share = getShareFromCode(company, code);
             User user = share.getPublisher();
             Earn earn = getEarnFromCode(user, code);
-            deleteShareAndEarn(company, share,user, earn);
+            deleteShareAndEarn(company, share, user, earn);
+            ServletUtils.updateUserToDbAndSession(req, user);
+            ServletUtils.updateCompanyInDbAndSession(req, company);
             jsonObject.addProperty("points", share.getAmount());
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             transactionSuccess = false;
         }
@@ -39,15 +43,24 @@ public class CodeUtilizeServlet extends HttpServlet {
         resp.getOutputStream().print(jsonObject.toString());
     }
 
-    private void deleteShareAndEarn(Company company, Share share,User user, Earn earn) {
+    private void deleteShareAndEarn(Company company, Share share, User user, Earn earn) {
         company.getShares().remove(share);
         user.getEarnList().remove(earn);
+        removeCodeFromIdGenerator(share.getCode());
+    }
+
+    private void removeCodeFromIdGenerator(int code) {
+        Thread thread = new Thread(() -> {
+            IRobustNumberGenerator idGenerator = utils.numberGenerators.CodeGeneratorImplRobust.getInstance();
+            idGenerator.removeNumber(code);
+        });
+        thread.start();
     }
 
     private Earn getEarnFromCode(User publisher, int code) {
         Earn res = null;
         for (Earn earn : publisher.getEarnList()) {
-            if(earn.getCode() == code){
+            if (earn.getCode() == code) {
                 res = earn;
                 break;
             }

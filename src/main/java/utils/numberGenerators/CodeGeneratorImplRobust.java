@@ -33,14 +33,19 @@ public class CodeGeneratorImplRobust implements IRobustNumberGenerator {
     }
 
     @Override
-    public synchronized int generateNumber() {
+    public int generateNumber() {
         int randedCode;
         while (numbers.contains(randedCode = Math.abs(random.nextInt())) == true) {}
         numbers.add(randedCode);
-        Thread thread = new Thread(()->MongoInteractor.getInstance().saveCodeGeneratorToDb(this));
-        thread.start();
+        saveMyselfToDb();
         return randedCode;
     }
+
+    private void saveMyselfToDb() {
+        Thread thread = new Thread(()->MongoInteractor.getInstance().saveCodeGeneratorToDb(this));
+        thread.start();
+    }
+
 
     public String getUniqueKey() {
         return uniqueKey;
@@ -57,6 +62,12 @@ public class CodeGeneratorImplRobust implements IRobustNumberGenerator {
 
     public void setNumbers(Set<Integer> numbers) {
         this.numbers = numbers;
+    }
+
+    @Override
+    public void removeNumber(int code) {
+        this.numbers.remove(code);
+        saveMyselfToDb();
     }
 
 }
