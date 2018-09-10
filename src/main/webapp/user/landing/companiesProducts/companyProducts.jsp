@@ -1,6 +1,8 @@
 <%@ page import="dataBase.MongoInteractor" %>
 <%@ page import="model.Company" %>
 
+<%@ include file="/user/common/assertUserConnected.jsp" %>
+
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
@@ -8,7 +10,7 @@
     <title>Products Quick View</title>
 </head>
 <body style="padding-top: 65px; ">
-<%@ include file="../../common/navbar.jsp" %>
+<%@ include file="/user/common/navbar.jsp" %>
 
 <div class="container">
     <%Company company = MongoInteractor.getInstance().getCompanyByName(request.getParameter("companyName"));
@@ -17,7 +19,7 @@
     }
     %>
 
-    <%@include file="offerUserGrid.jsp" %>
+    <%@include file="userOfferGrid.jsp" %>
 </div>
 
 <div hidden id="companyName"><%=company.getName()%></div>

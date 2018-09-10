@@ -1,5 +1,6 @@
-<%@ page import="utils.SessionUtils" %>
 <%@ page import="model.Company" %>
+<%@ page import="utils.SessionUtils" %>
+<%@ page import="static utils.SessionUtils.isCompanyConnected" %>
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css"
@@ -9,7 +10,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
       integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
-<% Company companyFromSession = SessionUtils.getCompanyFromSession(request); %>
+<% Company company = SessionUtils.getCompanyFromSession(request); %>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -21,7 +22,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/company/landing/companyLandingPage.jsp" class="navbar-brand"><span class="glyphicon glyphicon-picture"></span> <%= companyFromSession.getName() %>
+            <a href="/company/landing/companyLandingPage.jsp" class="navbar-brand"><span
+                    class="glyphicon glyphicon-picture"></span> <%= company.getName() %>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-nav-demo">

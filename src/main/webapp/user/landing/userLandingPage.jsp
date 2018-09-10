@@ -1,6 +1,7 @@
+<%@ include file="/user/common/assertUserConnected.jsp" %>
+
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <title>companies Page</title>

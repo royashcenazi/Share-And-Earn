@@ -1,11 +1,13 @@
-<%@ page import="model.Offer" %><%--
+<%@ page import="model.Offer" %>
+<%@ page import="model.Company" %>
+<%@ page import="utils.SessionUtils" %><%--
   Created by IntelliJ IDEA.
   User: eladg
   Date: 28/08/18
   Time: 12:05
   To change this template use File | Settings | File Templates.
 --%>
-
+<%Company company = SessionUtils.getCompanyFromSession(request);%>
 <% if (company.getOffers() != null) { %>
 <% for (Offer offer : company.getOffers()) { %>
 <div class="col-sm-4" style="text-align: center">

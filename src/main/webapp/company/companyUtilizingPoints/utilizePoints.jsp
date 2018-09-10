@@ -1,6 +1,8 @@
 <%@ page import="dataBase.MongoInteractor" %>
 <%@ page import="model.Company" %>
 
+<%@ include file="/company/common/assertCompanyConnected.jsp" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +15,7 @@
 </head>
 
 <body>
-<%@ include file="/company/common/navbar.jsp" %>
+<jsp:include page="/company/common/navbar.jsp"/>
 <link rel="stylesheet" type="text/css" href="utilizePoints.css">
 
 <%Company company = SessionUtils.getCompanyFromSession(request);%>

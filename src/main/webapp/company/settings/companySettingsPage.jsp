@@ -1,12 +1,9 @@
 <%@ page import="utils.SessionUtils" %>
-<%@ page import="model.Company" %><%--
-  Created by IntelliJ IDEA.
-  User: eladg
-  Date: 24/08/18
-  Time: 18:01
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="model.Company" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@ include file="/company/common/assertCompanyConnected.jsp" %>
+
 <html>
 <head>
     <link rel="stylesheet" href="../landing/companyLandingPage.css">
@@ -17,7 +14,7 @@
     <title>Settings</title>
 </head>
 <body>
-<%@ include file="/company/common/navbar.jsp" %>
+<jsp:include page="/company/common/navbar.jsp"/>
 
 <div class="container">
 

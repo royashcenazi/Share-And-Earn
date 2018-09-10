@@ -1,12 +1,7 @@
 <%@ page import="dataBase.MongoInteractor" %>
-<%@ page import="model.Offer" %><%--
-  Created by IntelliJ IDEA.
-  User: eladg
-  Date: 9/7/18
-  Time: 6:46 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="model.Offer" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>Update Offer</title>

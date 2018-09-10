@@ -1,25 +1,18 @@
-<%@ page import="utils.Constants" %>
-<%@ page import="utils.SessionUtils" %>
-<%@ page import="model.Company" %>
-<%@ page import="model.Offer" %><%--
-  Created by IntelliJ IDEA.
-  User: eladg
-  Date: 13/08/18
-  Time: 13:55
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="static utils.SessionUtils.*" %>
+
+<%--Mandatory in each company page !!!--%>
+<%@ include file="/company/common/assertCompanyConnected.jsp" %>
+
 <html>
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./companyLandingPage.css">
     <script src="/common/js/utils.js"></script>
     <script src="./companyLandingPage.js"></script>
+    <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 </head>
-
 <body>
-<%@ include file="../common/navbar.jsp" %>
-
+<jsp:include page="/company/common/navbar.jsp"/>
 <div class="container">
 
     <div class="jumbotron">
@@ -27,11 +20,8 @@
         <p>click on a picture to see more details</p>
         <a href="./newOffer/newOffer.jsp" class="btn btn-success pull-right">New Offer</a>
     </div>
-    <% Company company = SessionUtils.getCompanyFromSession(request); %>
-    <%@ include file="/company/landing/offersGrid.jsp" %>
+    <jsp:include page="/company/landing/offersGrid.jsp"/>
 
 </div>
-
-
 </body>
 </html>

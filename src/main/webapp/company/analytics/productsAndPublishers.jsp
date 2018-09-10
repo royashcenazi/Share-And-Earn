@@ -6,6 +6,8 @@
 <%@ page import="model.Company" %>
 <%@ page import="model.Offer" %>
 
+<%@ include file="/company/common/assertCompanyConnected.jsp" %>
+
 <%
     Gson gsonObj = new Gson();
     Company company = SessionUtils.getCompanyFromSession(request);
@@ -55,7 +57,7 @@
     </script>
 </head>
 <body>
-<%@ include file="/company/common/navbar.jsp" %>
+<jsp:include page="/company/common/navbar.jsp"/>
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>

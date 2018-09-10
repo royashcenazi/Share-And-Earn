@@ -1,5 +1,8 @@
 <%@ page import="utils.SessionUtils" %>
 <%@ page import="model.Company" %>
+
+<%@ include file="/company/common/assertCompanyConnected.jsp" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +12,7 @@
     <title>Add new offer</title>
 </head>
 <body>
-<%@ include file="../../common/navbar.jsp" %>
+<%@ include file="/company/common/navbar.jsp" %>
 
 <div class="container">
     <div id="addNewOfferDiv" class="form-group">

@@ -58,4 +58,16 @@ public class SessionUtils {
 
         return company;
     }
+
+    public static boolean isCompanyConnected(HttpServletRequest request) {
+        boolean isConnected;
+
+        try {
+            isConnected = getCompanyFromSession(request) != null;
+        } catch (Exception e) {
+            isConnected = false;
+        }
+
+        return isConnected;
+    }
 }
