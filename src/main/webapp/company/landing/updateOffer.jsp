@@ -11,12 +11,14 @@
 <script>
     function populateFields() {
         <% Offer offer = SessionUtils.getCompanyFromSession(request).getOfferById(Integer.parseInt(request.getParameter("offerId"))); %>
-        $("#offerId").val(<%=offer.getOfferId()%>);
+        $("#uploadOfferForm").append($("<input type='hidden' name='offerId' value='<%=offer.getOfferId()%>' >"));
         $("#productName").val("<%=offer.getProductName()%>");
         $("#maxPublishers").val(<%=offer.getMaxPublishers()%>);
         $("#points").val(<%=offer.getPoints()%>);
         $("#timeToDelete").prop('disabled', true);
         $("#uploadOfferForm").prop('action', "/updateOffer");
+        $("#file-upload").removeAttr('required');
+        finishUploadImg = true;
     }
 
     populateFields();
