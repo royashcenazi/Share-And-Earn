@@ -44,11 +44,11 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Close</button>
-                <a href="/company/landing/updateOffer.jsp?offerId=<%=offer.getOfferId()%>" class="btn btn-warning pull-left">Update</a>
+                <a href="/company/landing/updateOffer.jsp?offerId=<%=offer.getOfferId()%>"><button class="btn btn-warning pull-left">Update</button></a>
                 <form action="/deleteOffer" method="post">
                     <input type="hidden" name="offerId" value="<%=offer.getOfferId()%>">
                     <input type="hidden" name="companyName" value="<%=company.getName()%>">
-                    <input type="submit" class="btn btn-info pull-left" value="Delete">
+                    <input type="submit" class="btn btn-info pull-left" value="Delete" style="margin-left: 10px;">
                 </form>
             </div>
         </div>
