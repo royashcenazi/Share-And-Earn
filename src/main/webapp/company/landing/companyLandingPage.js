@@ -4,5 +4,6 @@ function deleteOffer(offerId, companyName) {
         "companyName": companyName
     };
     sendJsonSoServer(json, "/deleteOffer");
-    location.reload();
+
+    location.replace("/company/landing/companyLandingPage.jsp");
 }

@@ -13,18 +13,17 @@
 <div class="col-sm-4" style="text-align: center">
     <label>Name:</label> <%=offer.getProductName()%> <br>
     <div class="thumbnail" style="border: none;">
-        <img src=<%=offer.getPictureURL()%> data-toggle="modal" data-target="#myModal" style="cursor: pointer">
+        <img src=<%=offer.getPictureURL()%> data-toggle="modal" data-target="#myModal<%=offer.getOfferId()%>" style="cursor: pointer">
     </div>
 </div>
 
-<div id="myModal" class="modal fade" role="dialog">
+<div id="myModal<%=offer.getOfferId()%>" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content">
 
             <div class="modal-header">
-                <%--<button type="button" class="close" data-dismiss="modal">&times;</button>--%>
                 <h4 class="modal-title" style="text-align: center"><%=offer.getProductName()%></h4>
             </div>
             <div class="modal-body">
@@ -45,8 +44,12 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-info pull-left" data-dismiss="modal" onclick="deleteOffer(<%=offer.getOfferId()%>,'<%=company.getName()%>')">Delete</button>
                 <a href="/company/landing/updateOffer.jsp?offerId=<%=offer.getOfferId()%>" class="btn btn-warning pull-left">Update</a>
+                <form action="/deleteOffer" method="post">
+                    <input type="hidden" name="offerId" value="<%=offer.getOfferId()%>">
+                    <input type="hidden" name="companyName" value="<%=company.getName()%>">
+                    <input type="submit" class="btn btn-info pull-left" value="Delete">
+                </form>
             </div>
         </div>
 
