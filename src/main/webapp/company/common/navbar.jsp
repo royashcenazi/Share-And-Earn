@@ -13,27 +13,31 @@
 <% Company company = SessionUtils.getCompanyFromSession(request); %>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo"
-                    aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="/company/landing/companyLandingPage.jsp" class="navbar-brand"><span
-                    class="glyphicon glyphicon-picture"></span> <%= company.getName() %>
-            </a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-nav-demo">
-            <ul class="nav navbar-nav">
-                <li><a href="/company/landing/companyLandingPage.jsp">Home</a></li>
-                <li><a href="/company/analytics/productsAndPublishers.jsp">Analytics</a></li>
-                <li><a href="/company/companyUtilizingPoints/utilizePoints.jsp">Utilize Points</a></li>
-                <li><a href="/company/settings/companySettingsPage.jsp">Settings</a></li>
-                <li><a href="/company/help/help.jsp">Help</a></li>
-            </ul>
-        </div>
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo"
+                aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="/company/landing/companyLandingPage.jsp" class="navbar-brand"><span
+                class="glyphicon glyphicon-picture"></span> <%= company.getName() %>
+        </a>
     </div>
+
+    <div class="collapse navbar-collapse" id="bs-nav-demo">
+        <ul class="nav navbar-nav">
+            <li><a href="/company/landing/companyLandingPage.jsp">Home</a></li>
+            <li><a href="/company/analytics/productsAndPublishers.jsp">Analytics</a></li>
+            <li><a href="/company/companyUtilizingPoints/utilizePoints.jsp">Utilize Points</a></li>
+            <li><a href="/company/settings/companySettingsPage.jsp">Settings</a></li>
+            <li><a href="/company/help/help.jsp">Help</a></li>
+        </ul>
+        <form action="/logout">
+            <input type="submit" class="btn btn-danger pull-right" value="logout" style="margin-top: 10px;margin-right: 10px;">
+        </form>
+    </div>
+
 </nav>
