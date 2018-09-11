@@ -16,40 +16,27 @@
 
 <html>
 <head>
-    <jsp:include page="/company/common/navbar.jsp"/>
-    <!-- JQuery -->
-    <%--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>--%>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.10/js/mdb.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
     <script src="/common/js/utils.js"></script>
     <script src="analytics.js"></script>
 </head>
-<body>
-<br>
-<br>
-<br>
-<br>
-<div class  ="col-md-5">
+<body style="padding-top: 70px;">
+<jsp:include page="/company/common/navbar.jsp"/>
+<div class="col-md-5" style="margin: 0 auto;">
     <canvas id="myChart"></canvas>
 </div>
-
-<%List<String> products = new ArrayList<String>();
+<%
+    List<String> products = new ArrayList<String>();
     for (Offer offer : company.getOffers()) {
         products.add(offer.getProductName());
-    }%>
+    }
+%>
 <script>
     var productNames = [];
     <%
     for (String product : products) {
         %>
-        productNames.push("<%=product.toString()%>");
+    productNames.push("<%=product%>");
 
     <%}%>
 
