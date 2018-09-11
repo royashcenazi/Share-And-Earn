@@ -4,14 +4,12 @@
 
 <% List<Company> companyList = MongoInteractor.getInstance().getAllCompanies(); %>
 <% int i = 0;
-    boolean newRow = false;%>
+    if (companyList != null) {
+        for (Company company : companyList) {
+            String companyName = company.getName();
 
-<% if (companyList != null) { %>
-<% for (Company company : companyList) {
-    String companyName = company.getName();%>
-
-<% if (i == 0) { %>
-    <div class="row">
+            if (i == 0) { %>
+<div class="row">
     <% } %>
 
     <div class="col-sm-4">
@@ -26,6 +24,6 @@
     <% i = (i + 1) % 3;
         if (i == 0) { %>
             </div>
-        <% }
+    <% }
     }
 } %>
