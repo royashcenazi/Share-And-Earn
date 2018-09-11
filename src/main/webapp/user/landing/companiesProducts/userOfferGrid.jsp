@@ -27,14 +27,14 @@
                     <div>
                         <img width="150px" height="150px" src=<%=offer.getPictureURL()%>>
                     </div>
-                    <div>
+                    <div style="margin-left: 15px;">
                         <form class="offerForm" action="/uploadOffer">
                             <label> Time To publish: </label> <%=offer.getTimeToPublishAsString()%><br>
                             <label> Time To delete: </label> <%=offer.getTimeToDeleteAsString()%><br>
                             <label> Points:</label> <%=offer.getPoints()%><br>
                             <label> Max num of publishers: </label> <%=offer.getMaxPublishers()%><br>
-                            <label> Current num of publishers: </label> <%=offer.getCurrentPublisherNumber()%>
-                            <br>
+                            <label> Current num of publishers: </label> <%=offer.getCurrentPublisherNumber()%><br>
+                            <strong><p style="color: red">please use #ShareNEarn Hashtag when posting</p></strong>
                         </form>
                     </div>
                 </div>
