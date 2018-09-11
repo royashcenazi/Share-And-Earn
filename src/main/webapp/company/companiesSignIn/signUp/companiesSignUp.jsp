@@ -24,11 +24,11 @@
             <fieldset>
                 <h2 class="fs-title">Personal Details</h2>
                 <h3 class="fs-subtitle">Tell us something more about you</h3>
-                <input type="text" placeholder="Enter Company name" name="companyName" id="companyName" required>
-                <input type="number" placeholder="Enter Phone" name="phone" id="phone" required>
-                <input type="text" placeholder="Enter Address" name="address" id="address" required>
-                <input type="email" placeholder="Enter Email" name="email" id="email" required>
-                <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+                <input type="text" placeholder="Company name" name="companyName" id="companyName" required>
+                <input type="number" placeholder="Phone" name="phone" id="phone" required>
+                <input type="text" placeholder="Address" name="address" id="address" required>
+                <input type="email" placeholder="Email" name="email" id="email" required>
+                <input type="password" placeholder="Password" name="psw" id="psw" required>
                 <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat"
                        oninput="validateRepeatPassword(this)" required>
                 <textarea id="about" name="about" cols="40" rows="5" placeholder="About ..." required></textarea>

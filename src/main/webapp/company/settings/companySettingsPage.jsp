@@ -27,7 +27,7 @@
         <label for="phone">Phone number: </label>
         <p id="Phone" class="form-control" contenteditable="true"><%=company.getPhoneNumber()%>
         </p>
-        <label for="address">Adress: </label>
+        <label for="address">Address: </label>
         <p id="address" class="form-control" contenteditable="true"><%=company.getAddress()%>
         </p>
         <label for="email">Email: </label>

@@ -13,8 +13,8 @@
         <h1><i class="fas fa-award"></i></span> Help</h1>
         <p>Helpful info</p>
     </div>
-    <%--TODO: implement--%>
-    <p>need to implement</p>
+    <%@ include file="../common/help_user.jsp" %>
+
 </div>
 </body>
 </html>

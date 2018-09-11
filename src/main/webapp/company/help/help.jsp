@@ -14,8 +14,9 @@
         <h1><i class="fas fa-award"></i></span> Help</h1>
         <p>See what you have earned with us</p>
     </div>
-    <%--TODO: implement--%>
-    <p>Need to implement</p>
+
+    <%@ include file="../common/help_company.jsp" %>
+
 </div>
 </body>
 </html>
