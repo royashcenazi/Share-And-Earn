@@ -84,7 +84,7 @@ public class MongoInteractor {
         Company searchCompany;
 
         searchCompany = collection.find(eq(CompanyCollection, company.getName())).first();
-        companyExistInDB = searchCompany == null ? true : false;
+        companyExistInDB = searchCompany == null ? false : true;
 
         return companyExistInDB;
     }
