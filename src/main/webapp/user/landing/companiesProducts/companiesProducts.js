@@ -11,8 +11,7 @@ function postShare(pictureUrl, offerId) {
     FB.ui({
         method: 'share',
         display: 'popup',
-        href: pictureUrl,
-        hashtag: "#ShareNEarn"
+        href: pictureUrl
     }, function (response) {
         $.ajax({
             url: "/OnSharedPost",
