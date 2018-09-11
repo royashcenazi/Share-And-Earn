@@ -10,8 +10,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+
+<%@ include file="/company/common/assertCompanyConnected.jsp" %>
 <%Company company = SessionUtils.getCompanyFromSession(request);%>
+
+<html>
 <head>
     <jsp:include page="/company/common/navbar.jsp"/>
     <!-- JQuery -->
@@ -33,7 +36,7 @@
 <br>
 <br>
 <br>
-<div class="col-md-5">
+<div class  ="col-md-5">
     <canvas id="myChart"></canvas>
 </div>
 
