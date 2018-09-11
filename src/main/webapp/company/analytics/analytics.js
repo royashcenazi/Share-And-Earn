@@ -1,4 +1,4 @@
-function populateChartTable(ctx, labelArray, dataArray) {
+function populateBarChart(ctx, labelArray, dataArray) {
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -34,5 +34,27 @@ function populateChartTable(ctx, labelArray, dataArray) {
                 }]
             }
         }
+    });
+}
+
+function populatePieChart(ctx, labelArray, dataArray) {
+    var data = {
+        datasets: [{
+            data: dataArray,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)'
+            ]
+        }],
+
+        // These labels appear in the legend and in the tooltips when hovering different arcs
+        labels: labelArray
+    };
+
+    var myDoughnutChart = new Chart(ctx, {
+        type: 'pie',
+        data: data
     });
 }

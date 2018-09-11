@@ -22,8 +22,18 @@
 </head>
 <body style="padding-top: 70px;">
 <jsp:include page="/company/common/navbar.jsp"/>
-<div class="col-md-5" style="margin: 0 auto;">
-    <canvas id="myChart"></canvas>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-6" style="margin: 0 auto;">
+            <canvas id="myChart"></canvas>
+        </div>
+
+        <div class="col-md-6" style="margin: 0 auto;">
+            <canvas id="myChart2"></canvas>
+        </div>
+    </div>
 </div>
 <%
     List<String> products = new ArrayList<String>();
@@ -46,8 +56,16 @@
         %>
     currentPublishers.push(<%=offer.getCurrentPublisherNumber()%>);
     <%}%>
+
+    <%--Bar Chart--%>
     var ctx = document.getElementById("myChart").getContext('2d');
-    populateChartTable(ctx, productNames, currentPublishers);
+    populateBarChart(ctx, productNames, currentPublishers);
+
+    <%--Pie Chart--%>
+    var ctx2 = document.getElementById("myChart2").getContext('2d');
+    populatePieChart(ctx2, productNames, currentPublishers);
+
+
 </script>
 </body>
 </html>
