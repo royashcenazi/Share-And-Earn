@@ -18,5 +18,6 @@
     <%@ include file="../common/help_company.jsp" %>
 
 </div>
+<%@ include file="../../common/jsp/footer.jsp" %>
 </body>
 </html>

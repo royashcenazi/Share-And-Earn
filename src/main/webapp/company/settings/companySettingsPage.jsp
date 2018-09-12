@@ -1,7 +1,5 @@
 <%@ page import="utils.SessionUtils" %>
 <%@ page import="model.Company" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <%@ include file="/company/common/assertCompanyConnected.jsp" %>
 
 <html>
@@ -42,5 +40,7 @@
     </div>
 
 </div>
+
+<%@ include file="../../common/jsp/footer.jsp" %>
 </body>
 </html>

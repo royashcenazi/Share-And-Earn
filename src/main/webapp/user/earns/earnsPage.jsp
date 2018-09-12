@@ -78,5 +78,7 @@
 
 </div>
 
+<%@ include file="../../common/jsp/footer.jsp" %>
+
 </body>
 </html>

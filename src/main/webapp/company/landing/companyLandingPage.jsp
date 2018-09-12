@@ -23,5 +23,6 @@
     <jsp:include page="/company/landing/offersGrid.jsp"/>
 
 </div>
+<%@ include file="../../common/jsp/footer.jsp" %>
 </body>
 </html>

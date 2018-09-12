@@ -20,29 +20,26 @@
 
 <%Company company = SessionUtils.getCompanyFromSession(request);%>
 
-<div>
-    <img src="<%=company.getLogoUrl()%>" alt="Company Logo" class="company-logo center">
-    <h1 class="center">Utilizing Points</h1>
-    <hr>
+<img src="<%=company.getLogoUrl()%>" alt="Company Logo" class="company-logo center">
+<h1 class="center">Utilizing Points</h1>
+<hr>
 
-    <div class="customer-details center">
-        <div class="block">
-            <label>Share Code: </label>
-            <input type="text" name="share-code" id="share-code">
-        </div>
-
-
-        <div class="block">
-            <label>Points to utilize: </label>
-            <input type="text" name="points" id="points">
-        </div>
-        <br>
-
-        <button type="button" class="btn btn-primary" id="btnSubmit">Submit</button>
+<div class="customer-details center">
+    <div>
+        <label>Share Code: </label>
+        <input type="text" name="share-code" id="share-code">
     </div>
+
+    <div>
+        <label>Points to utilize: </label>
+        <input type="text" name="points" id="points">
+    </div>
+    <br>
+
+    <button type="button" class="btn btn-primary center" id="btnSubmit">Submit</button>
 </div>
 
 <script type="text/javascript" src="utilizePoints.js"></script>
-
+<%@ include file="../../common/jsp/footer.jsp" %>
 </body>
 </html>

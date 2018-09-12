@@ -18,5 +18,7 @@
 
     <%@ include file="./companiesGrid.jsp" %>
 </div>
+
+<%@ include file="../../common/jsp/footer.jsp" %>
 </body>
 </html>
