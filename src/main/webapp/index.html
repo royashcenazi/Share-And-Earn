@@ -1,49 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>Login</title>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="common/images/icons/favicon.ico"/>
-    <link rel="stylesheet" type="text/css" href="common/css/util.css">
-    <link rel="stylesheet" type="text/css" href="common/css/main.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    <script>
-        $('.js-tilt').tilt({
-            scale: 1.1
-        })
-    </script>
-    <script src="common/js/main.js"></script>
+    <title>Share & Earn</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 <body>
 
-<div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100" style="width: 50%; background: none">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="content">
+                <h1>Share & Earn</h1>
+                <h3>As simple as it sounds...</h3>
+                <hr>
 
-            <div style="margin: 0 auto;width: 100%;" class="login100-pic">
-                <img src="common/images/logo.jpeg" alt="IMG" style="border-radius:25px">
-            </div>
+                <!-- Users Button -->
+                <div id="buttons">
+                    <form action="signin" class="login100-form validate-form">
+                        <div class="container-login100-form-btn">
+                            <button class="btn btn-default btn-lg login100-form-btn" id="btnUser"><i class="fas fa-user"></i> Users site</button>
+                        </div>
+                    </form>
 
-            <div>
-                <form action="signin" class="login100-form validate-form">
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
-                            User Site
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-            <div>
-                <form action="./company/companiesSignIn/login/companiesLogin.html" class="login100-form validate-form">
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">Companies Site</button>
-                    </div>
-                </form>
+                    <!-- Companies Button -->
+                    <form action="./company/companiesSignIn/login/companiesLogin.html" class="login100-form validate-form">
+                        <div class="container-login100-form-btn">
+                            <button class="btn btn-default btn-lg login100-form-btn" id="btnCompany"><i class="fas fa-users"></i> Companies site</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="bootstrap.js"></script>
+
 </body>
 </html>
