@@ -1,3 +1,11 @@
+body{
+    padding-bottom: 40px;
+}
+
+input {
+    margin-top: 5px;
+}
+
 #headlineDiv {
     text-align: center;
 }
@@ -8,10 +16,6 @@
     text-align: center;
     border-style: groove;
     background: #51bdd652;
-}
-
-input {
-    margin-top: 5px;
 }
 
 #about {
