@@ -1,5 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language"java" %>
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/user/common/assertUserConnected.jsp" %>
 
 <html>
@@ -17,6 +16,6 @@
     <p>Need to implement</p>
 </div>
 
-<%@ include file="../../common/jsp/footer.jsp" %>
+<%@ include file="/common/jsp/footer.jsp" %>
 </body>
 </html>
