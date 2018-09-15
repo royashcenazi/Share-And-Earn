@@ -1,10 +1,10 @@
-function populateBarChart(ctx, labelArray, dataArray) {
+function populateBarChart(ctx, labelArray, dataArray, legend) {
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: labelArray,
             datasets: [{
-                label: '# of Current Publishers',
+                label: legend,
                 data: dataArray,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -51,10 +51,30 @@ function populatePieChart(ctx, labelArray, dataArray) {
 
         // These labels appear in the legend and in the tooltips when hovering different arcs
         labels: labelArray
+
     };
 
     var myDoughnutChart = new Chart(ctx, {
         type: 'pie',
         data: data
     });
+}
+
+function populateLineChart(ctx, cmpArray, fda, sda, ftype, stype) {
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: cmpArray,
+            datasets: [{
+                label: ftype,
+                data: fda,
+                backgroundColor: "rgba(255, 99, 132, 0.2)"
+            }, {
+                label: stype,
+                data: sda,
+                backgroundColor: "rgba(255, 206, 86, 0.2)"
+            }]
+        }
+    });
+
 }
