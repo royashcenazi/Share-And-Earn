@@ -11,7 +11,7 @@
 <jsp:include page="/company/common/navbar.jsp"/>
 <div class="container">
     <div class="jumbotron">
-        <h1><i class="fas fa-award"></i></span> Help</h1>
+        <h1><i class="fas fa-question"></i></span> Help</h1>
         <p>See what you have earned with us</p>
     </div>
 
