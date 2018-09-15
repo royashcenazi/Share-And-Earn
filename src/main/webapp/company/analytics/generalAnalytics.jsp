@@ -20,7 +20,7 @@
     <script src="/common/js/utils.js"></script>
     <script src="analytics.js"></script>
 </head>
-<body style="padding-top: 70px;">
+<body style="padding-top: 70px; padding-bottom: 40px;">
 <jsp:include page="/company/common/navbar.jsp"/>
 
 <div class="container">
