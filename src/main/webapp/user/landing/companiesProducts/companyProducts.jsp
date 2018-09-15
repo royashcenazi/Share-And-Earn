@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <title>Products Quick View</title>
 </head>
-<body style="padding-top: 65px; ">
+<body style="padding-top: 70px; ">
 <%@ include file="/user/common/navbar.jsp" %>
 
 <div class="container">

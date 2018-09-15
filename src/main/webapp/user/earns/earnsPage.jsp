@@ -15,7 +15,7 @@
     <title>Earns</title>
     <script src="earnsPage.js"></script>
 </head>
-<body style="padding-bottom: 40px;">
+<body style="padding-top: 70px; padding-bottom: 45px;">
 <%@ include file="/user/common/navbar.jsp" %>
 <% User user = SessionUtils.getUserFromSession(request); %>
 <div class="container">

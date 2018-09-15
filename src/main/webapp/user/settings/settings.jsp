@@ -5,7 +5,7 @@
 <head>
     <title>Settings</title>
 </head>
-<body style="padding-bottom: 40px;">
+<body style="padding-top: 70px; padding-bottom: 45px;">
 <%@ include file="/user/common/navbar.jsp" %>
 <div class="container">
     <div class="jumbotron">

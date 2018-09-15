@@ -17,7 +17,7 @@
 
     <div class="jumbotron">
         <h1><i class="fas fa-gift"></i></span> Your offers</h1>
-        <p>click on a picture to see more details</p>
+        <p>Click on a picture to see more details</p>
         <a href="./newOffer/newOffer.jsp" class="btn btn-success pull-right">New Offer</a>
     </div>
     <jsp:include page="/company/landing/offersGrid.jsp"/>

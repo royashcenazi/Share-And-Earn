@@ -6,7 +6,7 @@
 <head>
     <title>Help</title>
 </head>
-<body style="padding-bottom: 40px;">
+<body style="padding-top: 70px; padding-bottom: 45px;">
 <%@ include file="../common/navbar.jsp" %>
 <div class="container">
     <div class="jumbotron">

@@ -5,7 +5,7 @@
         <li>Click on 'Home' or on your company name located in the top left corner.</li>
         <li>Click on the 'New Offer' button.</li>
         <li>Fill up all details.</li>
-        <li>Click on the 'Submit button'.</li>
+        <li>Click on the 'Submit' button.</li>
     </ol>
 
     <!-- Use points -->

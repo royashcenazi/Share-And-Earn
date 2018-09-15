@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="userLandingPage.css">
     <meta charset="utf-8">
-    <title>companies Page</title>
+    <title>Companies Page</title>
 </head>
 <body>
 <%@ include file="/user/common/navbar.jsp" %>
@@ -13,7 +14,7 @@
 
     <div class="jumbotron">
         <h1><i class="fas fa-award"></i></span> Companies</h1>
-        <p>click on a picture to see more details</p>
+        <p>Click on a picture to see more details.</p>
     </div>
 
     <%@ include file="./companiesGrid.jsp" %>

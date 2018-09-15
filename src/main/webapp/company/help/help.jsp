@@ -7,7 +7,7 @@
     <title>Help</title>
     <title>Settings</title>
 </head>
-<body style="padding-top: 70px; padding-bottom: 40px;">
+<body style="padding-top: 70px; padding-bottom: 45px;">
 <jsp:include page="/company/common/navbar.jsp"/>
 <div class="container">
     <div class="jumbotron">
