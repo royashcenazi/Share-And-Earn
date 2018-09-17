@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="companiesLogin.css" media="screen" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/common/js/utils.js"></script>
 </head>
 
 <html lang="en-US">
 <body>
-<p>asd</p>
 <div class="container">
     <div id="login">
         <form action="/loginCompany" method="post" id="loginForm">
