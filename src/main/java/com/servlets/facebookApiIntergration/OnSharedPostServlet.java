@@ -21,19 +21,19 @@ import utils.SessionUtils;
 @WebServlet("/OnSharedPost")
 public class OnSharedPostServlet extends HttpServlet {
     private boolean succeededToPost;
+    JsonObject jsonObject = new JsonObject();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Facebook facebook = (Facebook) req.getSession().getAttribute("facebook");
         //TODO: get user_posts approvals
         //String postId = req.getParameter("postId");
-        String companyName = req.getParameter("companyName");
         int offerId = Integer.parseInt(req.getParameter("offerId"));
 
         if (isPostStillPosted(facebook, "stam") == true) {
             try {
                 User user = SessionUtils.getUserFromSession(req);
-                Company company = MongoInteractor.getInstance().getCompanyByName(companyName);
+                Company company = MongoInteractor.getInstance().getCompanyByName(req.getParameter("companyName"));
                 Offer offer = company.getOfferById(offerId);
                 //this is synchronized so offer wont be published more times than configured
                 synchronized (MongoInteractor.getInstance()) {
@@ -43,24 +43,31 @@ public class OnSharedPostServlet extends HttpServlet {
                 e.printStackTrace();
                 succeededToPost = false;
             }
-            JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("isPosted",succeededToPost);
+            jsonObject.addProperty("isPosted", succeededToPost);
             resp.getOutputStream().print(jsonObject.toString());
         }
     }
 
     private void createShareAndEarn(Company company, User user, Offer offer, int offerId, HttpServletRequest req) throws Exception {
         if (offer.getCurrentPublisherNumber() < offer.getMaxPublishers()) {
-            Earn earn = buildEarn(company, offer, offerId);
-            Share share = buildShare(company, offer, user, "stam", earn.getCode());
-            user.addEarn(earn);
-            company.addShare(share);
-            offer.decreaseNumPublishers(1);
-            saveDetailsToDb(user, company, req);
-            succeededToPost = true;
+            if(user.isOfferPublished(offerId) == false) {
+                Earn earn = buildEarn(company, offer, offerId);
+                Share share = buildShare(company, offer, user, "stam", earn.getCode());
+                user.addEarn(earn);
+                company.addShare(share);
+                offer.decreaseNumPublishers(1);
+                saveDetailsToDb(user, company, req);
+                succeededToPost = true;
+            }
+            else{
+                succeededToPost = false;
+                jsonObject.addProperty("failureReason", "You have already published this offer");
+                throw new Exception("User has already published this offer");
+            }
         } else {
-            //TODO::notify user that offer is irelevent
             succeededToPost = false;
+            jsonObject.addProperty("failureReason", "This offer has reached the limit of its publishers");
+            throw new Exception("This offer reached the limit of its publishers");
         }
     }
 
@@ -80,6 +87,7 @@ public class OnSharedPostServlet extends HttpServlet {
 
     private Earn buildEarn(Company company, Offer offer, int offerId) {
         Earn earn = new Earn();
+        earn.setOfferId(offerId);
         earn.setAmount(offer.getPoints());
         earn.setCompanyId(company.getName());
         earn.setDueDate(offer.getTimeToDelete());
@@ -94,7 +102,7 @@ public class OnSharedPostServlet extends HttpServlet {
 
     public boolean isPostStillPosted(Facebook fb, String post_id) {
         boolean isExist = false;
-    //not relevant as long as we dont have user_post approval
+        //not relevant as long as we dont have user_post approval
 //        try {
 //            fb.getPost(post_id);
 //            isExist = true;

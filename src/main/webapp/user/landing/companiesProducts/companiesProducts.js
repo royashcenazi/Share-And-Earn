@@ -24,7 +24,7 @@ function postShare(pictureUrl, offerId) {
                     alert("you posted a valid share :)" + "\n");
                 }
                 else {
-                    alert("too many users published this product, sorry :( " + "\n");
+                    alert(json.failureReason + ":( " + "\n");
                 }
 
             }

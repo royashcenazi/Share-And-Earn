@@ -9,6 +9,7 @@ public class Earn {
     private Date readyToUseDate;
     private int code;
     private String pictureUrl;
+    private int offerId;
 
     private String productName;
 
@@ -86,4 +87,11 @@ public class Earn {
         return productName;
     }
 
+    public int getOfferId() {
+        return offerId;
+    }
+
+    public void setOfferId(int offerId) {
+        this.offerId = offerId;
+    }
 }

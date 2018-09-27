@@ -46,4 +46,10 @@ public class User {
             this.earnList = new ArrayList<Earn>();
         this.earnList.add(earn);
     }
+
+    public boolean isOfferPublished(int offerId) {
+            return this.earnList.stream()
+                    .filter(earn -> earn.getOfferId() == offerId)
+                    .count() > 0;
+    }
 }
