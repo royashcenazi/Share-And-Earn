@@ -1,7 +1,9 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Company {
 
@@ -135,4 +137,14 @@ public class Company {
         this.about = about;
     }
 
+    public void deleteOutDatedOffers() {
+        if (offers != null) {
+            Date now = new Date();
+            List<Offer> toRemove =
+                    offers.stream()
+                            .filter(offer -> offer.getTimeToDelete().getTime() <= now.getTime())
+                            .collect(Collectors.toList());
+            offers.removeAll(toRemove);
+        }
+    }
 }

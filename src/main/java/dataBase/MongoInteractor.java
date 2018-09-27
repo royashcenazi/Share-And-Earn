@@ -162,4 +162,12 @@ public class MongoInteractor {
         else
             collection.insertOne(generatorToSave);
     }
+
+    public synchronized void dailyDataBaseUpdate() {
+        List<Company> companies = this.getAllCompanies();
+        for (Company company : companies) {
+            company.deleteOutDatedOffers();
+            this.saveCompanyToDataBase(company);
+        }
+    }
 }
